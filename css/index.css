@@ -18,7 +18,7 @@
   --icon-fs: 2em;
   --border-color: rgba(0, 0, 0, .3);
   --border-nav-radius: .83em;
-  --border-common-radius: .7em;
+  --border-common-radius: .2em;
   --shadow-overall:  rgba(0, 0, 0, 0.15) 0px 5px 15px 0px;
 }
 
@@ -43,6 +43,12 @@ body .container {
   margin: 0 2em;
 }
 
+@media only screen and (min-width: 900px) {
+  body .container {
+    margin: 0 5em;
+  }
+}
+
 .logo {
   font-size: var(--logo-fs);
   font-weight: bold;
@@ -53,7 +59,7 @@ body .container {
 }
 
 img {
-  width: 100%;
+  max-width: 100%;
 }
 
 .btn {
@@ -71,7 +77,7 @@ img {
   color: var(--color-primary);
   padding: .9em 1.5em;
   border-radius: var(--border-common-radius);
-  font-size: 1.1em;
+  font-size: 1em;
 }
 
 /************ Navigation *****************/
@@ -83,7 +89,7 @@ header {
   right: 0;
   background-color: var(--color-nav-footer);
   width: 100%;
-  height: 8vh;
+  height: 10vh;
   border-radius: var(--border-nav-radius);
   border-top-right-radius: 0;
   border-top-left-radius: 0;
@@ -118,8 +124,55 @@ header {
   display: none;
 }
 
-.nav__container i {
+.nav__container .nav__toggles {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  gap: 1em;
+}
+
+.nav__container .nav__toggles .nav__button {
+  display: none;
+}
+
+@media only screen and (min-width: 600px) {
+  .nav__container .nav__toggles .nav__button {
+    display: block;
+    padding: .5em 1.5em;
+  }
+}
+
+.nav__container .nav__toggles i {
   font-size: var(--logo-fs);
+}
+
+@media only screen and (min-width: 900px) {
+  .nav__container nav {
+    display: block;
+  }
+  .nav__container nav ul {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+  }
+  .nav__container nav ul li a {
+    color: black;
+  }
+  .nav__container nav ul li + li {
+    margin-left: 2em;
+  }
+  .nav__container .fa-solid {
+    display: none;
+  }
 }
 
 /************ Hero Section ****************/
@@ -134,7 +187,7 @@ header {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
-  margin-top: 7em;
+  margin-top: 8em;
   margin-bottom: 5em;
 }
 
