@@ -57,6 +57,16 @@ body {
 
 }
 
+.logo {
+    font-size: var(--logo-fs);
+    font-weight: bold;
+
+    span {
+        color: var(--color-buttons);
+        
+    }
+}
+
 img {
     width: 100%;
 }
@@ -104,15 +114,6 @@ header {
     align-items: center;
     justify-content: space-between;
 
-    .logo {
-        font-size: var(--logo-fs);
-        font-weight: bold;
-
-        span {
-            color: var(--color-buttons);
-            
-        }
-    }
     
     nav {
         display: none;
@@ -461,9 +462,10 @@ section#about {
 /************ FAQS ****************/
 
 section#faqs {
-
+    padding: 2.5em 0;
+    
     h2 {
-        margin: 4em .4em 2em;
+        margin: 0 .4em 2em;
         text-align: center;
     }
 
@@ -477,8 +479,6 @@ section#faqs {
     align-items: center;
     padding: 0 0 3em;
     gap: 2em;
-    // width: 100%;
-    margin-bottom: 4em;
 
     .faq {
 
@@ -521,8 +521,55 @@ section#faqs {
 
     }
 
-
-    
 }
 
+/************ FAQS ****************/
 
+section#testimonials {
+
+    background-color: var(--color-secondary);
+    padding: 2.5em 0;
+
+    h1 {
+        margin: 2em 0 3em;
+        text-align: center;
+    }
+
+}
+
+.container.testimonials__container {
+
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    padding: 0 0 3em;
+    gap: 5em;
+    
+    .testimonial {
+        
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        gap: 1.2em;
+
+        text-align: center;
+        padding: 0 2em 2em;
+
+        background-color: var(--color-faqs);
+        color: var(--color-primary);
+        border-radius: var(--border-common-radius);
+
+        
+
+        img {
+            
+            width: 5.5em;
+            height: 5.5em;
+            margin-top: -2.25em;
+        }
+
+    }
+
+}
