@@ -8,43 +8,58 @@
 
     <!-- Font Awesome Icons -->
     <script src="https://kit.fontawesome.com/51d4663447.js" crossorigin="anonymous"></script>
+
+    <!-- My Css -->
+    <link rel="stylesheet" href="css/index.css">
+
+    <!-- Google fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,400;1,500&display=swap" rel="stylesheet">
+
+    
 </head>
 <body>
 
-    <nav>
-        <div class="container nav__container">
-            <h1 class="logo">
-                Zeb <span>raz</span>
-            </h1>
-            <ul>
-                <li class="nav__item"><a href="#hero">Home</a></li>
-                <li class="nav__item"><a href="#categories">Categories</a></li>
-                <li class="nav__item"><a href="#courses">Courses</a></li>
-                <li class="nav__item"><a href="#about">About</a></li>
-            </ul>
+    <header>
+        <div class="container nav__container"> 
+            <a class="logo">
+                Zeb<span>raz</span>
+            </a>
+            <nav>
+                <ul>
+                    <li class="nav__item"><a href="#hero">Home</a></li>
+                    <li class="nav__item"><a href="#categories">Categories</a></li>
+                    <li class="nav__item"><a href="#courses">Courses</a></li>
+                    <li class="nav__item"><a href="#about">About</a></li>
+                </ul>
+            </nav>
 
-            <a href="registration.html" class="btn nav__button"></a>
-
-            <i class="fa-solid fa-bars"></i>
-            <i class="fa-solid fa-xmark"></i>
-
+            <div class="nav__toggles">
+                <i class="fa-solid fa-bars"></i>
+                <!-- <i class="fa-solid fa-xmark"></i> -->
+                <a href="registration.html" class="btn nav__button">Register Now</a>
+        
+            </div>
+    
         </div>
-    </nav>
+       
+    </header>
 
-    <header id="hero">
-        <div class="container header__container">
-            <div class="header__left">
+    <section id="hero">
+        <div class="container hero__container">
+            <div class="hero__left">
                 <h1>Find your Next Skill and Improve Profoundly</h1>
                 <p>Thousands of lessons tailored for you and your needs at a <strong>click!</strong>Trusted by over 10,000 users.</p>
-                <a href="#categories" class="btn header__button">Get Started</a>
+                <a href="#categories" class="btn hero__button">Get Started</a>
             </div>
 
-            <div class="header__right">
+            <div class="hero__right">
                 <img src="images/hero.png" alt="Hero Image">
             </div>
 
         </div>
-    </header>
+    </section>
 
     <section id="categories">
         <div class="container categories__container">
@@ -56,33 +71,51 @@
 
             <div class="categories__right">
                 <div class="category">
-                    <i class="fa-solid fa-bitcoin-sign"></i>
-                    <h1>Block Chain</h1>
+                    <span>
+                        <i class="fa-solid fa-bitcoin-sign"></i>
+
+                    </span>
+                    <h4>Block Chain</h4>
                     <p>We offer the best crypto trading skills in the market now</p>
                 </div>
                 <div class="category">
-                    <i class="fa-solid fa-briefcase"></i>
-                    <h1>Business Analytics</h1>
+                    <span>
+                        <i class="fa-solid fa-briefcase"></i>
+                        
+                    </span>
+                    <h4>Business</h4>
                     <p>We offer the best crypto trading skills in the market now</p>
                 </div>
                 <div class="category">
-                    <i class="fa-solid fa-bullhorn"></i>
-                    <h1>Marketing</h1>
+                    <span>
+                        <i class="fa-solid fa-bullhorn"></i>
+                        
+                    </span>
+                    <h4>Marketing</h4>
                     <p>We offer the best crypto trading skills in the market now</p>
                 </div>
                 <div class="category">
-                    <i class="fa-solid fa-palette"></i>
-                    <h1>Web Design</h1>
+                    <span>
+                        <i class="fa-solid fa-palette"></i>
+                        
+                    </span>
+                    <h4>Web Design</h4>
                     <p>We offer the best crypto trading skills in the market now</p>
                 </div>
                 <div class="category">
-                    <i class="fa-solid fa-circle-dollar"></i>
-                    <h1>Finance</h1>
+                    <span>
+                        <i class="fa-solid fa-dollar-sign"></i>
+                        
+                    </span>
+                    <h4>Finance</h4>
                     <p>We offer the best crypto trading skills in the market now</p>
                 </div>
                 <div class="category">
-                    <i class="fa-solid fa-music"></i>
-                    <h1>Music</h1>
+                    <span>
+                        <i class="fa-solid fa-music"></i>
+                        
+                    </span>
+                    <h4>Music</h4>
                     <p>We offer the best crypto trading skills in the market now</p>
                 </div>
             </div>
@@ -93,28 +126,36 @@
         <h2>Our Popular Courses</h2>
         <div class="container courses__container">
             <div class="course">
-                <img src="images/category_1-res.png" alt="Category 1">
-                <div class="course__info">
-                    <h1>Git Collaboration</h1>
-                    <p>Learn Git with Style. In this course we teach you all about git version control system to get you collaborating in no time</p>
-                    <a href="#" class="btn course__button">Learn More</a>
+                <div class="img">
+                    <img src="images/category_1.svg" alt="Category 1">
+
                 </div>
+                <div class="course__info">
+                    <h3>Git Collaboration</h3>
+                    <p id="count1">Learn Git with Style. In this course we teach you all about git version control system to get you collaborating.</p>
+                </div>
+                <a href="#" class="btn course__button">Learn More</a>
             </div>
             <div class="course">
-                <img src="images/category_2_res.png" alt="Category 2">
-                <div class="course__info">
-                    <h1>UI/Ux Design</h1>
-                    <p>We make you a Professional Designer. In this course we teach you all about UI/UX Design bringing your creative side to life</p>
-                    <a href="#" class="btn course__button">Learn More</a>
+                <div class="img">
+                    <img src="images/category_2.svg" alt="Category 2" width="280px" height="280px">
+
                 </div>
+                <div class="course__info">
+                    <h3>UI/Ux Design</h3>
+                    <p id="count">We make you a Professional Designer. In this course we teach you all about UI/UX Design.</p>
+                </div>
+                <a href="#" class="btn course__button">Learn More</a>
             </div>
             <div class="course">
-                <img src="images/category_3_res.png" alt="Category 3">
-                <div class="course__info">
-                    <h1>All About Being A Front-End Dev</h1>
-                    <p>We teach everything to do with Front-End Development. HTML, CSS, JavaScript, Figma React name Them</p>
-                    <a href="#" class="btn course__button">Learn More</a>
+                <div class="img">
+                    <img src="images/category_3_res.svg" alt="Category 3">
                 </div>
+                <div class="course__info">
+                    <h3>Front-End Development</h3>
+                    <p id="count3">We teach everything to do with Front-End Development. HTML, CSS, JavaScript, Figma React name Them.</p>
+                </div>
+                <a href="#" class="btn course__button">Learn More</a>
             </div>
         </div>
     </section>
@@ -135,89 +176,110 @@
     </section>
 
     <section id="faqs">
+        <h2>Our Frequently Asked Questions</h2>
         <div class="container faqs__container">
-            <div class="faq">
-                <div class="faq__top">
-                    <i class="fa-solid fa-plus"></i>
-                    <i class="fa-solid fa-minus"></i>
-                    <h1>How should I start learning?</h1>
-                </div>
-                <div class="faq__bottom">
-                    <p>To start learning choose one of our free articles in the categories section or Sign up and buy a course</p>
-                </div>
-            </div>
 
             <div class="faq">
-                <div class="faq__top">
+
+                <div class="faq__left">
                     <i class="fa-solid fa-plus"></i>
                     <i class="fa-solid fa-minus"></i>
-                    <h1>How should I start learning?</h1>
+                    
                 </div>
-                <div class="faq__bottom">
+               
+                <div class="faq__right">
+                    <h3>How should I start learning?</h3>
                     <p>To start learning choose one of our free articles in the categories section or Sign up and buy a course</p>
                 </div>
+                    
             </div>
 
+            
             <div class="faq">
-                <div class="faq__top">
+
+                <div class="faq__left">
                     <i class="fa-solid fa-plus"></i>
                     <i class="fa-solid fa-minus"></i>
-                    <h1>How should I start learning?</h1>
+                    
                 </div>
-                <div class="faq__bottom">
+               
+                <div class="faq__right">
+                    <h3>How should I start learning?</h3>
                     <p>To start learning choose one of our free articles in the categories section or Sign up and buy a course</p>
                 </div>
+                    
             </div>
 
-            <div class="faq">
-                <div class="faq__top">
-                    <i class="fa-solid fa-plus"></i>
-                    <i class="fa-solid fa-minus"></i>
-                    <h1>How should I start learning?</h1>
-                </div>
-                <div class="faq__bottom">
-                    <p>To start learning choose one of our free articles in the categories section or Sign up and buy a course</p>
-                </div>
-            </div>
 
             <div class="faq">
-                <div class="faq__top">
+
+                <div class="faq__left">
                     <i class="fa-solid fa-plus"></i>
                     <i class="fa-solid fa-minus"></i>
-                    <h1>How should I start learning?</h1>
+                    
                 </div>
-                <div class="faq__bottom">
+               
+                <div class="faq__right">
+                    <h3>How should I start learning?</h3>
                     <p>To start learning choose one of our free articles in the categories section or Sign up and buy a course</p>
                 </div>
+                    
             </div>
 
-            <div class="faq">
-                <div class="faq__top">
-                    <i class="fa-solid fa-plus"></i>
-                    <i class="fa-solid fa-minus"></i>
-                    <h1>How should I start learning?</h1>
-                </div>
-                <div class="faq__bottom">
-                    <p>To start learning choose one of our free articles in the categories section or Sign up and buy a course</p>
-                </div>
-            </div>
 
             <div class="faq">
-                <div class="faq__top">
+
+                <div class="faq__left">
                     <i class="fa-solid fa-plus"></i>
                     <i class="fa-solid fa-minus"></i>
-                    <h1>How should I start learning?</h1>
+                    
                 </div>
-                <div class="faq__bottom">
+               
+                <div class="faq__right">
+                    <h3>How should I start learning?</h3>
                     <p>To start learning choose one of our free articles in the categories section or Sign up and buy a course</p>
                 </div>
+                    
             </div>
+
+
+            <div class="faq">
+
+                <div class="faq__left">
+                    <i class="fa-solid fa-plus"></i>
+                    <i class="fa-solid fa-minus"></i>
+                    
+                </div>
+               
+                <div class="faq__right">
+                    <h3>How should I start learning?</h3>
+                    <p>To start learning choose one of our free articles in the categories section or Sign up and buy a course</p>
+                </div>
+                    
+            </div>
+
+
+            <div class="faq">
+
+                <div class="faq__left">
+                    <i class="fa-solid fa-plus"></i>
+                    <i class="fa-solid fa-minus"></i>
+                    
+                </div>
+               
+                <div class="faq__right">
+                    <h3>How should I start learning?</h3>
+                    <p>To start learning choose one of our free articles in the categories section or Sign up and buy a course</p>
+                </div>
+                    
+            </div>
+
 
 
         </div>
     </section>
 
-    <section id="about">
+    <section id="testimonials">
         <h1>What People Say About Us</h1>
         <div class="container testimonials__container">
             <div class="testimonial">
@@ -239,49 +301,49 @@
                 <cite>-- James Doe</cite>
             </div>
         </div>
+        <div class="to-swipper-js"></div>
     </section>
 
     <footer id="footer">
         <div class="container footer__container">
-            <div class="footer__items">
-                <div class="footer__item">
-                    <h1 class="logo">Zeb<span>rad</span></h1>
-                    <ul>
-                        Excellence online
-                    </ul>
-                    <div class="footer__socials">
-                        <i class="fa-brands fa-facebook"></i>
-                        <i class="fa-brands fa-twitter"></i>
-                        <i class="fa-brands fa-instagram-square"></i>
-                    </div>
+            <div class="footer__item">
+                <h1 class="logo">Zeb<span>rad</span></h1>
+                <ul>
+                    <li>Excellence online</li>
+                </ul>
+                <div class="footer__socials">
+                    <a href="#footer"><i class="fa-brands fa-facebook"></i></a>
+                    <a href="#footer"><i class="fa-brands fa-twitter"></i></a> 
+                    <a href="#footer"><i class="fa-brands fa-instagram-square"></i></a>
                 </div>
-                <div class="footer__item">
-                    <h2>Category</h2>
-                    <ul>
-                        <li>Block Chain</li>
-                        <li>Business Analysis</li>
-                        <li>Marketing</li>
-                        <li>Web Design</li>
-                        <li>Finance</li>
-                        <li>Music</li>
-                    </ul>
-                </div>
-                <div class="footer__item">
-                    <h2>Quick Links</h2>
-                    <ul>
-                        <li><a href="#hero">Home</a></li>
-                        <li><a href="#categories">Categories</a></li>
-                        <li><a href="#courses">Popular Courses</a></li>
-                        <li><a href="#about">About</a></li>
-                        <li><a href="#faqs">Our FAQ’s</a></li>
-                    </ul>
-                </div>
-                <div class="footer__item">
-                    <h1>Subscribe!</h1>
-                    <p>Get our newsletters wiith a list of our latest courses every time we create them </p>
-                    <input type="text" class="footer__input">
-                    <a href="#footer" class="btn footer__button">Subscribe Now</a>
-                </div>
+            </div>
+            <div class="footer__item">
+                <h2>Category</h2>
+                <ul>
+                    <li>Block Chain</li>
+                    <li>Business</li>
+                    <li>Marketing</li>
+                    <li>Web Design</li>
+                    <li>Finance</li>
+                    <li>Music</li>
+                </ul>
+            </div>
+            <div class="footer__item">
+                <h2>Quick Links</h2>
+                <ul>
+                    <li><a href="#hero">Home</a></li>
+                    <li><a href="#categories">Categories</a></li>
+                    <li><a href="#courses">Popular Courses</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#faqs">Our FAQ’s</a></li>
+                    <li><a href="#testimonials">What People Say</a></li>
+                </ul>
+            </div>
+            <div class="footer__item subscribe">
+                <h2>Subscribe!</h2>
+                <p>Get our newsletters wiith a list of our latest courses every time we create them </p>
+                <input type="email" class="footer__input" placeholder="Enter your Email">
+                <a href="#footer" class="btn footer__button">Subscribe Now</a>
             </div>
         </div>
     </footer>
