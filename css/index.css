@@ -384,7 +384,7 @@ section#courses h2 {
   text-align: center;
 }
 
-.courses__container {
+.container.courses__container {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -399,10 +399,10 @@ section#courses h2 {
       -ms-flex-direction: column;
           flex-direction: column;
   gap: 5em;
-  padding: 1em 1em;
+  margin-bottom: 5em;
 }
 
-.courses__container .course {
+.container.courses__container .course {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -423,7 +423,7 @@ section#courses h2 {
   padding: 2em;
 }
 
-.courses__container .course .course__info {
+.container.courses__container .course .course__info {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -439,5 +439,116 @@ section#courses h2 {
           flex-direction: column;
   gap: 2.5em;
   margin-bottom: 3em;
+}
+
+/************ About ****************/
+section#about {
+  background-color: var(--color-secondary);
+}
+
+.container.about__container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  padding: 3em 1em 4em;
+}
+
+.container.about__container .about__right {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  gap: 1.2em;
+  text-align: center;
+}
+
+.container.about__container .about__right h4 {
+  color: var(--color-buttons);
+}
+
+.container.about__container .about__right .about__button {
+  margin-top: 1.5em;
+}
+
+/************ FAQS ****************/
+section#faqs h2 {
+  margin: 4em .4em 2em;
+  text-align: center;
+}
+
+.container.faqs__container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  padding: 0 0 3em;
+  gap: 2em;
+  margin-bottom: 4em;
+}
+
+.container.faqs__container .faq {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  gap: 1em;
+  width: 100%;
+  background-color: var(--color-faqs);
+  padding: 2em 1em;
+  color: var(--color-primary);
+  border-radius: var(--border-common-radius);
+}
+
+.container.faqs__container .faq .faq__left {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  gap: .5em;
+  margin-top: .5em;
+}
+
+.container.faqs__container .faq .faq__left .fa-minus {
+  display: none;
+}
+
+.container.faqs__container .faq .faq__right {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  gap: 1.2em;
 }
 /*# sourceMappingURL=index.css.map */
