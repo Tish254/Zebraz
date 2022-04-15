@@ -32,6 +32,9 @@
 
 }
 
+/************ Hero Section ****************/
+
+
 
 // Mixins for  media queries
 $tablet: 575px;
@@ -130,9 +133,12 @@ img {
     font-size: 1em;
 
 }
+
+/*====================== INDEX PAGE ===========================*/
 /************ Navigation *****************/
 
 /************ Mobile Navigation*****************/
+
 
 header {
     position: fixed;
@@ -573,6 +579,7 @@ section#courses {
         height: 100%;
 
         .img {
+            width: 100%;
             height: 280px;
             background-size: cover;
 
@@ -1016,3 +1023,372 @@ footer {
 
 }
 
+
+
+/*====================== LOGIN PAGE ===========================*/
+
+.login__header {
+
+    background-color: transparent;
+    box-shadow: none;
+
+}
+
+.login__body {
+    .container {
+        
+        @include desktop {
+            margin: 0 2em 0 0;
+            .logo {
+                margin-left: 1em;
+            }
+        }
+    
+    }
+
+
+}
+
+
+
+.login__toggles {
+
+    .register {
+
+        display: none;
+    }
+
+    .register__button {
+
+        font-size: 1em;
+        padding: .5em 1em;
+
+
+
+    }
+
+    
+    @include nav-bar-items {
+
+        .register__button {
+
+            font-size: 1.1em;
+            padding: .5em 1.5em;
+
+        }
+
+        .register {
+
+            display: inline-block;
+        }
+
+
+    }
+}
+
+
+.container.login__container {
+    
+    display: flex;
+    align-items: center;
+
+
+    .login__left {
+
+        display: none;
+
+    }
+
+    .login__right {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        margin-top: 10em;
+        gap: 3em;
+        width: 100%;
+        height: 100%;
+
+
+        .login__form {
+
+            display: flex;
+            justify-content: center;
+            flex-direction: column;
+            gap: .7em;
+            width: 100%;
+
+
+            input {
+                padding: .4em .5em;
+                width: 100%;
+                height: 3.5em;
+                border: 1px solid var(--border-color);
+                border-radius: var(--border-common-radius);
+                font-size: 1em;
+
+
+                &:focus {
+                    outline: solid 1px var(--color-buttons);
+
+                }
+
+                &#email {
+
+                    margin-bottom: .8em;
+
+                }
+    
+            }
+        }
+
+
+    }
+
+    @include desktop {
+
+        display: grid;
+        grid-template-columns: 50% 50%;
+        gap: 5em;
+        width: 100vw;
+
+        
+        .login__left {  
+
+            border: 1px solid var(--border-color);
+            border-radius: var(--border-nav-radius);
+            display: inline-flex;
+            width: 100%;
+            height: 100vh;
+            background-size: cover;
+            border-top: none;
+            border-bottom: none;
+            border-top-left-radius: 0;
+            border-bottom-left-radius: 0;
+
+            img {
+                width: 100%;
+            }
+
+
+    
+        }
+
+        .login__right {
+            display: flex;
+            width: 100%;
+            height: 100%;
+            margin-top: 0;
+
+            .login__form {
+
+                width: 80%;
+                padding-right: .5em;
+
+                input {
+
+                    height: 3em;
+                    font-size: 1em;
+
+                }
+
+                
+            }
+
+            .login__button {
+
+                width: 40%;
+
+            }
+
+            
+
+        }
+       
+
+    }
+
+}
+
+/*====================== REGISTRATION PAGE ===========================*/
+
+.register__header {
+
+    background-color: transparent;
+    box-shadow: none;
+
+}
+
+.register__body {
+    .container {
+        
+        @include desktop {
+            margin: 0 2em 0 0;
+            .logo {
+                margin-left: 1em;
+            }
+        }
+    
+    }
+
+
+}
+
+
+
+.register__toggles {
+
+    .login {
+
+        display: none;
+    }
+
+    .login__button {
+
+        font-size: 1em;
+        padding: .5em 1em;
+
+
+
+    }
+
+    
+    @include nav-bar-items {
+
+        .login__button {
+
+            font-size: 1.1em;
+            padding: .5em 1.5em;
+
+        }
+
+        .login {
+
+            display: inline-block;
+        }
+
+
+    }
+}
+
+
+.container.register__container {
+    
+    display: flex;
+    align-items: center;
+
+
+    .register__left {
+
+        display: none;
+
+    }
+
+    .register__right {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        margin-top: 10em;
+        gap: 3em;
+        width: 100%;
+        height: 100%;
+
+
+        .register__form {
+
+            display: flex;
+            justify-content: center;
+            flex-direction: column;
+            gap: .7em;
+            width: 100%;
+
+
+            input {
+                padding: .4em .5em;
+                width: 100%;
+                height: 3.5em;
+                border: 1px solid var(--border-color);
+                border-radius: var(--border-common-radius);
+                font-size: 1em;
+
+
+                &:focus {
+                    outline: solid 1px var(--color-buttons);
+
+                }
+
+                &#email {
+
+                    margin-bottom: .8em;
+
+                }
+    
+            }
+        }
+
+
+    }
+
+    @include desktop {
+
+        display: grid;
+        grid-template-columns: 50% 50%;
+        gap: 5em;
+        width: 100vw;
+
+        
+        .register__left {  
+
+            border: 1px solid var(--border-color);
+            border-radius: var(--border-nav-radius);
+            display: inline-flex;
+            width: 100%;
+            height: 100vh;
+            background-size: cover;
+            border-top: none;
+            border-bottom: none;
+            border-top-left-radius: 0;
+            border-bottom-left-radius: 0;
+
+            img {
+                width: 100%;
+            }
+
+
+    
+        }
+
+        .register__right {
+            display: flex;
+            width: 100%;
+            height: 100%;
+            margin-top: 0;
+
+            .register__form {
+
+                width: 80%;
+                padding-right: .5em;
+
+                input {
+
+                    height: 3em;
+                    font-size: 1em;
+
+                }
+
+                
+            }
+
+            .register__button {
+
+                width: 40%;
+
+            }
+
+            
+
+        }
+       
+
+    }
+
+}
