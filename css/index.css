@@ -59,7 +59,7 @@ body .container {
 }
 
 img {
-  width: 100%;
+  max-width: 100%;
 }
 
 .btn {
@@ -85,8 +85,6 @@ img {
 header {
   position: fixed;
   top: 0;
-  left: 0;
-  right: 0;
   background-color: var(--color-nav-footer);
   width: 100%;
   height: 10vh;
@@ -227,8 +225,8 @@ header {
   .container.hero__container {
     display: -ms-grid;
     display: grid;
-    -ms-grid-columns: 1fr 1fr;
-        grid-template-columns: 1fr 1fr;
+    -ms-grid-columns: 40% 60%;
+        grid-template-columns: 40% 60%;
     -webkit-box-align: center;
         -ms-flex-align: center;
             align-items: center;
@@ -493,6 +491,11 @@ section#categories {
 }
 
 /************ Courses ****************/
+section#courses {
+  padding: 2.5em 0;
+  margin: 0;
+}
+
 section#courses h2 {
   margin-top: 4em;
   margin-bottom: 2em;
@@ -541,7 +544,6 @@ section#courses h2 {
 }
 
 .container.courses__container .course .img {
-  width: 280px;
   height: 280px;
   background-size: cover;
 }
@@ -565,14 +567,12 @@ section#courses h2 {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
-  gap: 2em;
+  gap: 1.5em;
   margin-bottom: auto;
 }
 
-.container.courses__container .course .course__info p {
-  width: -webkit-fit-content;
-  width: -moz-fit-content;
-  width: fit-content;
+.container.courses__container .course .course__info .course__title h3 {
+  margin-bottom: auto;
 }
 
 .container.courses__container .course .course__button {
@@ -585,6 +585,7 @@ section#courses h2 {
     display: grid;
     -ms-grid-columns: (1fr)[2];
         grid-template-columns: repeat(2, 1fr);
+    gap: 1em;
   }
   .container.courses__container .course {
     text-align: left;
@@ -603,7 +604,10 @@ section#courses h2 {
     -webkit-box-direction: normal;
         -ms-flex-direction: column;
             flex-direction: column;
-    gap: 2em;
+    gap: 1.5em;
+    margin-bottom: auto;
+  }
+  .container.courses__container .course .course__info .course__title h3 {
     margin-bottom: auto;
   }
   .container.courses__container .course .course__button {
@@ -686,6 +690,43 @@ section#about {
   margin-top: 1.5em;
 }
 
+@media only screen and (min-width: 860px) {
+  .container.about__container {
+    display: -ms-grid;
+    display: grid;
+    -ms-grid-columns: 60% 40%;
+        grid-template-columns: 60% 40%;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+  }
+  .container.about__container .about__left {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    -webkit-box-pack: end;
+        -ms-flex-pack: end;
+            justify-content: flex-end;
+  }
+  .container.about__container .about__right {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: start;
+        -ms-flex-align: start;
+            align-items: flex-start;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    text-align: left;
+    gap: 1.5em;
+  }
+}
+
 /************ FAQS ****************/
 section#faqs {
   padding: 2.5em 0;
@@ -727,6 +768,7 @@ section#faqs h2 {
   padding: 2em 1em;
   color: var(--color-primary);
   border-radius: var(--border-common-radius);
+  font-size: small;
 }
 
 .container.faqs__container .faq .faq__left {
@@ -750,6 +792,26 @@ section#faqs h2 {
       -ms-flex-direction: column;
           flex-direction: column;
   gap: 1.2em;
+}
+
+@media only screen and (min-width: 600px) {
+  .container.faqs__container {
+    display: -ms-grid;
+    display: grid;
+    -ms-grid-columns: (1fr)[2];
+        grid-template-columns: repeat(2, 1fr);
+    gap: 1em;
+  }
+}
+
+@media only screen and (min-width: 860px) {
+  .container.faqs__container {
+    display: -ms-grid;
+    display: grid;
+    -ms-grid-columns: (1fr)[3];
+        grid-template-columns: repeat(3, 1fr);
+    gap: 2em;
+  }
 }
 
 /************ TESTIMONIALS ****************/
@@ -809,10 +871,30 @@ section#testimonials h1 {
   margin-top: -2.25em;
 }
 
+@media only screen and (min-width: 600px) {
+  .container.testimonials__container {
+    display: -ms-grid;
+    display: grid;
+    -ms-grid-columns: (1fr)[2];
+        grid-template-columns: repeat(2, 1fr);
+    gap: 1em;
+  }
+}
+
+@media only screen and (min-width: 860px) {
+  .container.testimonials__container {
+    display: -ms-grid;
+    display: grid;
+    -ms-grid-columns: (1fr)[3];
+        grid-template-columns: repeat(3, 1fr);
+    gap: 2em;
+  }
+}
+
 /************ TESTIMONIALS ****************/
 footer {
   background-color: var(--color-nav-footer);
-  padding: 5em 0;
+  padding: 2em 0;
   -webkit-box-shadow: var(--shadow-overall);
           box-shadow: var(--shadow-overall);
   border-radius: var(--border-nav-radius);
@@ -833,8 +915,7 @@ footer {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  padding: 0 0 3em;
-  gap: 3em;
+  gap: 2em;
 }
 
 .container.footer__container .footer__item {
@@ -852,7 +933,7 @@ footer {
       -ms-flex-direction: column;
           flex-direction: column;
   text-align: center;
-  font-size: 1.1em;
+  font-size: .9em;
   gap: 1.3em;
 }
 
@@ -881,6 +962,7 @@ footer {
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
+  margin-bottom: auto;
 }
 
 .container.footer__container .footer__item .footer__socials a {
@@ -902,8 +984,58 @@ footer {
   font-size: 1.3em;
 }
 
+.container.footer__container .footer__item ul li a {
+  color: black;
+}
+
 .container.footer__container .footer__item .footer__button {
   width: 60%;
   padding: .9em .2em;
+}
+
+@media only screen and (min-width: 600px) {
+  .container.footer__container {
+    display: -ms-grid;
+    display: grid;
+    -ms-grid-columns: (1fr)[2];
+        grid-template-columns: repeat(2, 1fr);
+    gap: 1em;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+    -webkit-box-align: start;
+        -ms-flex-align: start;
+            align-items: flex-start;
+    text-align: left;
+  }
+  .container.footer__container .footer__item {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    -webkit-box-align: start;
+        -ms-flex-align: start;
+            align-items: flex-start;
+    text-align: left;
+  }
+  .container.footer__container .footer__item input {
+    text-align: left;
+  }
+}
+
+@media only screen and (min-width: 860px) {
+  .container.footer__container {
+    display: -ms-grid;
+    display: grid;
+    -ms-grid-columns: (1fr)[4];
+        grid-template-columns: repeat(4, 1fr);
+    gap: 2em;
+  }
+  .container.footer__container .footer__item .footer__button {
+    width: 80%;
+    padding: .9em .2em;
+  }
 }
 /*# sourceMappingURL=index.css.map */

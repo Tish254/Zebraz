@@ -114,7 +114,7 @@ body {
 }
 
 img {
-    width: 100%;
+    max-width: 100%;
 }
 
 .btn {
@@ -137,8 +137,6 @@ img {
 header {
     position: fixed;
     top: 0;
-    left: 0;
-    right: 0;
     background-color: var(--color-nav-footer);
     width: 100%;
     height: 10vh;
@@ -263,7 +261,7 @@ header {
     @include desktop {
 
         display: grid;
-        grid-template-columns: 1fr 1fr;
+        grid-template-columns: 40% 60%;
         align-items: center;
 
         .hero__left {
@@ -541,16 +539,17 @@ section#categories {
 /************ Courses ****************/
 
 section#courses {
+    padding: 2.5em 0;
+    margin: 0;
 
     h2 {
         margin-top: 4em;
         margin-bottom: 2em;
         text-align: center;
-    }
-
-    
+    }  
 
 }
+
 .container.courses__container {
 
     display: flex;
@@ -574,7 +573,6 @@ section#courses {
         height: 100%;
 
         .img {
-            width: 280px;
             height: 280px;
             background-size: cover;
 
@@ -591,12 +589,13 @@ section#courses {
             align-items: center;
             justify-content: center;
             flex-direction: column;
-            gap: 2em;
+            gap: 1.5em;
             margin-bottom: auto;
 
-            p {
-                width: fit-content;
+            .course__title h3 {
+                margin-bottom: auto;
             }
+
         }
 
         .course__button {
@@ -609,6 +608,7 @@ section#courses {
 
         display: grid;
         grid-template-columns: repeat(2, 1fr);
+        gap: 1em;
 
         .course {
             
@@ -620,8 +620,12 @@ section#courses {
                 align-items: flex-start;
                 justify-content: center;
                 flex-direction: column;
-                gap: 2em;
+                gap: 1.5em;
                 margin-bottom: auto;
+
+                .course__title h3 {
+                    margin-bottom: auto;
+                }
     
             }
 
@@ -705,6 +709,33 @@ section#about {
 
     }
 
+    @include desktop {
+
+        display: grid;
+        grid-template-columns: 60% 40%;
+        align-items: center;
+
+        .about__left {
+
+            display: flex;
+            align-items: center;
+            justify-content: flex-end;
+    
+        }
+
+
+        .about__right{
+
+            display: flex;
+            align-items: flex-start;
+            flex-direction: column;
+            text-align: left;
+            gap: 1.5em;
+        }
+
+        
+    }
+
 }
 
 
@@ -734,7 +765,6 @@ section#faqs {
 
         display: flex;
         justify-content: center;
-        // flex-direction: column;
         gap: 1em;
         width: 100%;
         
@@ -743,6 +773,8 @@ section#faqs {
         color: var(--color-primary);
         
         border-radius: var(--border-common-radius);
+
+        font-size: small;
         
 
         .faq__left {
@@ -767,7 +799,20 @@ section#faqs {
             gap: 1.2em;
         }
 
-    
+    }
+
+    @include nav-bar-items {
+
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1em;
+    }
+
+    @include desktop {
+
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 2em;
 
     }
 
@@ -822,6 +867,22 @@ section#testimonials {
 
     }
 
+    @include nav-bar-items {
+
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1em;
+    }
+
+    @include desktop {
+
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 2em;
+
+    }
+
+
 }
 
 
@@ -830,7 +891,7 @@ section#testimonials {
 footer {
 
     background-color: var(--color-nav-footer);
-    padding: 5em 0;
+    padding: 2em 0;
     box-shadow: var(--shadow-overall);
     border-radius: var(--border-nav-radius);
     margin-top: -2em;
@@ -843,8 +904,7 @@ footer {
     justify-content: center;
     flex-direction: column;
     align-items: center;
-    padding: 0 0 3em;
-    gap: 3em;
+    gap: 2em;
 
     .footer__item {
 
@@ -855,7 +915,7 @@ footer {
         align-items: center;
         flex-direction: column;
         text-align: center;
-        font-size: 1.1em;
+        font-size: .9em;
         gap: 1.3em;
         
         
@@ -881,6 +941,7 @@ footer {
             align-items: center;
             gap: .7em;
             justify-content: center;
+            margin-bottom: auto;
 
             a {
                 display: flex;
@@ -898,12 +959,60 @@ footer {
 
         }
 
+        ul li a {
+            color: black;
+        }
+
         .footer__button {
             width: 60%;
             padding: .9em .2em;
         }
 
     }
+
+    @include nav-bar-items {
+
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1em;
+        justify-content: space-between;
+        align-items: flex-start;
+        text-align: left;
+
+        .footer__item {
+
+        
+
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            text-align: left;
+            
+            
+            input {
+
+                text-align: left;
+            }
+        }
+    }
+
+    @include desktop {
+
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 2em;
+
+        .footer__item {
+
+            .footer__button {
+                width: 80%;
+                padding: .9em .2em;
+            }
+
+        }
+
+    }
+
 
 }
 
