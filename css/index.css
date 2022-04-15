@@ -53,6 +53,7 @@ body .container {
 .logo {
   font-size: var(--logo-fs);
   font-weight: bold;
+  color: black;
 }
 
 .logo span {
