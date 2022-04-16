@@ -1122,6 +1122,20 @@ footer {
 
 }
 
+.login__header .container.nav__container.login__nav {
+
+    @include nav-bar-items {
+
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    
+    }
+
+}
+
+
+
 
 
 .login__toggles {
@@ -1323,6 +1337,18 @@ footer {
     
     }
 
+
+}
+
+.register__header .container.nav__container.register__nav {
+
+    @include nav-bar-items {
+
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    
+    }
 
 }
 

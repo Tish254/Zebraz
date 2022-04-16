@@ -1139,6 +1139,20 @@ footer {
   }
 }
 
+@media only screen and (min-width: 600px) {
+  .login__header .container.nav__container.login__nav {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+  }
+}
+
 .login__toggles .register {
   display: none;
 }
@@ -1287,6 +1301,20 @@ footer {
   }
   .register__body .container .logo {
     margin-left: 1em;
+  }
+}
+
+@media only screen and (min-width: 600px) {
+  .register__header .container.nav__container.register__nav {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
   }
 }
 
