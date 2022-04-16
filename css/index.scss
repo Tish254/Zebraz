@@ -15,7 +15,7 @@
     --color-music: #4B3F72;
     --color-icons: #FFFFFF;
 
-    --transition-all: all 400ms ease-in-out;
+    --transition-all: all 350ms ease;
 
     --logo-fs: 2em;
     --fs-h1: 1.7em;
@@ -87,6 +87,7 @@ $categories: 1110px;
     text-decoration: none;
     list-style: none;
     font-family: 'Poppins', sans-serif;
+    transition: var(--transition-all);
 }
 
 body {
@@ -121,6 +122,8 @@ img {
     max-width: 100%;
 }
 
+
+
 .btn {
 
     display: flex;
@@ -132,6 +135,13 @@ img {
     padding: .7em 1.5em;
     border-radius: var(--border-common-radius);
     font-size: 1em;
+    border: 2px solid var(--color-buttons);
+
+    &:hover {
+        background-color: var(--color-primary);
+        border: 2px solid var(--color-buttons);
+        color: black;
+    }
 
 }
 
@@ -222,6 +232,10 @@ header.top.scrolled {
 
             a {
                 color: black;
+            }
+
+            a:hover {
+                color: var(--color-buttons);
             }
         } 
 
@@ -1040,11 +1054,19 @@ footer {
                 font-size: 1.3em;
             }
 
+            a:hover {
+                color: var(--color-buttons);
+            }
+
 
         }
 
         ul li a {
             color: black;
+
+            &:hover {
+                color: var(--color-buttons);
+            }
         }
 
         .footer__button {
