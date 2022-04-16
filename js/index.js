@@ -41,5 +41,19 @@ function showAnswer() {
 
 }
 
-showAnswer();
 
+function changeHeaderOnScroll() {
+    /* Called to change give the header a different style on scrolling */
+
+
+    window.addEventListener('scroll', () => {
+        document.querySelector('header.top').classList.toggle('scrolled', window.scrollY > 100);
+
+    })
+
+
+}
+
+changeHeaderOnScroll();
+
+showAnswer();
