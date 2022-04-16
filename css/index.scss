@@ -152,32 +152,87 @@ header {
     border-top-left-radius: 0;
     border-top: 0;
     display: flex;
-    justify-content: center;
+    justify-content: top;
     flex-direction: column;
     box-shadow: var(--shadow-overall);
     z-index: 1;
+
+    @include desktop {
+
+        height: 10vh;
+        justify-content: center;
+
+    }
+
+}
+
+
+.nav__toggled {
+    
+    height: 37vh;
+
+    .container.nav__container {
+        nav {
+            display: block;
+        }
+    }
+
+    @include desktop {
+
+        height: 10vh;
+        justify-content: center;
+
+    }
 
 }
 
 
 
-.nav__container {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
+.container.nav__container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-areas: 
+        "logo toggles"
+        "navArea navArea"
+    ;
+    margin-top: .6em;
 
+    .logo {
+        grid-area: logo;
+    }
     
     nav {
         display: none;
+        grid-area: navArea;
+        margin-top: 2em;
+        padding-left: .1em;
+        height: 100%;
+
+        ul {
+
+            display: flex;
+            justify-content: center;
+            flex-direction: column;
+            gap: 1em;
+
+            a {
+                color: black;
+            }
+        } 
 
     }
 
     .nav__toggles {
-
+        
+        grid-area: toggles;
         display: flex;
         align-items: center;
         gap: 1em;
+        justify-self: end;
 
+        i {
+            font-size: var(--logo-fs);
+        }
 
         .nav__button {
             display: none;
@@ -191,22 +246,30 @@ header {
             }
         }
         
-        i {
-            font-size: var(--logo-fs);
-        }
     }
 
 
     @include desktop {
 
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        
+        margin-top: unset;
 
         nav {
             display: block;
+            margin-top: unset;
+            height: unset;
+            padding-left: unset;
+            
 
             ul {
                 display: flex;
                 align-items: center;
                 justify-content: space-between;
+                flex-direction: row;
+                gap: unset;
                 
                 li a {
                     color: black;
@@ -760,6 +823,8 @@ section#faqs {
 
 }
 
+
+
 .container.faqs__container {
 
     display: flex;
@@ -769,10 +834,19 @@ section#faqs {
     padding: 0 0 3em;
     gap: 2em;
 
+    .faq.faq__answer {
+
+        .faq__right {
+    
+            p {
+                display: block;
+            }
+        }
+    }
+
     .faq {
 
         display: flex;
-        justify-content: center;
         gap: 1em;
         width: 100%;
         
@@ -791,12 +865,6 @@ section#faqs {
             gap: .5em;
             margin-top: .5em;
 
-            .fa-minus {
-
-                display: none;
-        
-            }
-        
 
         }
 
@@ -805,6 +873,10 @@ section#faqs {
             display: flex;
             flex-direction: column;
             gap: 1.2em;
+
+            p {
+                display: none;
+            }
         }
 
     }
@@ -814,11 +886,11 @@ section#faqs {
         display: grid;
         grid-template-columns: repeat(2, 1fr);
         gap: 1em;
+        align-items: flex-start;
     }
 
     @include desktop {
 
-        display: grid;
         grid-template-columns: repeat(3, 1fr);
         gap: 2em;
 
