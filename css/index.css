@@ -32,8 +32,6 @@
   text-decoration: none;
   list-style: none;
   font-family: 'Poppins', sans-serif;
-  -webkit-transition: var(--transition-all);
-  transition: var(--transition-all);
 }
 
 body {
@@ -83,6 +81,8 @@ img {
   border-radius: var(--border-common-radius);
   font-size: 1em;
   border: 2px solid var(--color-buttons);
+  -webkit-transition: var(--transition-all);
+  transition: var(--transition-all);
 }
 
 .btn:hover {
@@ -132,7 +132,10 @@ header.top.scrolled {
 }
 
 .nav__toggled {
-  height: 37vh;
+  height: 43vh;
+  background-color: var(--color-primary);
+  -webkit-box-shadow: var(--shadow-overall);
+          box-shadow: var(--shadow-overall);
 }
 
 .nav__toggled .container.nav__container nav {
@@ -194,6 +197,19 @@ header.top.scrolled {
 
 .container.nav__container nav ul a:hover {
   color: var(--color-buttons);
+}
+
+.container.nav__container nav .nav__button__inside {
+  font-size: .7em;
+  padding: .5em .5em;
+  width: 60%;
+  margin-top: .7em;
+}
+
+@media only screen and (min-width: 600px) {
+  .container.nav__container nav .nav__button__inside {
+    display: none;
+  }
 }
 
 .container.nav__container .nav__toggles {
@@ -434,6 +450,8 @@ section#categories {
   border-radius: var(--border-common-radius);
   padding: 2em 2em;
   font-size: .9em;
+  -webkit-box-shadow: var(--shadow-overall);
+          box-shadow: var(--shadow-overall);
 }
 
 .categories__container .categories__right .category span {
@@ -605,9 +623,9 @@ section#courses h2 {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  -webkit-box-align: stretch;
+      -ms-flex-align: stretch;
+          align-items: stretch;
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
@@ -639,12 +657,13 @@ section#courses h2 {
   border-radius: var(--border-common-radius);
   padding: 2em;
   width: 100%;
-  height: 100%;
+  -webkit-box-shadow: var(--shadow-overall);
+          box-shadow: var(--shadow-overall);
 }
 
 .container.courses__container .course .img {
   width: 100%;
-  height: 280px;
+  height: 250px;
   background-size: cover;
 }
 
@@ -870,6 +889,8 @@ section#faqs h2 {
   color: var(--color-primary);
   border-radius: var(--border-common-radius);
   font-size: small;
+  -webkit-box-shadow: var(--shadow-overall);
+          box-shadow: var(--shadow-overall);
 }
 
 .container.faqs__container .faq .faq__left {
@@ -965,6 +986,8 @@ section#testimonials h1 {
   background-color: var(--color-faqs);
   color: var(--color-primary);
   border-radius: var(--border-common-radius);
+  -webkit-box-shadow: var(--shadow-overall);
+          box-shadow: var(--shadow-overall);
 }
 
 .container.testimonials__container .testimonial img {
@@ -1154,6 +1177,7 @@ footer {
   background-color: transparent;
   -webkit-box-shadow: none;
           box-shadow: none;
+  padding-top: 1em;
 }
 
 @media only screen and (min-width: 860px) {
@@ -1223,7 +1247,7 @@ footer {
       -ms-flex-pack: center;
           justify-content: center;
   margin-top: 10em;
-  gap: 3em;
+  gap: 2em;
   width: 100%;
   height: 100%;
 }
@@ -1251,7 +1275,7 @@ footer {
 .container.login__container .login__right .login__form input {
   padding: .4em 1em;
   width: 100%;
-  height: 3.5em;
+  height: 3em;
   border: 1px solid var(--border-color);
   border-radius: var(--border-common-radius);
   font-size: 1em;
@@ -1313,6 +1337,9 @@ footer {
     height-height: 3em;
     height-font-size: 1em;
   }
+  .container.login__container .login__right .login__button {
+    padding: .6em .5em;
+  }
 }
 
 /*====================== REGISTRATION PAGE ===========================*/
@@ -1320,6 +1347,7 @@ footer {
   background-color: transparent;
   -webkit-box-shadow: none;
           box-shadow: none;
+  padding-top: 1em;
 }
 
 @media only screen and (min-width: 860px) {
@@ -1351,13 +1379,13 @@ footer {
 
 .register__toggles .login__button {
   font-size: 1em;
-  padding: .3em 1em;
+  padding: .3em 1.5em;
 }
 
 @media only screen and (min-width: 600px) {
   .register__toggles .login__button {
     font-size: 1.1em;
-    padding: .5em 1.5em;
+    padding: .5em 2.2em;
   }
   .register__toggles .login {
     display: inline-block;
@@ -1389,9 +1417,9 @@ footer {
       -ms-flex-pack: center;
           justify-content: center;
   margin-top: 7em;
-  gap: 3em;
+  gap: 2em;
   width: 100%;
-  height: 100%;
+  height: 20%;
 }
 
 .container.register__container .register__right .register__form {
@@ -1407,7 +1435,7 @@ footer {
           flex-direction: column;
   gap: .7em;
   width: 100%;
-  height: 10%;
+  height: 40%;
 }
 
 .container.register__container .register__right .register__form input + label {
@@ -1426,6 +1454,10 @@ footer {
 .container.register__container .register__right .register__form input:focus {
   outline: solid 2px var(--color-buttons);
   border: none;
+}
+
+.container.register__container .register__right .register__button {
+  padding: .6em .5em;
 }
 
 @media only screen and (min-width: 600px) {
@@ -1473,7 +1505,7 @@ footer {
   }
   .container.register__container .register__right .register__form {
     width: 80%;
-    height: 40%;
+    height: 41.5%;
     padding-right: .5em;
   }
   .container.register__container .register__right .register__form input {

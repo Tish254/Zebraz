@@ -87,7 +87,7 @@ $categories: 1110px;
     text-decoration: none;
     list-style: none;
     font-family: 'Poppins', sans-serif;
-    transition: var(--transition-all);
+    
 }
 
 body {
@@ -136,6 +136,7 @@ img {
     border-radius: var(--border-common-radius);
     font-size: 1em;
     border: 2px solid var(--color-buttons);
+    transition: var(--transition-all);
 
     &:hover {
         background-color: var(--color-primary);
@@ -184,7 +185,9 @@ header.top.scrolled {
 
 .nav__toggled {
     
-    height: 37vh;
+    height: 43vh;
+    background-color: var(--color-primary);
+    box-shadow: var(--shadow-overall);
 
     .container.nav__container {
         nav {
@@ -237,7 +240,23 @@ header.top.scrolled {
             a:hover {
                 color: var(--color-buttons);
             }
-        } 
+        }
+
+        .nav__button__inside {
+
+            font-size: .7em;
+            padding: .5em .5em;
+            width: 60%;
+            margin-top: .7em;
+        }
+
+        @include nav-bar-items {
+
+            .nav__button__inside {
+                display: none;
+            }
+        
+        }
 
     }
 
@@ -266,6 +285,8 @@ header.top.scrolled {
         }
         
     }
+
+   
 
 
     @include desktop {
@@ -429,6 +450,8 @@ section#categories {
             border-radius: var(--border-common-radius);
             padding: 2em 2em;
             font-size: .9em;
+
+            box-shadow: var(--shadow-overall);
 
             span {
     
@@ -641,7 +664,7 @@ section#courses {
 .container.courses__container {
 
     display: flex;
-    align-items: center;
+    align-items: stretch;
     justify-content: center;
     flex-direction: column;
     gap: 5em;
@@ -658,11 +681,12 @@ section#courses {
         border-radius: var(--border-common-radius);
         padding: 2em;
         width: 100%;
-        height: 100%;
+        // height: 100%;
+        box-shadow: var(--shadow-overall);
 
         .img {
             width: 100%;
-            height: 280px;
+            height: 250px;
             background-size: cover;
 
             img {
@@ -875,6 +899,7 @@ section#faqs {
         border-radius: var(--border-common-radius);
 
         font-size: small;
+        box-shadow: var(--shadow-overall);
         
 
         .faq__left {
@@ -953,6 +978,8 @@ section#testimonials {
         background-color: var(--color-faqs);
         color: var(--color-primary);
         border-radius: var(--border-common-radius);
+
+        box-shadow: var(--shadow-overall);
 
         
 
@@ -1130,6 +1157,7 @@ footer {
 
     background-color: transparent;
     box-shadow: none;
+    padding-top: 1em;
 
 }
 
@@ -1212,7 +1240,7 @@ footer {
         flex-direction: column;
         justify-content: center;
         margin-top: 10em;
-        gap: 3em;
+        gap: 2em;
         width: 100%;
         height: 100%;
 
@@ -1240,7 +1268,7 @@ footer {
             input {
                 padding: .4em 1em;
                 width: 100%;
-                height: 3.5em;
+                height: 3em;
                 border: 1px solid var(--border-color);
                 border-radius: var(--border-common-radius);
                 font-size: 1em;
@@ -1330,6 +1358,10 @@ footer {
                 
             }
 
+            .login__button {
+                padding: .6em .5em;
+            }
+
             
 
         }
@@ -1345,6 +1377,7 @@ footer {
 
     background-color: transparent;
     box-shadow: none;
+    padding-top: 1em;
 
 }
 
@@ -1387,7 +1420,7 @@ footer {
     .login__button {
 
         font-size: 1em;
-        padding: .3em 1em;
+        padding: .3em 1.5em;
 
 
     }
@@ -1398,7 +1431,7 @@ footer {
         .login__button {
 
             font-size: 1.1em;
-            padding: .5em 1.5em;
+            padding: .5em 2.2em;
 
         }
 
@@ -1430,9 +1463,9 @@ footer {
         flex-direction: column;
         justify-content: center;
         margin-top: 7em;
-        gap: 3em;
+        gap: 2em;
         width: 100%;
-        height: 100%;
+        height: 20%;
 
 
         .register__form {
@@ -1442,7 +1475,7 @@ footer {
             flex-direction: column;
             gap: .7em;
             width: 100%;
-            height: 10%;
+            height: 40%;
 
             input + label {
                 margin-top: .5em;
@@ -1465,6 +1498,10 @@ footer {
                 }
     
             }
+        }
+
+        .register__button {
+            padding: .6em .5em;
         }
 
 
@@ -1531,7 +1568,7 @@ footer {
             .register__form {
 
                 width: 80%;
-                height: 40%;
+                height: 41.5%;
                 
                 padding-right: .5em;
 
