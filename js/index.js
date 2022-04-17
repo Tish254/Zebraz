@@ -54,6 +54,98 @@ function changeHeaderOnScroll() {
 
 }
 
+
+class MainClass {
+
+    constructor (childClass) {
+        /* Creates the Instance attributes */
+
+
+        this.childClass = childClass;
+
+
+    }
+
+    get
+
+}
+
+
+class Registration {
+
+    constructor (name, email, password) {
+        /* Creates the Instance attributes */
+
+
+        this.person_name = name;
+        this.person_email = email;
+        this.person_password = password;
+        
+    }
+
+    #validateInput() {
+
+        /* Called to to make sure user inputs are in okay */
+
+        const emailReString = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+
+        if (this.person_name && this.person_email && this.person_password) {
+
+            if (emailReString.test(this.person_email)) {
+
+                this.#createMessages('Welcome to a whole new world of learning');
+                
+            } else {
+
+                throw new PageErrors('emailValidation', 'Please make sure your email is in the right format');
+                
+            }
+
+        } else {
+
+            throw new PageErrors('emptyInputs', 'Please enter all the required details')
+
+        }
+
+        
+    }
+
+    #createMessages(message) {
+
+        /* Called to display appropriate messages to the user*/
+
+        console.log(message);
+
+
+        
+    }
+
+}
+
+class PageErrors extends Error {
+
+    constructor(name, message) {
+
+        super(message);
+        
+        this.name = name;
+        this.message = message;
+
+
+    }
+
+    displayError() {
+        /* Creates Div Element to display Errors */
+
+        console.log(this.message);
+
+    }
+
+
+}
+
 changeHeaderOnScroll();
 
 showAnswer();
+
+
