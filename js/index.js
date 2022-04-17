@@ -57,29 +57,62 @@ function changeHeaderOnScroll() {
 
 class MainClass {
 
-    constructor (childClass) {
+    constructor (childClass=null) {
         /* Creates the Instance attributes */
 
-
-        this.childClass = childClass;
+        this.childClassName = childClass;
 
 
     }
 
-    get
+    #getRegistrationData () {
+
+        /* Gets user registration data from Form */
+
+        let fullName = document.getElementById('name').value;
+        let emailAddress = document.getElementById('email').value;
+        let userPassword = document.getElementById('password').value;
+
+        return [fullName, emailAddress, userPassword];
+        
+    }
+
+    #getLoginData () {
+
+        console.log('login data needed');
+    }
+
+    returnOnChildClass () {
+
+        /* Calls various interna */
+
+        if (this.childClassName === 'registration' ) {
+            
+            return this.#getRegistrationData();
+
+        } else if (this.childClassName === 'login') {
+
+            this.#getLoginData();
+
+        }
+
+    }
+
+
 
 }
 
 
-class Registration {
+class Registration extends MainClass {
 
-    constructor (name, email, password) {
+    constructor () {
         /* Creates the Instance attributes */
 
+        super('registration')
 
-        this.person_name = name;
-        this.person_email = email;
-        this.person_password = password;
+        this.personName,
+        this.personEmail,
+        this.personPassword;
         
     }
 
@@ -89,11 +122,11 @@ class Registration {
 
         const emailReString = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
 
-        if (this.person_name && this.person_email && this.person_password) {
+        if (this.personName && this.personEmail && this.personPassword) {
 
-            if (emailReString.test(this.person_email)) {
+            if (emailReString.test(this.personEmail)) {
 
-                this.#createMessages('Welcome to a whole new world of learning');
+                this.#addToZebrazMembers();
                 
             } else {
 
@@ -116,8 +149,43 @@ class Registration {
 
         console.log(message);
 
-
         
+    }
+
+    #addToZebrazMembers(message) {
+        /* Called to add Successfully Registered Session Storage */
+
+        this.#createMessages('Welcome to a whole new world of learning');
+        
+    }
+
+
+    #getInputData() {
+
+        /* Gets registration data from the parent class */
+
+
+        [this.personName, this.personEmail, this.personPassword] = this.returnOnChildClass();
+
+    }
+
+    getvalidateStoreMessage() {
+        /* Runs all the required methods */
+
+        // this.#validateInput();
+        this.#getInputData();
+
+        try {
+            this.#validateInput();
+
+        } catch (err) {
+            
+            err.displayError();
+            
+            return;
+
+        }
+
     }
 
 }
@@ -147,5 +215,7 @@ class PageErrors extends Error {
 changeHeaderOnScroll();
 
 showAnswer();
+
+const userRegistration = new Registration();
 
 
