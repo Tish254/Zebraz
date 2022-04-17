@@ -1,3 +1,7 @@
+/*  Zebraz Javascript Code */
+
+// the rest of the functions and code 
+
 
 function hamburgerClicked() {
 
@@ -57,6 +61,8 @@ function changeHeaderOnScroll() {
 
 class MainClass {
 
+    messageToPass = 'passed';
+
     constructor (childClass=null) {
         /* Creates the Instance attributes */
 
@@ -95,6 +101,58 @@ class MainClass {
             this.#getLoginData();
 
         }
+
+    }
+
+    createWebsiteStorage() {
+        /*  Called to create a local storage for the potential users of the website */
+
+        if (!window.localStorage.getItem('websiteUsers')) {
+            
+            window.localStorage.setItem('websiteUsers', JSON.stringify({}));
+
+        } else {
+            console.log('Storage Already Exists');
+        }
+        
+    }
+
+    resetFormCreateMessage(id, message) {
+        /* Called to create a message and reset the form */
+
+        document.getElementById(id).reset();
+
+        location.href = "index.html";
+        window.sessionStorage.setItem('documentLoaded', 1);
+        window.sessionStorage.setItem('loginMessage', message);
+        
+    }
+
+    messageOnLoad() {
+        /* Displays the message every time the index page loads from the Login Page or registration page */
+
+        window.addEventListener('DOMContentLoaded', function (event) {
+
+
+            if (window.sessionStorage.getItem('documentLoaded') == true) {
+
+                    
+                let form__message = window.document.getElementById('message__box');
+
+
+                form__message.className = 'form__message';
+                
+
+                form__message.innerHTML = window.sessionStorage.getItem('loginMessage');
+                window.sessionStorage.setItem('documentLoaded', 0);
+
+
+
+            }
+
+
+        });
+
 
     }
 
@@ -143,20 +201,53 @@ class Registration extends MainClass {
         
     }
 
-    #createMessages(message) {
+    #createMessages(id, message) {
 
         /* Called to display appropriate messages to the user*/
 
-        console.log(message);
+        console.log(id, message);
+
+        this.resetFormCreateMessage(id, message);
+
+        
 
         
     }
 
-    #addToZebrazMembers(message) {
-        /* Called to add Successfully Registered Session Storage */
+    #addToZebrazMembers() {
+        /* Called to add Successfully Registered user to to a json string in the local  Storage */
 
-        this.#createMessages('Welcome to a whole new world of learning');
         
+        let users = JSON.parse(window.localStorage.getItem('websiteUsers'));
+    
+        try {
+
+            if (users[this.personEmail]) {
+    
+                throw new PageErrors('emailExists', 'Email elready taken please choose another one or Login');
+
+            } else {
+
+                users[this.personEmail] = [this.personName, this.personPassword];
+                
+                window.localStorage.setItem('websiteUsers', JSON.stringify(users));
+
+                this.#createMessages('register_form', `Hello <strong> ${this.personName} </strong> Thank your for Signing Up with us. Welcome to a whole new world of learning`);
+                
+
+            }
+
+        } catch (err) {
+
+            err.displayError();
+
+            return;
+
+        }
+        
+        
+        
+
     }
 
 
@@ -216,6 +307,8 @@ changeHeaderOnScroll();
 
 showAnswer();
 
+const zebrazMain = new MainClass();
+zebrazMain.createWebsiteStorage();
+zebrazMain.messageOnLoad();
+
 const userRegistration = new Registration();
-
-

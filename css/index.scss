@@ -146,6 +146,25 @@ img {
 
 }
 
+
+/* Message Classes */
+
+.form__message {
+
+    position: absolute;
+    top: 11vh;
+    right: 2em;
+    height: 3em;
+    background-color: var(--color-marketing);
+    color: white;
+    border-radius: var(--border-common-radius);
+
+    @include desktop {
+        right: 5em;
+    }
+    
+}
+
 /*====================== INDEX PAGE ===========================*/
 /************ Navigation *****************/
 
