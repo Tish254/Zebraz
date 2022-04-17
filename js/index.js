@@ -146,8 +146,6 @@ class MainClass {
                 form__message.innerHTML = window.sessionStorage.getItem('loginMessage');
                 window.sessionStorage.setItem('documentLoaded', 0);
 
-
-
             }
 
 
@@ -277,6 +275,74 @@ class Registration extends MainClass {
 
         }
 
+    }
+
+}
+
+class Login extends MainClass {
+    
+    constructor() {
+
+        /* Creates the Instance attributes */
+        
+        this.userPassword, this.userEmail;
+        
+    }
+
+    #validateInput()  {
+
+        /* Called to make sure user inputs are okay */
+
+        const emailReString = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+
+        if (this.userEmail && this.userPassword) { 
+
+            if (emailReString.test(this.userEmail)) {
+
+                try {
+
+                    this.#getStoredData(email, password);
+
+                } catch(err) {
+
+                    err.displayError();
+
+                }
+
+
+                
+            } else {
+
+                throw new PageErrors('emailValidation', 'Please make sure your email is in the right format');
+                
+            }
+
+        } else {
+
+            throw new PageErrors('emptyInputs', 'Please enter all the required details')
+
+        }
+        
+    }
+    
+    #getStoredData(email, password) {
+        /* Fetches user data and confirms whther the values passed match */
+
+        let userData = JSON.parse(localStorage.getItem('websiteUsers'))[email];
+
+
+        if (userData && userData[1] == password) {
+
+            console.log(userData[0]);
+
+        } else {
+
+            throw PageErrors('invalidPasswordOrEmail', 'Wrong Password or Email Entered');
+
+        }
+
+        
+        
     }
 
 }
