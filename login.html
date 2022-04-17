@@ -51,19 +51,23 @@
 
                 <form action="" class="login__form" id="login_form">
 
-                    <label for="email" class="name__label">Email Address</label>
-                    <input type="email" class="email__input" id="email" placeholder="Enter email">
+                    <label for="userEmail" class="name__label">Email Address</label>
+                    <input type="email" class="email__input" id="userEmail" placeholder="Enter email">
 
-                    <label for="password" class="name__label">Password</label>
-                    <input type="password" class="password__input" id="password" placeholder="Enter password">
+                    <label for="userPassword" class="name__label">Password</label>
+                    <input type="password" class="password__input" id="userPassword" placeholder="Enter password">
                 
                 </form>
-                <a href="index.html" class="btn login__button">Login to account</a>
+                <a class="btn login__button" onclick="userLogin.getValidateRetrieveMessage()">Login to account</a>
                 
             </div>
 
         </div>
     </section>
+
+    <script src="/js/index.js">
+        
+    </script>
     
 </body>
 </html>

@@ -61,8 +61,6 @@ function changeHeaderOnScroll() {
 
 class MainClass {
 
-    messageToPass = 'passed';
-
     constructor (childClass=null) {
         /* Creates the Instance attributes */
 
@@ -77,20 +75,25 @@ class MainClass {
 
         let fullName = document.getElementById('name').value;
         let emailAddress = document.getElementById('email').value;
-        let userPassword = document.getElementById('password').value;
+        let password = document.getElementById('password').value;
 
-        return [fullName, emailAddress, userPassword];
+        return [fullName, emailAddress, password];
         
     }
 
     #getLoginData () {
 
-        console.log('login data needed');
+        let userEmail = document.getElementById('userEmail').value;
+        let userPassword = document.getElementById('userPassword').value;
+
+        return [userEmail, userPassword];
     }
 
     returnOnChildClass () {
 
         /* Calls various interna */
+
+        console.log(this.childClassName);
 
         if (this.childClassName === 'registration' ) {
             
@@ -98,7 +101,7 @@ class MainClass {
 
         } else if (this.childClassName === 'login') {
 
-            this.#getLoginData();
+            return this.#getLoginData();
 
         }
 
@@ -113,6 +116,7 @@ class MainClass {
 
         } else {
             console.log('Storage Already Exists');
+
         }
         
     }
@@ -164,7 +168,7 @@ class Registration extends MainClass {
     constructor () {
         /* Creates the Instance attributes */
 
-        super('registration')
+        super('registration');
 
         this.personName,
         this.personEmail,
@@ -230,7 +234,7 @@ class Registration extends MainClass {
                 
                 window.localStorage.setItem('websiteUsers', JSON.stringify(users));
 
-                this.#createMessages('register_form', `Hello <strong> ${this.personName} </strong> Thank your for Signing Up with us. Welcome to a whole new world of learning`);
+                this.#createMessages('register_form', `Hello <strong> ${this.personName} </strong> Thank your for Signing Up with us. Welcome to a whole new world of learning.`);
                 
 
             }
@@ -261,7 +265,6 @@ class Registration extends MainClass {
     getvalidateStoreMessage() {
         /* Runs all the required methods */
 
-        // this.#validateInput();
         this.#getInputData();
 
         try {
@@ -285,6 +288,7 @@ class Login extends MainClass {
 
         /* Creates the Instance attributes */
         
+        super('login');
         this.userPassword, this.userEmail;
         
     }
@@ -301,7 +305,7 @@ class Login extends MainClass {
 
                 try {
 
-                    this.#getStoredData(email, password);
+                    this.#getStoredData(this.userEmail, this.userPassword);
 
                 } catch(err) {
 
@@ -334,14 +338,49 @@ class Login extends MainClass {
         if (userData && userData[1] == password) {
 
             console.log(userData[0]);
+            
+            this.#createMessages('login_form', `Welcome back <strong> ${userData[0]} </strong> Continue where you left off.`)
+            
 
         } else {
 
-            throw PageErrors('invalidPasswordOrEmail', 'Wrong Password or Email Entered');
+            throw new PageErrors('invalidPasswordOrEmail', 'Wrong Password or Email Entered');
 
         }
 
         
+    }
+
+    #getLoginInputData() {
+        /* Get login form data from the parent class */
+
+        [this.userEmail, this.userPassword] = this.returnOnChildClass();
+        
+    }
+    
+
+    #createMessages(id, message) {
+        /* called to diplay appropriate message to the user */
+
+        this.resetFormCreateMessage(id, message);
+
+    }
+
+    getValidateRetrieveMessage() {
+        /* calls all the required methods */
+
+        this.#getLoginInputData();
+
+        try {
+
+            this.#validateInput();
+
+        } catch (err) {
+
+            err.displayError();
+        
+            return;
+        }
         
     }
 
@@ -378,3 +417,5 @@ zebrazMain.createWebsiteStorage();
 zebrazMain.messageOnLoad();
 
 const userRegistration = new Registration();
+
+const userLogin = new Login();
