@@ -17,6 +17,11 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,400;1,500&display=swap" rel="stylesheet">
 
+
+    <!-- Swipper Js-->
+
+    <link rel="stylesheet" href="https://unpkg.com/swiper@8/swiper-bundle.min.css"/>
+
     
 </head>
 <body>
@@ -288,27 +293,66 @@
 
     <section id="testimonials">
         <h1>What People Say About Us</h1>
-        <div class="container testimonials__container">
-            <div class="testimonial">
-                <img src="images/man-image.png" alt="Quoter Image">
-                <blockquote>“I don’t know What  your’re waiting for. But i benefited Alot from Zebraz, Learning even at my age Web design.
-                    Yap web design”</blockquote>
-                <cite>-- James Doe</cite>
+        <div class="container testimonials__container mySwiper">
+
+            <div class="swiper-wrapper">
+                <div class="testimonial swiper-slide">
+                    <img src="images/man-image.png" alt="Quoter Image">
+                    <blockquote>“I don’t know What  your’re waiting for. But i benefited Alot from Zebraz, Learning even at my age Web design.
+                        Yap web design”</blockquote>
+                    <cite>-- James Doe</cite>
+                </div>
+                <div class="testimonial swiper-slide">
+                    <img src="images/man-image.png" alt="Quoter Image">
+                    <blockquote>“I don’t know What  your’re waiting for. But i benefited Alot from Zebraz, Learning even at my age Web design.
+                        Yap web design”</blockquote>
+                    <cite>-- James Doe</cite>
+                </div>
+                <div class="testimonial swiper-slide">
+                    <img src="images/man-image.png" alt="Quoter Image">
+                    <blockquote>“I don’t know What  your’re waiting for. But i benefited Alot from Zebraz, Learning even at my age Web design.
+                        Yap web design”</blockquote>
+                    <cite>-- James Doe</cite>
+                </div>
+
+                <div class="testimonial swiper-slide">
+                    <img src="images/man-image.png" alt="Quoter Image">
+                    <blockquote>“I don’t know What  your’re waiting for. But i benefited Alot from Zebraz, Learning even at my age Web design.
+                        Yap web design”</blockquote>
+                    <cite>-- James Doe</cite>
+                </div>
+
+                <div class="testimonial swiper-slide">
+                    <img src="images/man-image.png" alt="Quoter Image">
+                    <blockquote>“I don’t know What  your’re waiting for. But i benefited Alot from Zebraz, Learning even at my age Web design.
+                        Yap web design”</blockquote>
+                    <cite>-- James Doe</cite>
+                </div>
+
+                <div class="testimonial swiper-slide">
+                    <img src="images/man-image.png" alt="Quoter Image">
+                    <blockquote>“I don’t know What  your’re waiting for. But i benefited Alot from Zebraz, Learning even at my age Web design.
+                        Yap web design”</blockquote>
+                    <cite>-- James Doe</cite>
+                </div>
+
+                <div class="testimonial swiper-slide">
+                    <img src="images/man-image.png" alt="Quoter Image">
+                    <blockquote>“I don’t know What  your’re waiting for. But i benefited Alot from Zebraz, Learning even at my age Web design.
+                        Yap web design”</blockquote>
+                    <cite>-- James Doe</cite>
+                </div>
+
+                <div class="testimonial swiper-slide">
+                    <img src="images/man-image.png" alt="Quoter Image">
+                    <blockquote>“I don’t know What  your’re waiting for. But i benefited Alot from Zebraz, Learning even at my age Web design.
+                        Yap web design”</blockquote>
+                    <cite>-- James Doe</cite>
+                </div>
+
             </div>
-            <div class="testimonial">
-                <img src="images/man-image.png" alt="Quoter Image">
-                <blockquote>“I don’t know What  your’re waiting for. But i benefited Alot from Zebraz, Learning even at my age Web design.
-                    Yap web design”</blockquote>
-                <cite>-- James Doe</cite>
-            </div>
-            <div class="testimonial">
-                <img src="images/man-image.png" alt="Quoter Image">
-                <blockquote>“I don’t know What  your’re waiting for. But i benefited Alot from Zebraz, Learning even at my age Web design.
-                    Yap web design”</blockquote>
-                <cite>-- James Doe</cite>
-            </div>
+            <div class="swiper-pagination"></div>
         </div>
-        <div class="to-swipper-js"></div>
     </section>
 
     <footer id="footer">
@@ -364,9 +408,38 @@
         </div>
     </footer>
 
-    <script src="./js/index.js">
 
+    <!-- Swiper JS -->
+    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+
+    <!-- My JS-->
+    
+    <script src="./js/index.js"></script>
+
+    <!-- Initialize Swiper -->
+    <script>
+        var swiper = new Swiper(".mySwiper", {
+            slidesPerView: 1,
+            spaceBetween: 30,
+            pagination: {
+                el: ".swiper-pagination",
+                clickable: true,
+            },
+
+            // when screen width is >= 600px'
+
+            breakpoints: {
+                600: {
+                    slidesPerView: 2
+                },
+
+                860: {
+                    slidesPerView: 3
+                }
+            }
+        });
     </script>
 
+    
 </body>
 </html>
