@@ -19,7 +19,7 @@
 </head>
 <body class="login__body">
 
-    <header class="login__header">
+    <header class="top login__header">
         <div class="container nav__container login__nav"> 
             <a class="logo" href="index.html">
                 Zeb<span>raz</span>
@@ -58,6 +58,7 @@
                     <input type="password" class="password__input" id="userPassword" placeholder="Enter password">
                 
                 </form>
+                <div id="error_message" class="error"></div>
                 <a class="btn login__button" onclick="userLogin.getValidateRetrieveMessage()">Login to account</a>
                 
             </div>

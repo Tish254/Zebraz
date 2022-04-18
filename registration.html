@@ -18,7 +18,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,400;1,500&display=swap" rel="stylesheet">
 </head>
 <body class="register__body">
-    <header class="register__header">
+    <header class="top register__header">
         <div class="container nav__container register__nav"> 
             <a class="logo" href="index.html">
                 Zeb<span>raz</span>
@@ -59,6 +59,8 @@
                     <input type="password" class="password__input" id="password" placeholder="Enter password">
                 
                 </form>
+
+                <div id="error_message" class="error"></div>
                 <a class="btn register__button" onclick="userRegistration.getvalidateStoreMessage();">Create Account</a>
                 
             </div>

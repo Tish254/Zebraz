@@ -151,16 +151,51 @@ img {
 
 .form__message {
 
-    position: absolute;
-    top: 11vh;
+    position: fixed;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
+    top: 4em;
     right: 2em;
     height: 3em;
     background-color: var(--color-marketing);
     color: white;
     border-radius: var(--border-common-radius);
 
+    min-width: 40%;
+
+    z-index: 2;
+
+    &::after {
+        content: 'hello';
+    }
+
     @include desktop {
         right: 5em;
+    }
+    
+}
+
+.error {
+    display: none;
+}
+
+.form__error {
+
+    display: flex;
+    align-items: center;
+
+    padding-left: 1em;
+    background-color: red;
+    color: yellow;
+    border-radius: var(--border-common-radius);
+    height: 3em;
+    width: 100%;
+    font-size: .8em;
+
+    @include desktop {
+        width: 79%;
     }
     
 }
@@ -175,7 +210,7 @@ header {
     position: fixed;
     top: 0;
     width: 100%;
-    height: 8vh;
+    height: 3.5em;
     border-top-right-radius: 0;
     border-top-left-radius: 0;
     border-top: 0;
@@ -188,7 +223,7 @@ header {
 
     @include desktop {
 
-        height: 8vh;
+        height: 3.5em;
         justify-content: center;
 
     }
@@ -1076,7 +1111,7 @@ footer {
 
 
             &:focus {
-                outline: solid 2px var(--color-buttons);
+                outline: solid 1px var(--color-buttons);
                 border: none;
 
             }
@@ -1179,7 +1214,7 @@ footer {
 
     background-color: transparent;
     box-shadow: none;
-    padding-top: 1em;
+    // padding-top: 1em;
 
 }
 
@@ -1196,6 +1231,13 @@ footer {
     }
 
 
+}
+
+section#login, section#register {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    flex-direction: column;
 }
 
 .login__header .container.nav__container.login__nav {
@@ -1230,8 +1272,8 @@ footer {
 
         .register__button {
 
-            font-size: 1.1em;
-            padding: .5em 1.5em;
+            font-size: 1em;
+            padding: .3em 1.5em;
 
         }
 
@@ -1265,6 +1307,7 @@ footer {
         gap: 2em;
         width: 100%;
         height: 100%;
+        text-align: left;
 
         .login__titleinfo {
 
@@ -1297,7 +1340,7 @@ footer {
 
 
                 &:focus {
-                    outline: solid 2px var(--color-buttons);
+                    outline: solid 1px var(--color-buttons);
                     border: none;
 
                 }
@@ -1309,6 +1352,11 @@ footer {
                 }
     
             }
+
+        }
+        
+        .login__button {
+            padding: .6em .4em;
         }
 
 
@@ -1368,7 +1416,7 @@ footer {
 
                 width: 80%;
                 padding-right: .5em;
-                height: 25%
+                height: 25%;
 
                 input {
 
@@ -1380,13 +1428,10 @@ footer {
                 
             }
 
-            .login__button {
-                padding: .6em .5em;
-            }
-
             
 
         }
+
        
 
     }
@@ -1399,7 +1444,7 @@ footer {
 
     background-color: transparent;
     box-shadow: none;
-    padding-top: 1em;
+    // padding-top: 1em;
 
 }
 
@@ -1452,8 +1497,8 @@ footer {
 
         .login__button {
 
-            font-size: 1.1em;
-            padding: .5em 2.2em;
+            font-size: 1em;
+            padding: .3em 2.2em;
 
         }
 
@@ -1465,6 +1510,8 @@ footer {
 
     }
 }
+
+
 
 
 .container.register__container {
@@ -1487,7 +1534,8 @@ footer {
         margin-top: 7em;
         gap: 2em;
         width: 100%;
-        height: 20%;
+        height: 100%;
+        font-size: .9em;
 
 
         .register__form {
@@ -1497,7 +1545,7 @@ footer {
             flex-direction: column;
             gap: .7em;
             width: 100%;
-            height: 40%;
+            height: 100%;
 
             input + label {
                 margin-top: .5em;
@@ -1514,16 +1562,12 @@ footer {
 
 
                 &:focus {
-                    outline: solid 2px var(--color-buttons);
+                    outline: solid 1px var(--color-buttons);
                     border: none;
 
                 }
     
             }
-        }
-
-        .register__button {
-            padding: .6em .5em;
         }
 
 

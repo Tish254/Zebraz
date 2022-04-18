@@ -51,7 +51,7 @@ function changeHeaderOnScroll() {
 
 
     window.addEventListener('scroll', () => {
-        document.querySelector('header.top').classList.toggle('scrolled', window.scrollY > 0);
+        document.querySelector('header.top').classList.toggle('scrolled', window.scrollY > 10);
 
     })
 
@@ -401,7 +401,10 @@ class PageErrors extends Error {
     displayError() {
         /* Creates Div Element to display Errors */
 
-        console.log(this.message);
+        let form__error = window.document.getElementById('error_message');
+        form__error.className = 'form__error';
+        form__error.innerHTML = this.message;
+
 
     }
 
