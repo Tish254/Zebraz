@@ -57,7 +57,6 @@ class MainClass {
 
         /* Calls various interna */
 
-        console.log(this.childClassName);
 
         if (this.childClassName === 'registration' ) {
             
@@ -79,7 +78,6 @@ class MainClass {
             window.localStorage.setItem('websiteUsers', JSON.stringify({}));
 
         } else {
-            console.log('Storage Already Exists');
 
         }
         
@@ -137,7 +135,6 @@ class MainClass {
 
         /* Called to Open the Mobile Menu */
     
-        console.log('Hamburgered');
     
         document.querySelector('.fa-bars').classList.toggle('fa-xmark');
     
@@ -151,19 +148,18 @@ class MainClass {
         document.querySelectorAll('.faq').forEach( faq => {
             faq.addEventListener('click', () => {
     
-                console.log('adding')
                 
                 let icon = faq.querySelector('i')
                 
                 if (icon.className === 'fa-solid fa-plus') {
     
                     icon.className = 'fa-solid fa-minus'
-                    console.log('fa-minus added')
+                    
                     
                     
                 } else {
                     icon.className = 'fa-solid fa-plus'
-                    console.log('fa-plus added')
+
                 }
     
                 faq.classList.toggle('faq__answer');
@@ -236,7 +232,6 @@ class Registration extends MainClass {
 
         /* Called to display appropriate messages to the user*/
 
-        console.log(id, message);
 
         this.createMessageAfter(id, message);
 
@@ -365,7 +360,6 @@ class Login extends MainClass {
 
         if (userData && userData[1] == password) {
 
-            console.log(userData[0]);
             
             this.#createMessages('login_form', `Welcome back <strong>${userData[0]}</strong> Continue where you left off.`)
             

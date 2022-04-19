@@ -131,12 +131,13 @@ img {
     align-items: center;
     justify-content: center;
     text-align: center;
+    
     background-color: var(--color-buttons);
     color: var(--color-primary);
+    border: 2px solid var(--color-buttons);
     padding: .7em 1.5em;
     border-radius: var(--border-common-radius);
     font-size: 1em;
-    border: 2px solid var(--color-buttons);
     transition: var(--transition-all);
 
     &:hover {
@@ -146,6 +147,20 @@ img {
 
     }
 
+}
+
+.nav__login {
+
+    background-color: var(--color-primary);
+    border: 2px solid var(--color-buttons);
+    color: var(--color-buttons);
+
+    &:hover {
+        background-color: var(--color-buttons);
+        color: var(--color-primary);
+        border: 2px solid var(--color-buttons);
+    }
+    
 }
 
 
@@ -317,7 +332,7 @@ header.top.scrolled {
 
 .nav__toggled {
     
-    height: 43vh;
+    height: 55%;
     background-color: var(--color-primary);
     box-shadow: var(--shadow-overall);
 
@@ -377,10 +392,14 @@ header.top.scrolled {
 
         .nav__button__inside {
 
-            font-size: .7em;
-            padding: .5em .5em;
-            width: 60%;
+            font-size: .8em;
+            padding: .7em .5em;
+            width: 40%;
             margin-top: .7em;
+
+            &.nav__login {
+                width: 30%;
+            }
         }
 
         @include nav-bar-items {
@@ -1138,21 +1157,6 @@ section#testimonials {
 
     }
 
-    // @include nav-bar-items {
-
-    //     display: grid;
-    //     grid-template-columns: repeat(2, 1fr);
-    //     gap: 1em;
-    // }
-
-    // @include desktop {
-
-    //     display: grid;
-    //     grid-template-columns: repeat(3, 1fr);
-    //     gap: 2em;
-
-    // }
-
 
 }
 
@@ -1301,18 +1305,24 @@ footer {
 
 
 
-/*====================== LOGIN PAGE ===========================*/
-
-
-/*====================== REGISTRATION PAGE ===========================*/
+/*====================== REGISTRATION PAGE =========================== AND ====================== LOGIN PAGE ===========================*/
 
 .register__body, .login__body {
-    padding: 4em 2em;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 3em 2em 2.5em;
+    
+    
 
     @include nav-bar-items {
-        padding: 5em;
-
+        padding: 3em 5em 3em;
         
+
+    }
+
+    @include desktop {
+        padding: 2em 13em;
     }
 }
 
@@ -1320,7 +1330,7 @@ footer {
 
     display: flex;
     align-items: center;
-    justify-content: center;
+    margin-bottom: 1em;
 
 }
 
@@ -1333,6 +1343,21 @@ footer {
     background-color: var(--color-secondary);
     border-radius: var(--border-common-radius);
 
+    @include desktop {
+        display: grid;
+        grid-template-columns: 65% 35%;
+
+
+
+        .register__right, .login__right {
+
+            align-self: stretch;
+            width: 100%;
+
+        }
+        
+    }
+
     .register__left, .login__left {
         display: flex;
         flex-direction: column;
@@ -1342,13 +1367,18 @@ footer {
 
         padding: 2em;
 
+        @include desktop {
+            width: 90%;
+            padding: 2em 2em 2em 6em;
+
+        }
+
         .register__titleinfo, .login__titleinfo {
             display: flex;
             align-items: center;
-            justify-content: center;
             
             h2 {
-                text-align: center;
+                text-align: left;
             }
 
         }
@@ -1452,10 +1482,6 @@ footer {
             text-align: center;
             color: var(--color-primary);
             width: 90%;
-        }
-
-        .logo {
-            color: black;
         }
 
         .register__right-bottom, .login__right-bottom {
