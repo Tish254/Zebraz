@@ -51,7 +51,12 @@ function changeHeaderOnScroll() {
 
 
     window.addEventListener('scroll', () => {
-        document.querySelector('header.top').classList.toggle('scrolled', window.scrollY > 10);
+        let headerTop = document.querySelector('header.top');
+
+        if (headerTop) {
+            headerTop.classList.toggle('scrolled', window.scrollY > 10);
+
+        }
 
     })
 

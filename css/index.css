@@ -1215,259 +1215,24 @@ footer {
 }
 
 /*====================== LOGIN PAGE ===========================*/
-.login__header {
-  background-color: transparent;
-  -webkit-box-shadow: none;
-          box-shadow: none;
-}
-
-@media only screen and (min-width: 860px) {
-  .login__body .container {
-    margin: 0 2em 0 0;
-  }
-  .login__body .container .logo {
-    margin-left: 1em;
-  }
-}
-
-section#login, section#register {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  width: 100%;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-}
-
-@media only screen and (min-width: 600px) {
-  .login__header .container.nav__container.login__nav {
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-box-align: center;
-        -ms-flex-align: center;
-            align-items: center;
-    -webkit-box-pack: justify;
-        -ms-flex-pack: justify;
-            justify-content: space-between;
-  }
-}
-
-.login__toggles .register {
-  display: none;
-}
-
-.login__toggles .register__button {
-  font-size: 1em;
-  padding: .3em 1em;
-}
-
-@media only screen and (min-width: 600px) {
-  .login__toggles .register__button {
-    font-size: 1em;
-    padding: .3em 1.5em;
-  }
-  .login__toggles .register {
-    display: inline-block;
-  }
-}
-
-.container.login__container {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-}
-
-.container.login__container .login__left {
-  display: none;
-}
-
-.container.login__container .login__right {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  margin-top: 10em;
-  gap: 2em;
-  width: 100%;
-  height: 100%;
-  text-align: left;
-}
-
-.container.login__container .login__right .login__titleinfo h2 {
-  margin-bottom: .6em;
-}
-
-.container.login__container .login__right .login__form {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-  gap: .7em;
-  width: 100%;
-  height: 28%;
-}
-
-.container.login__container .login__right .login__form input {
-  padding: .4em 1em;
-  width: 100%;
-  height: 3em;
-  border: 1px solid var(--border-color);
-  border-radius: var(--border-common-radius);
-  font-size: 1em;
-}
-
-.container.login__container .login__right .login__form input:focus {
-  outline: solid 1px var(--color-buttons);
-  border: none;
-}
-
-.container.login__container .login__right .login__form input#email {
-  margin-bottom: .8em;
-}
-
-.container.login__container .login__right .login__button {
-  padding: .6em .4em;
-}
-
-@media only screen and (min-width: 600px) {
-  .container.login__container .login__right .login__button {
-    width: 40%;
-  }
-}
-
-@media only screen and (min-width: 860px) {
-  .container.login__container {
-    display: -ms-grid;
-    display: grid;
-    -ms-grid-columns: 50% 50%;
-        grid-template-columns: 50% 50%;
-    gap: 5em;
-    width: 100vw;
-  }
-  .container.login__container .login__left {
-    border: 1px solid var(--border-color);
-    border-radius: var(--border-nav-radius);
-    display: -webkit-inline-box;
-    display: -ms-inline-flexbox;
-    display: inline-flex;
-    width: 100%;
-    height: 100vh;
-    background-size: cover;
-    border-top: none;
-    border-bottom: none;
-    border-top-left-radius: 0;
-    border-bottom-left-radius: 0;
-  }
-  .container.login__container .login__left img {
-    width: 100%;
-  }
-  .container.login__container .login__right {
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    width: 100%;
-    height: 100%;
-    margin-top: 0;
-  }
-  .container.login__container .login__right .login__form {
-    width: 80%;
-    padding-right: .5em;
-    height: 25%;
-  }
-  .container.login__container .login__right .login__form input {
-    height: 3em;
-    font-size: 1em;
-  }
-}
-
 /*====================== REGISTRATION PAGE ===========================*/
-.register__header {
-  background-color: transparent;
-  -webkit-box-shadow: none;
-          box-shadow: none;
-}
-
 .register__body {
-  background-color: var(--color-secondary);
+  padding: 2em;
 }
 
-@media only screen and (min-width: 860px) {
-  .register__body .container {
-    margin: 0 2em 0 0;
-  }
-  .register__body .container .logo {
-    margin-left: 1em;
-  }
-}
-
-@media only screen and (min-width: 600px) {
-  .register__header .container.nav__container.register__nav {
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-box-align: center;
-        -ms-flex-align: center;
-            align-items: center;
-    -webkit-box-pack: justify;
-        -ms-flex-pack: justify;
-            justify-content: space-between;
-  }
-}
-
-.register__toggles .login {
-  display: none;
-}
-
-.register__toggles .login__button {
-  font-size: 1em;
-  padding: .3em 1.5em;
-}
-
-@media only screen and (min-width: 600px) {
-  .register__toggles .login__button {
-    font-size: 1em;
-    padding: .3em 2.2em;
-  }
-  .register__toggles .login {
-    display: inline-block;
-  }
-}
-
-.container.register__container {
+.register__header {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
 }
 
-.container.register__container .register__left {
-  display: none;
-}
-
-.container.register__container .register__right {
+.register__container {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -1478,98 +1243,139 @@ section#login, section#register {
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
-  margin-top: 7em;
-  gap: 2em;
-  width: 100%;
-  height: 100%;
-  font-size: .9em;
-}
-
-.container.register__container .register__right .register__form {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-  gap: .7em;
-  width: 100%;
-  height: 100%;
-}
-
-.container.register__container .register__right .register__form input + label {
-  margin-top: .5em;
-}
-
-.container.register__container .register__right .register__form input {
-  padding: .4em 1em;
-  width: 100%;
-  height: 3em;
-  border: 1px solid var(--border-color);
+  background-color: var(--color-secondary);
   border-radius: var(--border-common-radius);
+}
+
+.register__container .register__left {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  gap: 2em;
+  padding: 2em;
+}
+
+.register__container .register__left .register__titleinfo {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.register__container .register__left .register__form {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  gap: 1em;
+}
+
+.register__container .register__left .register__form .form__item {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  gap: .3em;
+}
+
+.register__container .register__left .register__form .form__item input {
+  border: none;
+  height: 3.5em;
+  padding-left: 1em;
+  border-radius: var(--border-common-radius);
+}
+
+.register__container .register__left .register__left-bottom {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  gap: .7em;
   font-size: 1em;
 }
 
-.container.register__container .register__right .register__form input:focus {
-  outline: solid 1px var(--color-buttons);
-  border: none;
+.register__container .register__left .register__left-bottom .login__button {
+  background-color: transparent;
+  color: black;
+  font-weight: bold;
 }
 
-@media only screen and (min-width: 600px) {
-  .container.register__container .register__right .register__button {
-    width: 40%;
-  }
+.register__container .register__right {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  gap: .6em;
+  padding: 2em;
+  border-radius: var(--border-common-radius);
+  background-color: var(--color-faqs);
+  color: var(--color-primary);
 }
 
-@media only screen and (min-width: 860px) {
-  .container.register__container {
-    display: -ms-grid;
-    display: grid;
-    -ms-grid-columns: 50% 50%;
-        grid-template-columns: 50% 50%;
-    gap: 5em;
-    width: 100vw;
-  }
-  .container.register__container .register__left {
-    border: 1px solid var(--border-color);
-    border-radius: var(--border-nav-radius);
-    display: -webkit-inline-box;
-    display: -ms-inline-flexbox;
-    display: inline-flex;
-    width: 100%;
-    height: 100vh;
-    background-size: cover;
-    border-top: none;
-    border-bottom: none;
-    border-top-left-radius: 0;
-    border-bottom-left-radius: 0;
-  }
-  .container.register__container .register__left img {
-    width: 100%;
-  }
-  .container.register__container .register__right {
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    width: 100%;
-    height: 100%;
-    margin-top: 0;
-  }
-  .container.register__container .register__right .register__titleinfo h2 {
-    margin-bottom: .6em;
-  }
-  .container.register__container .register__right .register__form {
-    width: 80%;
-    height: 41.5%;
-    padding-right: .5em;
-  }
-  .container.register__container .register__right .register__form input {
-    height: 3em;
-    font-size: 1em;
-  }
+.register__container .register__right .logo, .register__container .register__right h3, .register__container .register__right p {
+  text-align: center;
+  color: var(--color-primary);
+  width: 90%;
+}
+
+.register__container .register__right .register__right-bottom {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  gap: .5em;
+}
+
+.register__container .register__right .register__right-bottom a {
+  color: var(--color-buttons);
+  font-weight: bold;
+  font-size: 1.1em;
+  border-bottom: 3px solid var(--color-primary);
+  letter-spacing: 1px;
+}
+
+.register__container .register__right .register__right-bottom i {
+  color: black;
 }
 /*# sourceMappingURL=index.css.map */
