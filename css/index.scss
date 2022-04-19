@@ -6,7 +6,7 @@
     --color-secondary: #EAF3FA;
     --color-nav-footer: #FFFFFA;
     --color-buttons: #F17B4C;
-    --color-faqs: #718CE2;
+    --color-faqs: #3457D5;
     --color-block-chain: #FF3366;
     --color-business: #26427F;
     --color-design: #FF312E;
@@ -27,6 +27,7 @@
     --border-common-radius: .2em;
 
     --shadow-overall:  0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    --button-hover: #E1AD01;
 
 
 
@@ -141,7 +142,8 @@ img {
     &:hover {
         background-color: var(--color-primary);
         border: 2px solid var(--color-buttons);
-        color: black;
+        color: var(--color-buttons);
+
     }
 
 }
@@ -158,14 +160,18 @@ img {
     
     top: 4em;
     right: 2em;
-    height: 3em;
+    height: auto;
+
+
     background-color: var(--color-marketing);
     color: white;
     border-radius: var(--border-common-radius);
+    padding: 1em;
+    text-align: center;
 
     min-width: 40%;
 
-    z-index: 2;
+    z-index: 15;
 
     &::after {
         content: 'hello';
@@ -185,14 +191,17 @@ img {
 
     display: flex;
     align-items: center;
+    justify-content: center;
 
-    padding-left: 1em;
+    padding: 1em;
     background-color: red;
     color: yellow;
     border-radius: var(--border-common-radius);
-    height: 3em;
+    height: auto;
     width: 100%;
     font-size: .8em;
+
+    text-align: center;
 
     @include desktop {
         width: 79%;
@@ -219,7 +228,7 @@ header {
     flex-direction: column;
     border-color: transparent;
     
-    z-index: 5;
+    z-index: 15;
 
     @include desktop {
 
@@ -1223,11 +1232,17 @@ footer {
 
 /*====================== REGISTRATION PAGE ===========================*/
 
-.register__body {
-    padding: 2em;
+.register__body, .login__body {
+    padding: 4em 2em;
+
+    @include nav-bar-items {
+        padding: 5em;
+
+        
+    }
 }
 
-.register__header {
+.register__header, .login__header {
 
     display: flex;
     align-items: center;
@@ -1235,17 +1250,16 @@ footer {
 
 }
 
-.register__container {
+.register__container, .login__container {
 
     display: flex;
     flex-direction: column;
     justify-content: center;
     
-    // margin: 2em 2em ;
     background-color: var(--color-secondary);
     border-radius: var(--border-common-radius);
 
-    .register__left {
+    .register__left, .login__left {
         display: flex;
         flex-direction: column;
         justify-content: center;
@@ -1254,14 +1268,18 @@ footer {
 
         padding: 2em;
 
-        .register__titleinfo {
+        .register__titleinfo, .login__titleinfo {
             display: flex;
             align-items: center;
             justify-content: center;
+            
+            h2 {
+                text-align: center;
+            }
 
         }
 
-        .register__form {
+        .register__form, .login__form {
             display: flex;
             flex-direction: column;
             justify-content: center;
@@ -1275,12 +1293,32 @@ footer {
 
                 gap: .3em;
 
+                label {
+                    font-weight: lighter;
+                }
+
                 input {
+
 
                     border: none;
                     height: 3.5em;
                     padding-left: 1em;
                     border-radius: var(--border-common-radius);
+                            
+                    &:focus {
+                        outline: solid 1px var(--color-buttons);
+                        border: none;
+                        background-color: var(--color-primary);
+
+                    }
+
+                    &:-webkit-autofill,
+                    &:-webkit-autofill:hover, 
+                    &:-webkit-autofill:focus, 
+                    &:-webkit-autofill:active{
+                            box-shadow: 0 0 0 30px white inset;
+                            -webkit-box-shadow: 0 0 0 30px white inset;
+                    }
 
                 }
             }
@@ -1289,7 +1327,7 @@ footer {
 
         }
 
-        .register__left-bottom {
+        .register__left-bottom, .login__left-bottom {
             display: flex;
             flex-direction: column;
             justify-content: center;
@@ -1297,17 +1335,31 @@ footer {
 
             font-size: 1em;
 
-            .login__button {
-                background-color: transparent;
+            span {
+
+                p {
+                    font-weight: lighter;
+                    display: inline-flex;
+
+                }
+
+                .login__button, .register__button {
+                    color: var(--color-buttons);
+                }
+            }
+
+
+            .login__button:hover, .register__button:hover {
+                font-weight: 700;
                 color: black;
-                font-weight: bold;
+
             }
 
         }
 
     }
 
-    .register__right {
+    .register__right, .login__right {
 
         display: flex;
         flex-direction: column;
@@ -1328,21 +1380,29 @@ footer {
             width: 90%;
         }
 
-        .register__right-bottom  {
+        .logo {
+            color: black;
+        }
+
+        .register__right-bottom, .login__right-bottom {
             display: flex;
             align-items: center;
             gap: .5em;
 
             a {
                 color: var(--color-buttons);
-                font-weight: bold;
                 font-size: 1.1em;
-                border-bottom: 3px solid var(--color-primary);
-                letter-spacing: 1px;
-            }
+                border-bottom: 2px solid var(--color-primary);
+                font-weight: 600;
 
-            i {
-                color: black;
+                &:hover {
+                    color: black;
+                    font-weight: 600;
+                    padding-right: .5em;
+
+
+                }
+
             }
 
 

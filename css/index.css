@@ -3,7 +3,7 @@
   --color-secondary: #EAF3FA;
   --color-nav-footer: #FFFFFA;
   --color-buttons: #F17B4C;
-  --color-faqs: #718CE2;
+  --color-faqs: #3457D5;
   --color-block-chain: #FF3366;
   --color-business: #26427F;
   --color-design: #FF312E;
@@ -20,6 +20,7 @@
   --border-nav-radius: .83em;
   --border-common-radius: .2em;
   --shadow-overall:  0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  --button-hover: #E1AD01;
 }
 
 /************ Hero Section ****************/
@@ -88,7 +89,7 @@ img {
 .btn:hover {
   background-color: var(--color-primary);
   border: 2px solid var(--color-buttons);
-  color: black;
+  color: var(--color-buttons);
 }
 
 /* Message Classes */
@@ -105,12 +106,14 @@ img {
           justify-content: center;
   top: 4em;
   right: 2em;
-  height: 3em;
+  height: auto;
   background-color: var(--color-marketing);
   color: white;
   border-radius: var(--border-common-radius);
+  padding: 1em;
+  text-align: center;
   min-width: 40%;
-  z-index: 2;
+  z-index: 15;
 }
 
 .form__message::after {
@@ -134,13 +137,17 @@ img {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  padding-left: 1em;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  padding: 1em;
   background-color: red;
   color: yellow;
   border-radius: var(--border-common-radius);
-  height: 3em;
+  height: auto;
   width: 100%;
   font-size: .8em;
+  text-align: center;
 }
 
 @media only screen and (min-width: 860px) {
@@ -171,7 +178,7 @@ header {
       -ms-flex-direction: column;
           flex-direction: column;
   border-color: transparent;
-  z-index: 5;
+  z-index: 15;
 }
 
 @media only screen and (min-width: 860px) {
@@ -1216,11 +1223,17 @@ footer {
 
 /*====================== LOGIN PAGE ===========================*/
 /*====================== REGISTRATION PAGE ===========================*/
-.register__body {
-  padding: 2em;
+.register__body, .login__body {
+  padding: 4em 2em;
 }
 
-.register__header {
+@media only screen and (min-width: 600px) {
+  .register__body, .login__body {
+    padding: 5em;
+  }
+}
+
+.register__header, .login__header {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -1232,7 +1245,7 @@ footer {
           justify-content: center;
 }
 
-.register__container {
+.register__container, .login__container {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -1247,7 +1260,7 @@ footer {
   border-radius: var(--border-common-radius);
 }
 
-.register__container .register__left {
+.register__container .register__left, .register__container .login__left, .login__container .register__left, .login__container .login__left {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -1262,7 +1275,7 @@ footer {
   padding: 2em;
 }
 
-.register__container .register__left .register__titleinfo {
+.register__container .register__left .register__titleinfo, .register__container .register__left .login__titleinfo, .register__container .login__left .register__titleinfo, .register__container .login__left .login__titleinfo, .login__container .register__left .register__titleinfo, .login__container .register__left .login__titleinfo, .login__container .login__left .register__titleinfo, .login__container .login__left .login__titleinfo {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -1274,7 +1287,11 @@ footer {
           justify-content: center;
 }
 
-.register__container .register__left .register__form {
+.register__container .register__left .register__titleinfo h2, .register__container .register__left .login__titleinfo h2, .register__container .login__left .register__titleinfo h2, .register__container .login__left .login__titleinfo h2, .login__container .register__left .register__titleinfo h2, .login__container .register__left .login__titleinfo h2, .login__container .login__left .register__titleinfo h2, .login__container .login__left .login__titleinfo h2 {
+  text-align: center;
+}
+
+.register__container .register__left .register__form, .register__container .register__left .login__form, .register__container .login__left .register__form, .register__container .login__left .login__form, .login__container .register__left .register__form, .login__container .register__left .login__form, .login__container .login__left .register__form, .login__container .login__left .login__form {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -1288,7 +1305,7 @@ footer {
   gap: 1em;
 }
 
-.register__container .register__left .register__form .form__item {
+.register__container .register__left .register__form .form__item, .register__container .register__left .login__form .form__item, .register__container .login__left .register__form .form__item, .register__container .login__left .login__form .form__item, .login__container .register__left .register__form .form__item, .login__container .register__left .login__form .form__item, .login__container .login__left .register__form .form__item, .login__container .login__left .login__form .form__item {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -1302,14 +1319,29 @@ footer {
   gap: .3em;
 }
 
-.register__container .register__left .register__form .form__item input {
+.register__container .register__left .register__form .form__item label, .register__container .register__left .login__form .form__item label, .register__container .login__left .register__form .form__item label, .register__container .login__left .login__form .form__item label, .login__container .register__left .register__form .form__item label, .login__container .register__left .login__form .form__item label, .login__container .login__left .register__form .form__item label, .login__container .login__left .login__form .form__item label {
+  font-weight: lighter;
+}
+
+.register__container .register__left .register__form .form__item input, .register__container .register__left .login__form .form__item input, .register__container .login__left .register__form .form__item input, .register__container .login__left .login__form .form__item input, .login__container .register__left .register__form .form__item input, .login__container .register__left .login__form .form__item input, .login__container .login__left .register__form .form__item input, .login__container .login__left .login__form .form__item input {
   border: none;
   height: 3.5em;
   padding-left: 1em;
   border-radius: var(--border-common-radius);
 }
 
-.register__container .register__left .register__left-bottom {
+.register__container .register__left .register__form .form__item input:focus, .register__container .register__left .login__form .form__item input:focus, .register__container .login__left .register__form .form__item input:focus, .register__container .login__left .login__form .form__item input:focus, .login__container .register__left .register__form .form__item input:focus, .login__container .register__left .login__form .form__item input:focus, .login__container .login__left .register__form .form__item input:focus, .login__container .login__left .login__form .form__item input:focus {
+  outline: solid 1px var(--color-buttons);
+  border: none;
+  background-color: var(--color-primary);
+}
+
+.register__container .register__left .register__form .form__item input:-webkit-autofill, .register__container .register__left .register__form .form__item input:-webkit-autofill:hover, .register__container .register__left .register__form .form__item input:-webkit-autofill:focus, .register__container .register__left .register__form .form__item input:-webkit-autofill:active, .register__container .register__left .login__form .form__item input:-webkit-autofill, .register__container .register__left .login__form .form__item input:-webkit-autofill:hover, .register__container .register__left .login__form .form__item input:-webkit-autofill:focus, .register__container .register__left .login__form .form__item input:-webkit-autofill:active, .register__container .login__left .register__form .form__item input:-webkit-autofill, .register__container .login__left .register__form .form__item input:-webkit-autofill:hover, .register__container .login__left .register__form .form__item input:-webkit-autofill:focus, .register__container .login__left .register__form .form__item input:-webkit-autofill:active, .register__container .login__left .login__form .form__item input:-webkit-autofill, .register__container .login__left .login__form .form__item input:-webkit-autofill:hover, .register__container .login__left .login__form .form__item input:-webkit-autofill:focus, .register__container .login__left .login__form .form__item input:-webkit-autofill:active, .login__container .register__left .register__form .form__item input:-webkit-autofill, .login__container .register__left .register__form .form__item input:-webkit-autofill:hover, .login__container .register__left .register__form .form__item input:-webkit-autofill:focus, .login__container .register__left .register__form .form__item input:-webkit-autofill:active, .login__container .register__left .login__form .form__item input:-webkit-autofill, .login__container .register__left .login__form .form__item input:-webkit-autofill:hover, .login__container .register__left .login__form .form__item input:-webkit-autofill:focus, .login__container .register__left .login__form .form__item input:-webkit-autofill:active, .login__container .login__left .register__form .form__item input:-webkit-autofill, .login__container .login__left .register__form .form__item input:-webkit-autofill:hover, .login__container .login__left .register__form .form__item input:-webkit-autofill:focus, .login__container .login__left .register__form .form__item input:-webkit-autofill:active, .login__container .login__left .login__form .form__item input:-webkit-autofill, .login__container .login__left .login__form .form__item input:-webkit-autofill:hover, .login__container .login__left .login__form .form__item input:-webkit-autofill:focus, .login__container .login__left .login__form .form__item input:-webkit-autofill:active {
+  box-shadow: 0 0 0 30px white inset;
+  -webkit-box-shadow: 0 0 0 30px white inset;
+}
+
+.register__container .register__left .register__left-bottom, .register__container .register__left .login__left-bottom, .register__container .login__left .register__left-bottom, .register__container .login__left .login__left-bottom, .login__container .register__left .register__left-bottom, .login__container .register__left .login__left-bottom, .login__container .login__left .register__left-bottom, .login__container .login__left .login__left-bottom {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -1324,13 +1356,23 @@ footer {
   font-size: 1em;
 }
 
-.register__container .register__left .register__left-bottom .login__button {
-  background-color: transparent;
-  color: black;
-  font-weight: bold;
+.register__container .register__left .register__left-bottom span p, .register__container .register__left .login__left-bottom span p, .register__container .login__left .register__left-bottom span p, .register__container .login__left .login__left-bottom span p, .login__container .register__left .register__left-bottom span p, .login__container .register__left .login__left-bottom span p, .login__container .login__left .register__left-bottom span p, .login__container .login__left .login__left-bottom span p {
+  font-weight: lighter;
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
 }
 
-.register__container .register__right {
+.register__container .register__left .register__left-bottom span .login__button, .register__container .register__left .register__left-bottom span .register__button, .register__container .register__left .login__left-bottom span .login__button, .register__container .register__left .login__left-bottom span .register__button, .register__container .login__left .register__left-bottom span .login__button, .register__container .login__left .register__left-bottom span .register__button, .register__container .login__left .login__left-bottom span .login__button, .register__container .login__left .login__left-bottom span .register__button, .login__container .register__left .register__left-bottom span .login__button, .login__container .register__left .register__left-bottom span .register__button, .login__container .register__left .login__left-bottom span .login__button, .login__container .register__left .login__left-bottom span .register__button, .login__container .login__left .register__left-bottom span .login__button, .login__container .login__left .register__left-bottom span .register__button, .login__container .login__left .login__left-bottom span .login__button, .login__container .login__left .login__left-bottom span .register__button {
+  color: var(--color-buttons);
+}
+
+.register__container .register__left .register__left-bottom .login__button:hover, .register__container .register__left .register__left-bottom .register__button:hover, .register__container .register__left .login__left-bottom .login__button:hover, .register__container .register__left .login__left-bottom .register__button:hover, .register__container .login__left .register__left-bottom .login__button:hover, .register__container .login__left .register__left-bottom .register__button:hover, .register__container .login__left .login__left-bottom .login__button:hover, .register__container .login__left .login__left-bottom .register__button:hover, .login__container .register__left .register__left-bottom .login__button:hover, .login__container .register__left .register__left-bottom .register__button:hover, .login__container .register__left .login__left-bottom .login__button:hover, .login__container .register__left .login__left-bottom .register__button:hover, .login__container .login__left .register__left-bottom .login__button:hover, .login__container .login__left .register__left-bottom .register__button:hover, .login__container .login__left .login__left-bottom .login__button:hover, .login__container .login__left .login__left-bottom .register__button:hover {
+  font-weight: 700;
+  color: black;
+}
+
+.register__container .register__right, .register__container .login__right, .login__container .register__right, .login__container .login__right {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -1351,13 +1393,17 @@ footer {
   color: var(--color-primary);
 }
 
-.register__container .register__right .logo, .register__container .register__right h3, .register__container .register__right p {
+.register__container .register__right .logo, .register__container .register__right h3, .register__container .register__right p, .register__container .login__right .logo, .register__container .login__right h3, .register__container .login__right p, .login__container .register__right .logo, .login__container .register__right h3, .login__container .register__right p, .login__container .login__right .logo, .login__container .login__right h3, .login__container .login__right p {
   text-align: center;
   color: var(--color-primary);
   width: 90%;
 }
 
-.register__container .register__right .register__right-bottom {
+.register__container .register__right .logo, .register__container .login__right .logo, .login__container .register__right .logo, .login__container .login__right .logo {
+  color: black;
+}
+
+.register__container .register__right .register__right-bottom, .register__container .register__right .login__right-bottom, .register__container .login__right .register__right-bottom, .register__container .login__right .login__right-bottom, .login__container .register__right .register__right-bottom, .login__container .register__right .login__right-bottom, .login__container .login__right .register__right-bottom, .login__container .login__right .login__right-bottom {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -1367,15 +1413,16 @@ footer {
   gap: .5em;
 }
 
-.register__container .register__right .register__right-bottom a {
+.register__container .register__right .register__right-bottom a, .register__container .register__right .login__right-bottom a, .register__container .login__right .register__right-bottom a, .register__container .login__right .login__right-bottom a, .login__container .register__right .register__right-bottom a, .login__container .register__right .login__right-bottom a, .login__container .login__right .register__right-bottom a, .login__container .login__right .login__right-bottom a {
   color: var(--color-buttons);
-  font-weight: bold;
   font-size: 1.1em;
-  border-bottom: 3px solid var(--color-primary);
-  letter-spacing: 1px;
+  border-bottom: 2px solid var(--color-primary);
+  font-weight: 600;
 }
 
-.register__container .register__right .register__right-bottom i {
+.register__container .register__right .register__right-bottom a:hover, .register__container .register__right .login__right-bottom a:hover, .register__container .login__right .register__right-bottom a:hover, .register__container .login__right .login__right-bottom a:hover, .login__container .register__right .register__right-bottom a:hover, .login__container .register__right .login__right-bottom a:hover, .login__container .login__right .register__right-bottom a:hover, .login__container .login__right .login__right-bottom a:hover {
   color: black;
+  font-weight: 600;
+  padding-right: .5em;
 }
 /*# sourceMappingURL=index.css.map */
