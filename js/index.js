@@ -34,6 +34,25 @@ class MainClass {
         return [userEmail, userPassword];
     }
 
+    emailValidation(email) {
+        /* Called to validate email making sure everything */
+
+        const emailReString = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+
+
+        if (emailReString.test(email)) {
+
+            return true;
+            
+        } else {
+
+            throw new PageErrors('emailValidationError', 'Invalid Email! Kindly check your email format.');
+            
+        }
+
+
+    }
+
     returnOnChildClass() {
 
         /* Calls various interna */
@@ -68,7 +87,7 @@ class MainClass {
 
     createMessageAfter(id, message) {
         /* Called to create a success message*/
-
+        
         location.href = "index.html";
         window.sessionStorage.setItem('documentLoaded', 1);
         window.sessionStorage.setItem('loginMessage', message);
@@ -85,13 +104,13 @@ class MainClass {
             if (window.sessionStorage.getItem('documentLoaded') == true) {
 
                     
-                let form__message = window.document.getElementById('message__box');
+                let formMessage = window.document.getElementById('message__box');
 
 
-                form__message.className = 'form__message';
+                formMessage.classList.toggle('form__message');
+
+                document.getElementById('display__message').innerHTML = window.sessionStorage.getItem('loginMessage');
                 
-
-                form__message.innerHTML = window.sessionStorage.getItem('loginMessage');
                 window.sessionStorage.setItem('documentLoaded', 0);
 
             }
@@ -111,7 +130,7 @@ class MainClass {
 
     static closeMessage() {
         /* Closes login and registration successful messages */
-        document.getElementById('message__box').style.display = "none";
+        document.getElementById('message__box').classList.remove('form__message');
     }
 
     static hamburgerClicked() {
@@ -192,11 +211,9 @@ class Registration extends MainClass {
 
         /* Called to to make sure user inputs are in okay */
 
-        const emailReString = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
-
         if (this.personName && this.personEmail && this.personPassword) {
 
-            if (emailReString.test(this.personEmail)) {
+            if (this.emailValidation(this.personEmail)) {
 
                 this.#addToZebrazMembers();
                 
@@ -208,7 +225,7 @@ class Registration extends MainClass {
 
         } else {
 
-            throw new PageErrors('emptyInputs', 'Please enter all the required details')
+            throw new PageErrors('emptyInputsError', 'Please enter all the required details')
 
         }
 
@@ -246,8 +263,7 @@ class Registration extends MainClass {
                 
                 window.localStorage.setItem('websiteUsers', JSON.stringify(users));
 
-                this.#createMessages('register_form', `<p>Hello <strong>${this.personName}</strong> Thank your for Signing Up with us. Welcome to a whole new world of learning.</p>
-                                                            <i class="fa-solid fa-xmark" onclick="MainClass.messageClose()"></i>`);
+                this.#createMessages('register_form', `Hello <strong>${this.personName}</strong> Welcome. Account created Successfully.`);
                 
 
             }
@@ -310,11 +326,10 @@ class Login extends MainClass {
 
         /* Called to make sure user inputs are okay */
 
-        const emailReString = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
 
         if (this.userEmail && this.userPassword) { 
 
-            if (emailReString.test(this.userEmail)) {
+            if (this.emailValidation(this.userEmail)) {
 
                 try {
 
@@ -336,7 +351,7 @@ class Login extends MainClass {
 
         } else {
 
-            throw new PageErrors('emptyInputs', 'Please enter all the required details')
+            throw new PageErrors('emptyInputsError', 'Please enter all the required details')
 
         }
         
@@ -352,8 +367,7 @@ class Login extends MainClass {
 
             console.log(userData[0]);
             
-            this.#createMessages('login_form', `<p>Welcome back <strong>${userData[0]}</strong> Continue where you left off.</p>
-                                                <i class="fa-solid fa-xmark" onclick="MainClass.messageClose()"></i>`)
+            this.#createMessages('login_form', `Welcome back <strong>${userData[0]}</strong> Continue where you left off.`)
             
 
         } else {
@@ -396,6 +410,63 @@ class Login extends MainClass {
             return;
         }
         
+    }
+
+}
+
+class Subscribe extends MainClass {
+
+    constructor() {
+        /* Creates the Instance attributes */
+        
+        super();
+        
+    }
+
+    #subscribeToNotification() {
+        
+        /* POLYMORPHISM Private Method Called by the  subscribeGetNotification method when user clicks the subscribe button to display a message */
+
+        let emailSubscribe = document.getElementById('subscribe').value;
+        
+        if (emailSubscribe) {
+
+            if (this.emailValidation(emailSubscribe)) {
+
+
+                this.createMessageAfter('Thank you for subscribing to our Email Notifications.');
+
+            }
+
+        } else {
+            throw new PageErrors('emptyInputsError', 'Please enter Email');
+        }
+        
+    }
+    
+    subscribeGetNotification() {
+        /* Called when user clicks the subscribe button */
+        try {
+
+            this.#subscribeToNotification();
+        } catch(err) {
+
+            err.displayError();
+        }
+
+
+    }
+
+    createMessageAfter(message) {
+        /* Called create a success message after user clicks subscribe button */
+
+        let formMessage = window.document.getElementById('message__box');
+
+
+        formMessage.classList.toggle('form__message');
+
+        document.getElementById('display__message').innerHTML = message;
+
     }
 
 }
@@ -444,3 +515,6 @@ const userRegistration = new Registration();
 
 //Login class intance Object
 const userLogin = new Login();
+
+//Subscribe class instance Object
+const subNotification = new Subscribe();

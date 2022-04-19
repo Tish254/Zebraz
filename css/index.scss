@@ -151,13 +151,16 @@ img {
 
 /* Message Classes */
 
+.display__none {
+    display: none;
+}
+
 .form__message {
 
     position: fixed;
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: 1em;
     
     top: 4em;
     right: 2em;
@@ -165,21 +168,82 @@ img {
     height: auto;
 
 
-    background-color: var(--color-marketing);
-    color: white;
+    background-color: var(--color-primary);
     border-radius: var(--border-common-radius);
-    padding: 1em;
-    text-align: center;
+    // text-align: center;
 
-    // min-width: 40%;
-
+    box-shadow: var(--shadow-overall);
     z-index: 15;
-
     font-size: 1em;
 
-    i {
-        justify-self: end;
+    .success__side {
+
+        align-self: stretch;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 10%;
+        background-color: #53BE62;
+        border-radius: var(--border-common-radius);
+
+        border-top-right-radius: 0;
+        border-bottom-right-radius: 0;
+
+        i {
+            justify-self: end;
+            font-size: 2em;
+            color: var(--color-primary);
+        }
+
     }
+
+    .message__container {
+
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+
+        color: black;
+        margin: .4em 1em;
+        width: 80%;
+
+        p:nth-child(1) {
+            font-weight: normal;
+        }
+
+        p:nth-child(2) {
+            font-weight: lighter;
+            font-size: .8em;
+
+            strong {
+                text-transform: capitalize;
+            }
+        }
+
+    }
+
+    .close__button {
+        align-self: stretch;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 10%;
+        border-left: 1px solid rgba(0, 0, 0, .1);
+        padding: 0 2em;
+
+        p {
+            display: inline-flex;
+            text-transform: uppercase;
+            font-size: 1.1em;
+            font-weight: 100;
+            color: rgba(0, 0, 0, .5);
+
+            &:hover {
+                color: tomato;
+            }
+        }
+    }
+
 
     @include desktop {
         right: 5em;
@@ -199,8 +263,8 @@ img {
     justify-content: center;
 
     padding: 1em;
-    background-color: red;
-    color: yellow;
+    color: #D8000C;
+    background-color: #FFD2D2;
     border-radius: var(--border-common-radius);
     height: auto;
     width: 100%;
@@ -209,7 +273,7 @@ img {
     text-align: center;
 
     @include desktop {
-        width: 79%;
+        width: 100%;
     }
     
 }
@@ -1219,9 +1283,13 @@ footer {
 
         .footer__item {
 
+            .form__error {
+                width: 100%;
+            }
+
             .footer__button {
                 width: 80%;
-                padding: .9em .2em;
+                padding: .7em .2em;
             }
 
         }

@@ -26,9 +26,19 @@
 </head>
 <body>
 
-    <div id="message__box" class="form__message">
-        <p>Hello <strong>${this.personName}</strong> Thank your for Signing Up with us. Welcome to a whole new world of learning.</p>
-        <i class="fa-solid fa-xmark" onclick="MainClass.closeMessage()"></i>
+    <div id="message__box" class="display__none">
+        <div class="success__side">
+            <i class="fa-regular fa-circle-check"></i>
+        </div>
+        <div class="message__container">
+            <p>Success</p>
+            <p id="display__message">Hello <strong>${this.personName}</strong> Thank your for Signing Up with us. Welcome to a whole new world of learning.</p>
+
+        </div>
+
+        <div class="close__button">
+            <p  onclick="MainClass.closeMessage()">close</p>
+        </div>
     </div>
 
     <header class="top">
@@ -404,8 +414,9 @@
             <div class="footer__item subscribe">
                 <h2>Subscribe!</h2>
                 <p>Get our newsletters wiith a list of our latest courses every time we create them </p>
-                <input type="email" class="footer__input" placeholder="Enter your Email">
-                <a href="#footer" class="btn footer__button">Subscribe Now</a>
+                <input type="email" class="footer__input" placeholder="Enter your Email" id="subscribe">
+                <div id="error_message" class="error"></div>
+                <a class="btn footer__button" onclick="subNotification.subscribeGetNotification()">Subscribe Now</a>
             </div>
         </div>
     </footer>
