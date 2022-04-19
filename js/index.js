@@ -1,68 +1,8 @@
-/*  Zebraz Javascript Code */
+/*  Zebraz Javascript Code
+    Object Oriented principles used
+    inheritance, polymorphism, encapsulation, abstraction.
 
-// the rest of the functions and code 
-
-
-function hamburgerClicked() {
-
-    /* Called to Open the Mobile Menu */
-
-    console.log('Hamburgered');
-
-    document.querySelector('.fa-bars').classList.toggle('fa-xmark');
-
-    document.querySelector('.top').classList.toggle("nav__toggled");
-
-}
-
-function showAnswer() {
-    /* Called to to show the frequently asked questions answers */
-    
-    document.querySelectorAll('.faq').forEach( faq => {
-        faq.addEventListener('click', () => {
-
-            console.log('adding')
-            
-            let icon = faq.querySelector('i')
-            
-            if (icon.className === 'fa-solid fa-plus') {
-
-                icon.className = 'fa-solid fa-minus'
-                console.log('fa-minus added')
-                
-                
-            } else {
-                icon.className = 'fa-solid fa-plus'
-                console.log('fa-plus added')
-            }
-
-            faq.classList.toggle('faq__answer');
-            
-        })
-
-    })
-
-
-}
-
-
-function changeHeaderOnScroll() {
-    /* Called to change give the header a different style on scrolling */
-
-
-    window.addEventListener('scroll', () => {
-        let headerTop = document.querySelector('header.top');
-
-        if (headerTop) {
-            headerTop.classList.toggle('scrolled', window.scrollY > 10);
-
-        }
-
-    })
-
-
-}
-
+*/
 
 class MainClass {
 
@@ -74,7 +14,7 @@ class MainClass {
 
     }
 
-    #getRegistrationData () {
+    #getRegistrationData() {
 
         /* Gets user registration data from Form */
 
@@ -86,7 +26,7 @@ class MainClass {
         
     }
 
-    #getLoginData () {
+    #getLoginData() {
 
         let userEmail = document.getElementById('userEmail').value;
         let userPassword = document.getElementById('userPassword').value;
@@ -94,7 +34,7 @@ class MainClass {
         return [userEmail, userPassword];
     }
 
-    returnOnChildClass () {
+    returnOnChildClass() {
 
         /* Calls various interna */
 
@@ -126,14 +66,13 @@ class MainClass {
         
     }
 
-    resetFormCreateMessage(id, message) {
-        /* Called to create a message and reset the form */
-
-        document.getElementById(id).reset();
+    createMessageAfter(id, message) {
+        /* Called to create a success message*/
 
         location.href = "index.html";
         window.sessionStorage.setItem('documentLoaded', 1);
         window.sessionStorage.setItem('loginMessage', message);
+
         
     }
 
@@ -157,13 +96,81 @@ class MainClass {
 
             }
 
+            let headerTop = document.querySelector('header.top');
+
+            if (headerTop) {
+                headerTop.classList.toggle('scrolled', window.scrollY > 0);
+    
+            }
+
 
         });
 
 
     }
 
+    static closeMessage() {
+        /* Closes login and registration successful messages */
+        document.getElementById('message__box').style.display = "none";
+    }
 
+    static hamburgerClicked() {
+
+        /* Called to Open the Mobile Menu */
+    
+        console.log('Hamburgered');
+    
+        document.querySelector('.fa-bars').classList.toggle('fa-xmark');
+    
+        document.querySelector('.top').classList.toggle("nav__toggled");
+    
+    }
+
+    static showAnswer() {
+        /* Called to to show the frequently asked questions answers */
+        
+        document.querySelectorAll('.faq').forEach( faq => {
+            faq.addEventListener('click', () => {
+    
+                console.log('adding')
+                
+                let icon = faq.querySelector('i')
+                
+                if (icon.className === 'fa-solid fa-plus') {
+    
+                    icon.className = 'fa-solid fa-minus'
+                    console.log('fa-minus added')
+                    
+                    
+                } else {
+                    icon.className = 'fa-solid fa-plus'
+                    console.log('fa-plus added')
+                }
+    
+                faq.classList.toggle('faq__answer');
+                
+            })
+    
+        })
+    
+    
+    }
+    
+    static changeHeaderOnScroll() {
+        /* Called to change give the header a different style on scrolling */
+    
+    
+        window.addEventListener('scroll', () => {
+            let headerTop = document.querySelector('header.top');
+    
+            if (headerTop) {
+                headerTop.classList.toggle('scrolled', window.scrollY > 10);
+    
+            }
+    
+        })
+    
+    }
 
 }
 
@@ -214,7 +221,7 @@ class Registration extends MainClass {
 
         console.log(id, message);
 
-        this.resetFormCreateMessage(id, message);
+        this.createMessageAfter(id, message);
 
         
 
@@ -239,7 +246,8 @@ class Registration extends MainClass {
                 
                 window.localStorage.setItem('websiteUsers', JSON.stringify(users));
 
-                this.#createMessages('register_form', `Hello <strong> ${this.personName} </strong> Thank your for Signing Up with us. Welcome to a whole new world of learning.`);
+                this.#createMessages('register_form', `<p>Hello <strong>${this.personName}</strong> Thank your for Signing Up with us. Welcome to a whole new world of learning.</p>
+                                                            <i class="fa-solid fa-xmark" onclick="MainClass.messageClose()"></i>`);
                 
 
             }
@@ -344,7 +352,8 @@ class Login extends MainClass {
 
             console.log(userData[0]);
             
-            this.#createMessages('login_form', `Welcome back <strong> ${userData[0]} </strong> Continue where you left off.`)
+            this.#createMessages('login_form', `<p>Welcome back <strong>${userData[0]}</strong> Continue where you left off.</p>
+                                                <i class="fa-solid fa-xmark" onclick="MainClass.messageClose()"></i>`)
             
 
         } else {
@@ -367,7 +376,7 @@ class Login extends MainClass {
     #createMessages(id, message) {
         /* called to diplay appropriate message to the user */
 
-        this.resetFormCreateMessage(id, message);
+        this.createMessageAfter(id, message);
 
     }
 
@@ -416,14 +425,22 @@ class PageErrors extends Error {
 
 }
 
-changeHeaderOnScroll();
 
-showAnswer();
+// MainClass overall static Methods
+MainClass.changeHeaderOnScroll();
+MainClass.showAnswer();
+
+// MainClass Instance Object
 
 const zebrazMain = new MainClass();
+
+// MainClass instance Methods;
 zebrazMain.createWebsiteStorage();
 zebrazMain.messageOnLoad();
 
+
+//Registration class intance Object
 const userRegistration = new Registration();
 
+//Login class intance Object
 const userLogin = new Login();

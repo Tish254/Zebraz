@@ -104,25 +104,29 @@ img {
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
+  gap: 1em;
   top: 4em;
   right: 2em;
+  left: 2em;
   height: auto;
   background-color: var(--color-marketing);
   color: white;
   border-radius: var(--border-common-radius);
   padding: 1em;
   text-align: center;
-  min-width: 40%;
   z-index: 15;
+  font-size: 1em;
 }
 
-.form__message::after {
-  content: 'hello';
+.form__message i {
+  -ms-grid-column-align: end;
+      justify-self: end;
 }
 
 @media only screen and (min-width: 860px) {
   .form__message {
     right: 5em;
+    left: 5em;
   }
 }
 

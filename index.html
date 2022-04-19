@@ -27,6 +27,8 @@
 <body>
 
     <div id="message__box" class="form__message">
+        <p>Hello <strong>${this.personName}</strong> Thank your for Signing Up with us. Welcome to a whole new world of learning.</p>
+        <i class="fa-solid fa-xmark" onclick="MainClass.closeMessage()"></i>
     </div>
 
     <header class="top">
@@ -45,7 +47,7 @@
             </nav>
 
             <div class="nav__toggles">
-                <i class="fa-solid fa-bars" onclick="hamburgerClicked()"></i>
+                <i class="fa-solid fa-bars" onclick="MainClass.hamburgerClicked()"></i>
                 <a href="registration.html" class="btn nav__button">Register Now</a>
         
             </div>

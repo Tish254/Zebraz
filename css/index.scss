@@ -157,9 +157,11 @@ img {
     display: flex;
     align-items: center;
     justify-content: center;
+    gap: 1em;
     
     top: 4em;
     right: 2em;
+    left: 2em;
     height: auto;
 
 
@@ -169,16 +171,19 @@ img {
     padding: 1em;
     text-align: center;
 
-    min-width: 40%;
+    // min-width: 40%;
 
     z-index: 15;
 
-    &::after {
-        content: 'hello';
+    font-size: 1em;
+
+    i {
+        justify-self: end;
     }
 
     @include desktop {
         right: 5em;
+        left: 5em
     }
     
 }
@@ -253,6 +258,7 @@ header.top.scrolled {
     box-shadow: var(--shadow-overall);
 
     .container.nav__container {
+
         nav {
             display: block;
         }
