@@ -27,8 +27,7 @@
     --border-common-radius: .2em;
 
     --shadow-overall:  0 4px 8px 0 rgba(0, 0, 0, 0.2);
-    --button-hover: #E1AD01;
-
+    --buttons-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
 
 
 }
@@ -139,6 +138,7 @@ img {
     border-radius: var(--border-common-radius);
     font-size: 1em;
     transition: var(--transition-all);
+    box-shadow: var(--buttons-shadow);
 
     &:hover {
         background-color: var(--color-primary);
@@ -161,6 +161,12 @@ img {
         border: 2px solid var(--color-buttons);
     }
     
+}
+
+.active__link {
+    // color: var(--color-buttons) !important;
+    border-bottom: 2px solid var(--color-buttons);
+
 }
 
 
@@ -954,6 +960,15 @@ section#courses {
             padding: .5em 1em;
             margin-left: 2em;
             margin-right: 2em;
+            background-color: var(--color-primary);
+            border: 2px solid var(--color-buttons);
+            color: var(--color-buttons);
+
+            &:hover {
+                background-color: var(--color-buttons);
+                color: var(--color-primary);
+                border: 2px solid var(--color-buttons);
+            }
         }
     }
 
@@ -985,6 +1000,7 @@ section#courses {
 
             .course__button {
                 align-self: flex-start;
+                
             }
 
             &:nth-child(3) {
@@ -1529,14 +1545,16 @@ footer {
                 .login__button, .register__button {
                     color: var(--color-buttons);
                 }
+
+                .login__button:hover, .register__button:hover {
+                    font-weight: 700;
+                    color: black;
+    
+                }
             }
 
 
-            .login__button:hover, .register__button:hover {
-                font-weight: 700;
-                color: black;
-
-            }
+            
 
         }
 
@@ -1575,7 +1593,7 @@ footer {
                 font-weight: 600;
 
                 &:hover {
-                    color: black;
+                    color: var(--color-primary);
                     font-weight: 600;
                     padding-right: .5em;
 

@@ -20,7 +20,7 @@
   --border-nav-radius: .83em;
   --border-common-radius: .2em;
   --shadow-overall:  0 4px 8px 0 rgba(0, 0, 0, 0.2);
-  --button-hover: #E1AD01;
+  --buttons-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
 }
 
 /************ Hero Section ****************/
@@ -84,6 +84,8 @@ img {
   font-size: 1em;
   -webkit-transition: var(--transition-all);
   transition: var(--transition-all);
+  -webkit-box-shadow: var(--buttons-shadow);
+          box-shadow: var(--buttons-shadow);
 }
 
 .btn:hover {
@@ -102,6 +104,10 @@ img {
   background-color: var(--color-buttons);
   color: var(--color-primary);
   border: 2px solid var(--color-buttons);
+}
+
+.active__link {
+  border-bottom: 2px solid var(--color-buttons);
 }
 
 /* Message Classes */
@@ -951,6 +957,15 @@ section#courses h2 {
   padding: .5em 1em;
   margin-left: 2em;
   margin-right: 2em;
+  background-color: var(--color-primary);
+  border: 2px solid var(--color-buttons);
+  color: var(--color-buttons);
+}
+
+.container.courses__container .course .course__button:hover {
+  background-color: var(--color-buttons);
+  color: var(--color-primary);
+  border: 2px solid var(--color-buttons);
 }
 
 @media only screen and (min-width: 600px) {
@@ -1582,7 +1597,7 @@ footer {
   color: var(--color-buttons);
 }
 
-.register__container .register__left .register__left-bottom .login__button:hover, .register__container .register__left .register__left-bottom .register__button:hover, .register__container .register__left .login__left-bottom .login__button:hover, .register__container .register__left .login__left-bottom .register__button:hover, .register__container .login__left .register__left-bottom .login__button:hover, .register__container .login__left .register__left-bottom .register__button:hover, .register__container .login__left .login__left-bottom .login__button:hover, .register__container .login__left .login__left-bottom .register__button:hover, .login__container .register__left .register__left-bottom .login__button:hover, .login__container .register__left .register__left-bottom .register__button:hover, .login__container .register__left .login__left-bottom .login__button:hover, .login__container .register__left .login__left-bottom .register__button:hover, .login__container .login__left .register__left-bottom .login__button:hover, .login__container .login__left .register__left-bottom .register__button:hover, .login__container .login__left .login__left-bottom .login__button:hover, .login__container .login__left .login__left-bottom .register__button:hover {
+.register__container .register__left .register__left-bottom span .login__button:hover, .register__container .register__left .register__left-bottom span .register__button:hover, .register__container .register__left .login__left-bottom span .login__button:hover, .register__container .register__left .login__left-bottom span .register__button:hover, .register__container .login__left .register__left-bottom span .login__button:hover, .register__container .login__left .register__left-bottom span .register__button:hover, .register__container .login__left .login__left-bottom span .login__button:hover, .register__container .login__left .login__left-bottom span .register__button:hover, .login__container .register__left .register__left-bottom span .login__button:hover, .login__container .register__left .register__left-bottom span .register__button:hover, .login__container .register__left .login__left-bottom span .login__button:hover, .login__container .register__left .login__left-bottom span .register__button:hover, .login__container .login__left .register__left-bottom span .login__button:hover, .login__container .login__left .register__left-bottom span .register__button:hover, .login__container .login__left .login__left-bottom span .login__button:hover, .login__container .login__left .login__left-bottom span .register__button:hover {
   font-weight: 700;
   color: black;
 }
@@ -1632,7 +1647,7 @@ footer {
 }
 
 .register__container .register__right .register__right-bottom a:hover, .register__container .register__right .login__right-bottom a:hover, .register__container .login__right .register__right-bottom a:hover, .register__container .login__right .login__right-bottom a:hover, .login__container .register__right .register__right-bottom a:hover, .login__container .register__right .login__right-bottom a:hover, .login__container .login__right .register__right-bottom a:hover, .login__container .login__right .login__right-bottom a:hover {
-  color: black;
+  color: var(--color-primary);
   font-weight: 600;
   padding-right: .5em;
 }

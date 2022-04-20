@@ -172,15 +172,49 @@ class MainClass {
     }
     
     static changeHeaderOnScroll() {
-        /* Called to change give the header a different style on scrolling */
+        /* Called to change give different styles on scrolling */
+
+
+        let currentSection = "";
+        
+        const sections = document.querySelectorAll('section');
+        
+        const nav_links = document.querySelectorAll('.nav__link');
+        
+        const headerTop = document.querySelector('header.top');
+    
+
+
     
     
         window.addEventListener('scroll', () => {
-            let headerTop = document.querySelector('header.top');
+
+            sections.forEach(section => {
+            
+                if (scrollY >= (section.offsetTop)) {
+
+                    currentSection = section.id;
+    
+                }
+            
+            });
+
+
+            nav_links.forEach(link => {
+
+                link.classList.remove('active__link');
+
+                if (link.classList.contains(currentSection)) {
+                    
+                    link.classList.add('active__link');
+
+                }
+                
+            });
     
             if (headerTop) {
                 headerTop.classList.toggle('scrolled', window.scrollY > 10);
-    
+
             }
     
         })
