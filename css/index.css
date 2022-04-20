@@ -39,7 +39,7 @@ body {
   background-color: var(--color-primary);
   -webkit-transition: var(--transition-all);
   transition: var(--transition-all);
-  max-width: 1140px;
+  max-width: 1500px;
 }
 
 body .container {
