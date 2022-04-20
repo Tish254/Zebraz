@@ -91,9 +91,14 @@ $categories: 1110px;
 }
 
 body {
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    max-width: 1500px;
     background-color: var(--color-primary);
     transition: var(--transition-all);
-    max-width: 1500px;
 
     .container {
 
