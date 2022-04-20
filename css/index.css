@@ -3,7 +3,7 @@
   --color-secondary: #EAF3FA;
   --color-nav-footer: #FFFFFA;
   --color-buttons: #F17B4C;
-  --color-faqs: #718CE2;
+  --color-faqs: #3457D5;
   --color-block-chain: #FF3366;
   --color-business: #26427F;
   --color-design: #FF312E;
@@ -11,7 +11,7 @@
   --color-marketing: #2EC4B6;
   --color-music: #4B3F72;
   --color-icons: #FFFFFF;
-  --transition-all: all 400ms ease-in-out;
+  --transition-all: all 350ms ease;
   --logo-fs: 2em;
   --fs-h1: 1.7em;
   --fs-h2: 1.3em;
@@ -20,6 +20,7 @@
   --border-nav-radius: .83em;
   --border-common-radius: .2em;
   --shadow-overall:  0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  --buttons-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
 }
 
 /************ Hero Section ****************/
@@ -77,9 +78,187 @@ img {
   text-align: center;
   background-color: var(--color-buttons);
   color: var(--color-primary);
-  padding: .9em 1.5em;
+  border: 2px solid var(--color-buttons);
+  padding: .7em 1.5em;
   border-radius: var(--border-common-radius);
   font-size: 1em;
+  -webkit-transition: var(--transition-all);
+  transition: var(--transition-all);
+  -webkit-box-shadow: var(--buttons-shadow);
+          box-shadow: var(--buttons-shadow);
+}
+
+.btn:hover {
+  background-color: var(--color-primary);
+  border: 2px solid var(--color-buttons);
+  color: var(--color-buttons);
+}
+
+.nav__login {
+  background-color: var(--color-primary);
+  border: 2px solid var(--color-buttons);
+  color: var(--color-buttons);
+}
+
+.nav__login:hover {
+  background-color: var(--color-buttons);
+  color: var(--color-primary);
+  border: 2px solid var(--color-buttons);
+}
+
+.active__link {
+  border-bottom: 2px solid var(--color-buttons);
+}
+
+/* Message Classes */
+.display__none {
+  display: none;
+}
+
+.form__message {
+  position: fixed;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  top: 4em;
+  right: 2em;
+  left: 2em;
+  height: auto;
+  background-color: var(--color-primary);
+  border-radius: var(--border-common-radius);
+  -webkit-box-shadow: var(--shadow-overall);
+          box-shadow: var(--shadow-overall);
+  z-index: 15;
+  font-size: 1em;
+}
+
+.form__message .success__side {
+  -ms-flex-item-align: stretch;
+      align-self: stretch;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  width: 10%;
+  background-color: #53BE62;
+  border-radius: var(--border-common-radius);
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
+}
+
+.form__message .success__side i {
+  -ms-grid-column-align: end;
+      justify-self: end;
+  font-size: 2em;
+  color: var(--color-primary);
+}
+
+.form__message .message__container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  color: black;
+  margin: .4em 1em;
+  width: 80%;
+}
+
+.form__message .message__container p:nth-child(1) {
+  font-weight: normal;
+}
+
+.form__message .message__container p:nth-child(2) {
+  font-weight: lighter;
+  font-size: .8em;
+}
+
+.form__message .message__container p:nth-child(2) strong {
+  text-transform: capitalize;
+}
+
+.form__message .close__button {
+  -ms-flex-item-align: stretch;
+      align-self: stretch;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  width: 10%;
+  border-left: 1px solid rgba(0, 0, 0, 0.1);
+  padding: 0 2em;
+}
+
+.form__message .close__button p {
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  text-transform: uppercase;
+  font-size: 1.1em;
+  font-weight: 100;
+  color: rgba(0, 0, 0, 0.5);
+}
+
+.form__message .close__button p:hover {
+  color: tomato;
+}
+
+@media only screen and (min-width: 860px) {
+  .form__message {
+    right: 5em;
+    left: 5em;
+  }
+}
+
+.error {
+  display: none;
+}
+
+.form__error {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  padding: 1em;
+  color: #D8000C;
+  background-color: #FFD2D2;
+  border-radius: var(--border-common-radius);
+  height: auto;
+  width: 100%;
+  font-size: .8em;
+  text-align: center;
+}
+
+@media only screen and (min-width: 860px) {
+  .form__error {
+    width: 100%;
+  }
 }
 
 /*====================== INDEX PAGE ===========================*/
@@ -88,10 +267,8 @@ img {
 header {
   position: fixed;
   top: 0;
-  background-color: var(--color-nav-footer);
   width: 100%;
-  height: 10vh;
-  border-radius: var(--border-nav-radius);
+  height: 3.5em;
   border-top-right-radius: 0;
   border-top-left-radius: 0;
   border-top: 0;
@@ -105,22 +282,30 @@ header {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
-  -webkit-box-shadow: var(--shadow-overall);
-          box-shadow: var(--shadow-overall);
-  z-index: 1;
+  border-color: transparent;
+  z-index: 15;
 }
 
 @media only screen and (min-width: 860px) {
   header {
-    height: 10vh;
+    height: 3.5em;
     -webkit-box-pack: center;
         -ms-flex-pack: center;
             justify-content: center;
   }
 }
 
+header.top.scrolled {
+  background-color: var(--color-nav-footer);
+  -webkit-box-shadow: var(--shadow-overall);
+          box-shadow: var(--shadow-overall);
+}
+
 .nav__toggled {
-  height: 37vh;
+  height: 65%;
+  background-color: var(--color-primary);
+  -webkit-box-shadow: var(--shadow-overall);
+          box-shadow: var(--shadow-overall);
 }
 
 .nav__toggled .container.nav__container nav {
@@ -142,7 +327,7 @@ header {
   -ms-grid-columns: 1fr 1fr;
       grid-template-columns: 1fr 1fr;
       grid-template-areas: "logo toggles" "navArea navArea";
-  margin-top: .6em;
+  margin-top: .2em;
 }
 
 .container.nav__container .logo {
@@ -180,6 +365,104 @@ header {
   color: black;
 }
 
+.container.nav__container nav ul a:hover {
+  color: var(--color-buttons);
+}
+
+.container.nav__container nav ul .nav__dropdown {
+  position: relative;
+}
+
+.container.nav__container nav ul .nav__dropdown .drop__up {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  gap: .3em;
+}
+
+.container.nav__container nav ul .nav__dropdown .drop__up .drop__btn {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  gap: .5em;
+  border: none;
+  background: transparent;
+  font-size: 1em;
+  -webkit-transition: -webkit-transform 700ms linear;
+  transition: -webkit-transform 700ms linear;
+  transition: transform 700ms linear;
+  transition: transform 700ms linear, -webkit-transform 700ms linear;
+}
+
+.container.nav__container nav ul .nav__dropdown .drop__up .drop__btn i {
+  font-size: .8em;
+}
+
+.container.nav__container nav ul .nav__dropdown .drop__up .drop__btn:hover {
+  color: var(--color-buttons);
+}
+
+.container.nav__container nav ul .nav__dropdown .drop__up .drop__btn:hover i {
+  -webkit-transform: rotate(180deg);
+          transform: rotate(180deg);
+}
+
+.container.nav__container nav ul .nav__dropdown .drop__content {
+  display: none;
+  position: absolute;
+  background-color: #f9f9f9;
+  padding: 1em;
+  -webkit-box-shadow: var(--shadow-overall);
+          box-shadow: var(--shadow-overall);
+  z-index: 15;
+  width: 11em;
+}
+
+.container.nav__container nav ul .nav__dropdown:hover .drop__up .drop__btn {
+  color: var(--color-buttons);
+}
+
+.container.nav__container nav ul .nav__dropdown:hover .drop__up .drop__btn i {
+  -webkit-transform: rotate(180deg);
+          transform: rotate(180deg);
+}
+
+.container.nav__container nav ul .nav__dropdown:hover .drop__content {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.container.nav__container nav .nav__button__inside {
+  font-size: .8em;
+  padding: .7em .5em;
+  width: 40%;
+  margin-top: .7em;
+}
+
+.container.nav__container nav .nav__button__inside.nav__login {
+  width: 30%;
+}
+
+@media only screen and (min-width: 600px) {
+  .container.nav__container nav .nav__button__inside {
+    display: none;
+  }
+}
+
 .container.nav__container .nav__toggles {
   -ms-grid-row: 1;
   -ms-grid-column: 2;
@@ -205,7 +488,7 @@ header {
 @media only screen and (min-width: 600px) {
   .container.nav__container .nav__toggles .nav__button {
     display: block;
-    padding: .5em 1.5em;
+    padding: .3em 1.3em;
   }
 }
 
@@ -250,7 +533,7 @@ header {
   .container.nav__container nav ul li + li {
     margin-left: 2em;
   }
-  .container.nav__container .fa-solid {
+  .container.nav__container .fa-bars, .container.nav__container .fa-xmark {
     display: none;
   }
 }
@@ -289,6 +572,10 @@ header {
   gap: 1.5em;
 }
 
+.container.hero__container .hero__left h1 {
+  font-size: 1.5em;
+}
+
 .container.hero__container .hero__right {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -311,6 +598,8 @@ header {
     -webkit-box-align: center;
         -ms-flex-align: center;
             align-items: center;
+    margin-top: 3em;
+    margin-bottom: 2.5em;
   }
   .container.hero__container .hero__left {
     display: -webkit-box;
@@ -342,7 +631,7 @@ header {
 /************ Categories ****************/
 section#categories {
   background-color: var(--color-secondary);
-  padding: 3em 0 7em;
+  padding: 8em 0 7em;
 }
 
 .categories__container {
@@ -414,8 +703,10 @@ section#categories {
   gap: 1.2em;
   background-color: var(--color-primary);
   border-radius: var(--border-common-radius);
-  padding: 5em 2em;
+  padding: 2em 2em;
   font-size: .9em;
+  -webkit-box-shadow: var(--shadow-overall);
+          box-shadow: var(--shadow-overall);
 }
 
 .categories__container .categories__right .category span {
@@ -485,7 +776,7 @@ section#categories {
     border-radius: var(--border-common-radius);
     width: 100%;
     margin-bottom: 0;
-    padding: 5em 2em;
+    padding: 2em 1em;
   }
 }
 
@@ -587,9 +878,9 @@ section#courses h2 {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  -webkit-box-align: stretch;
+      -ms-flex-align: stretch;
+          align-items: stretch;
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
@@ -619,20 +910,23 @@ section#courses h2 {
   text-align: center;
   background-color: var(--color-secondary);
   border-radius: var(--border-common-radius);
-  padding: 2em;
+  padding: 0 0 2em 0;
   width: 100%;
-  height: 100%;
+  -webkit-box-shadow: var(--shadow-overall);
+          box-shadow: var(--shadow-overall);
 }
 
 .container.courses__container .course .img {
   width: 100%;
-  height: 280px;
+  height: 250px;
   background-size: cover;
 }
 
 .container.courses__container .course .img img {
   width: 100%;
   height: 100%;
+  border-top-left-radius: var(--border-common-radius);
+  border-top-right-radius: var(--border-common-radius);
 }
 
 .container.courses__container .course .course__info {
@@ -651,6 +945,8 @@ section#courses h2 {
           flex-direction: column;
   gap: 1.5em;
   margin-bottom: auto;
+  margin-left: 2em;
+  margin-right: 2em;
 }
 
 .container.courses__container .course .course__info .course__title h3 {
@@ -658,7 +954,18 @@ section#courses h2 {
 }
 
 .container.courses__container .course .course__button {
-  padding: .7em 1em;
+  padding: .5em 1em;
+  margin-left: 2em;
+  margin-right: 2em;
+  background-color: var(--color-primary);
+  border: 2px solid var(--color-buttons);
+  color: var(--color-buttons);
+}
+
+.container.courses__container .course .course__button:hover {
+  background-color: var(--color-buttons);
+  color: var(--color-primary);
+  border: 2px solid var(--color-buttons);
 }
 
 @media only screen and (min-width: 600px) {
@@ -811,7 +1118,7 @@ section#about {
 
 /************ FAQS ****************/
 section#faqs {
-  padding: 2.5em 0;
+  padding: 5em 0 5em;
 }
 
 section#faqs h2 {
@@ -852,6 +1159,8 @@ section#faqs h2 {
   color: var(--color-primary);
   border-radius: var(--border-common-radius);
   font-size: small;
+  -webkit-box-shadow: var(--shadow-overall);
+          box-shadow: var(--shadow-overall);
 }
 
 .container.faqs__container .faq .faq__left {
@@ -902,6 +1211,8 @@ section#faqs h2 {
 section#testimonials {
   background-color: var(--color-secondary);
   padding: 2.5em 0;
+  height: 100%;
+  width: 100%;
 }
 
 section#testimonials h1 {
@@ -910,21 +1221,11 @@ section#testimonials h1 {
 }
 
 .container.testimonials__container {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  padding: 0 0 3em;
-  gap: 5em;
+  overflow-x: hidden;
+  position: relative;
+  margin-bottom: 5rem;
+  height: 100%;
+  padding: 0 0 5em;
 }
 
 .container.testimonials__container .testimonial {
@@ -944,44 +1245,27 @@ section#testimonials h1 {
   gap: 1.2em;
   text-align: center;
   padding: 0 2em 2em;
+  margin-top: 3em;
   background-color: var(--color-faqs);
   color: var(--color-primary);
   border-radius: var(--border-common-radius);
+  -webkit-box-shadow: var(--shadow-overall);
+          box-shadow: var(--shadow-overall);
 }
 
 .container.testimonials__container .testimonial img {
   width: 5.5em;
   height: 5.5em;
   margin-top: -2.25em;
+  z-index: 1;
 }
 
-@media only screen and (min-width: 600px) {
-  .container.testimonials__container {
-    display: -ms-grid;
-    display: grid;
-    -ms-grid-columns: (1fr)[2];
-        grid-template-columns: repeat(2, 1fr);
-    gap: 1em;
-  }
-}
-
-@media only screen and (min-width: 860px) {
-  .container.testimonials__container {
-    display: -ms-grid;
-    display: grid;
-    -ms-grid-columns: (1fr)[3];
-        grid-template-columns: repeat(3, 1fr);
-    gap: 2em;
-  }
-}
-
-/************ TESTIMONIALS ****************/
+/************ FOOTER ****************/
 footer {
   background-color: var(--color-nav-footer);
   padding: 2em 0;
   -webkit-box-shadow: var(--shadow-overall);
           box-shadow: var(--shadow-overall);
-  border-radius: var(--border-nav-radius);
   margin-top: -2em;
 }
 
@@ -1033,6 +1317,7 @@ footer {
 
 .container.footer__container .footer__item input:focus {
   outline: solid 1px var(--color-buttons);
+  border: none;
 }
 
 .container.footer__container .footer__item .footer__socials {
@@ -1068,8 +1353,16 @@ footer {
   font-size: 1.3em;
 }
 
+.container.footer__container .footer__item .footer__socials a:hover {
+  color: var(--color-buttons);
+}
+
 .container.footer__container .footer__item ul li a {
   color: black;
+}
+
+.container.footer__container .footer__item ul li a:hover {
+  color: var(--color-buttons);
 }
 
 .container.footer__container .footer__item .footer__button {
@@ -1117,48 +1410,105 @@ footer {
         grid-template-columns: repeat(4, 1fr);
     gap: 2em;
   }
+  .container.footer__container .footer__item .form__error {
+    width: 100%;
+  }
   .container.footer__container .footer__item .footer__button {
     width: 80%;
-    padding: .9em .2em;
+    padding: .7em .2em;
   }
 }
 
-/*====================== LOGIN PAGE ===========================*/
-.login__header {
-  background-color: transparent;
-  -webkit-box-shadow: none;
-          box-shadow: none;
-}
-
-@media only screen and (min-width: 860px) {
-  .login__body .container {
-    margin: 0 2em 0 0;
-  }
-  .login__body .container .logo {
-    margin-left: 1em;
-  }
-}
-
-.login__toggles .register {
-  display: none;
-}
-
-.login__toggles .register__button {
-  font-size: 1em;
-  padding: .5em 1em;
+/*====================== REGISTRATION PAGE =========================== AND ====================== LOGIN PAGE ===========================*/
+.register__body, .login__body {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  padding: 3em 2em 2.5em;
 }
 
 @media only screen and (min-width: 600px) {
-  .login__toggles .register__button {
-    font-size: 1.1em;
-    padding: .5em 1.5em;
-  }
-  .login__toggles .register {
-    display: inline-block;
+  .register__body, .login__body {
+    padding: 3em 5em 3em;
   }
 }
 
-.container.login__container {
+@media only screen and (min-width: 860px) {
+  .register__body, .login__body {
+    padding: 2em 13em;
+  }
+}
+
+.register__header, .login__header {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin-bottom: 1em;
+}
+
+.register__container, .login__container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  background-color: var(--color-secondary);
+  border-radius: var(--border-common-radius);
+}
+
+@media only screen and (min-width: 860px) {
+  .register__container, .login__container {
+    display: -ms-grid;
+    display: grid;
+    -ms-grid-columns: 65% 35%;
+        grid-template-columns: 65% 35%;
+  }
+  .register__container .register__right, .register__container .login__right, .login__container .register__right, .login__container .login__right {
+    -ms-flex-item-align: stretch;
+        -ms-grid-row-align: stretch;
+        align-self: stretch;
+    width: 100%;
+  }
+}
+
+.register__container .register__left, .register__container .login__left, .login__container .register__left, .login__container .login__left {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  gap: 2em;
+  padding: 2em;
+}
+
+@media only screen and (min-width: 860px) {
+  .register__container .register__left, .register__container .login__left, .login__container .register__left, .login__container .login__left {
+    width: 90%;
+    padding: 2em 2em 2em 6em;
+  }
+}
+
+.register__container .register__left .register__titleinfo, .register__container .register__left .login__titleinfo, .register__container .login__left .register__titleinfo, .register__container .login__left .login__titleinfo, .login__container .register__left .register__titleinfo, .login__container .register__left .login__titleinfo, .login__container .login__left .register__titleinfo, .login__container .login__left .login__titleinfo {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -1167,11 +1517,11 @@ footer {
           align-items: center;
 }
 
-.container.login__container .login__left {
-  display: none;
+.register__container .register__left .register__titleinfo h2, .register__container .register__left .login__titleinfo h2, .register__container .login__left .register__titleinfo h2, .register__container .login__left .login__titleinfo h2, .login__container .register__left .register__titleinfo h2, .login__container .register__left .login__titleinfo h2, .login__container .login__left .register__titleinfo h2, .login__container .login__left .login__titleinfo h2 {
+  text-align: left;
 }
 
-.container.login__container .login__right {
+.register__container .register__left .register__form, .register__container .register__left .login__form, .register__container .login__left .register__form, .register__container .login__left .login__form, .login__container .register__left .register__form, .login__container .register__left .login__form, .login__container .login__left .register__form, .login__container .login__left .login__form {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -1182,17 +1532,10 @@ footer {
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
-  margin-top: 10em;
-  gap: 3em;
-  width: 100%;
-  height: 100%;
+  gap: 1em;
 }
 
-.container.login__container .login__right .login__titleinfo h2 {
-  margin-bottom: .6em;
-}
-
-.container.login__container .login__right .login__form {
+.register__container .register__left .register__form .form__item, .register__container .register__left .login__form .form__item, .register__container .login__left .register__form .form__item, .register__container .login__left .login__form .form__item, .login__container .register__left .register__form .form__item, .login__container .register__left .login__form .form__item, .login__container .login__left .register__form .form__item, .login__container .login__left .login__form .form__item {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -1203,222 +1546,109 @@ footer {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
-  gap: .7em;
-  width: 100%;
-  height: 28%;
+  gap: .3em;
 }
 
-.container.login__container .login__right .login__form input {
-  padding: .4em .5em;
-  width: 100%;
+.register__container .register__left .register__form .form__item label, .register__container .register__left .login__form .form__item label, .register__container .login__left .register__form .form__item label, .register__container .login__left .login__form .form__item label, .login__container .register__left .register__form .form__item label, .login__container .register__left .login__form .form__item label, .login__container .login__left .register__form .form__item label, .login__container .login__left .login__form .form__item label {
+  font-weight: lighter;
+}
+
+.register__container .register__left .register__form .form__item input, .register__container .register__left .login__form .form__item input, .register__container .login__left .register__form .form__item input, .register__container .login__left .login__form .form__item input, .login__container .register__left .register__form .form__item input, .login__container .register__left .login__form .form__item input, .login__container .login__left .register__form .form__item input, .login__container .login__left .login__form .form__item input {
+  border: none;
   height: 3.5em;
-  border: 1px solid var(--border-color);
+  padding-left: 1em;
   border-radius: var(--border-common-radius);
-  font-size: 1em;
 }
 
-.container.login__container .login__right .login__form input:focus {
+.register__container .register__left .register__form .form__item input:focus, .register__container .register__left .login__form .form__item input:focus, .register__container .login__left .register__form .form__item input:focus, .register__container .login__left .login__form .form__item input:focus, .login__container .register__left .register__form .form__item input:focus, .login__container .register__left .login__form .form__item input:focus, .login__container .login__left .register__form .form__item input:focus, .login__container .login__left .login__form .form__item input:focus {
   outline: solid 1px var(--color-buttons);
+  border: none;
+  background-color: var(--color-primary);
 }
 
-.container.login__container .login__right .login__form input#email {
-  margin-bottom: .8em;
+.register__container .register__left .register__form .form__item input:-webkit-autofill, .register__container .register__left .register__form .form__item input:-webkit-autofill:hover, .register__container .register__left .register__form .form__item input:-webkit-autofill:focus, .register__container .register__left .register__form .form__item input:-webkit-autofill:active, .register__container .register__left .login__form .form__item input:-webkit-autofill, .register__container .register__left .login__form .form__item input:-webkit-autofill:hover, .register__container .register__left .login__form .form__item input:-webkit-autofill:focus, .register__container .register__left .login__form .form__item input:-webkit-autofill:active, .register__container .login__left .register__form .form__item input:-webkit-autofill, .register__container .login__left .register__form .form__item input:-webkit-autofill:hover, .register__container .login__left .register__form .form__item input:-webkit-autofill:focus, .register__container .login__left .register__form .form__item input:-webkit-autofill:active, .register__container .login__left .login__form .form__item input:-webkit-autofill, .register__container .login__left .login__form .form__item input:-webkit-autofill:hover, .register__container .login__left .login__form .form__item input:-webkit-autofill:focus, .register__container .login__left .login__form .form__item input:-webkit-autofill:active, .login__container .register__left .register__form .form__item input:-webkit-autofill, .login__container .register__left .register__form .form__item input:-webkit-autofill:hover, .login__container .register__left .register__form .form__item input:-webkit-autofill:focus, .login__container .register__left .register__form .form__item input:-webkit-autofill:active, .login__container .register__left .login__form .form__item input:-webkit-autofill, .login__container .register__left .login__form .form__item input:-webkit-autofill:hover, .login__container .register__left .login__form .form__item input:-webkit-autofill:focus, .login__container .register__left .login__form .form__item input:-webkit-autofill:active, .login__container .login__left .register__form .form__item input:-webkit-autofill, .login__container .login__left .register__form .form__item input:-webkit-autofill:hover, .login__container .login__left .register__form .form__item input:-webkit-autofill:focus, .login__container .login__left .register__form .form__item input:-webkit-autofill:active, .login__container .login__left .login__form .form__item input:-webkit-autofill, .login__container .login__left .login__form .form__item input:-webkit-autofill:hover, .login__container .login__left .login__form .form__item input:-webkit-autofill:focus, .login__container .login__left .login__form .form__item input:-webkit-autofill:active {
+  box-shadow: 0 0 0 30px white inset;
+  -webkit-box-shadow: 0 0 0 30px white inset;
 }
 
-@media only screen and (min-width: 600px) {
-  .container.login__container .login__right .login__button {
-    width: 40%;
-  }
-}
-
-@media only screen and (min-width: 860px) {
-  .container.login__container {
-    display: -ms-grid;
-    display: grid;
-    -ms-grid-columns: 50% 50%;
-        grid-template-columns: 50% 50%;
-    gap: 5em;
-    width: 100vw;
-  }
-  .container.login__container .login__left {
-    border: 1px solid var(--border-color);
-    border-radius: var(--border-nav-radius);
-    display: -webkit-inline-box;
-    display: -ms-inline-flexbox;
-    display: inline-flex;
-    width: 100%;
-    height: 100vh;
-    background-size: cover;
-    border-top: none;
-    border-bottom: none;
-    border-top-left-radius: 0;
-    border-bottom-left-radius: 0;
-  }
-  .container.login__container .login__left img {
-    width: 100%;
-  }
-  .container.login__container .login__right {
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    width: 100%;
-    height: 100%;
-    margin-top: 0;
-  }
-  .container.login__container .login__right .login__form {
-    width: 80%;
-    padding-right: .5em;
-    height: 25% input;
-    height-height: 3em;
-    height-font-size: 1em;
-  }
-}
-
-/*====================== REGISTRATION PAGE ===========================*/
-.register__header {
-  background-color: transparent;
-  -webkit-box-shadow: none;
-          box-shadow: none;
-}
-
-@media only screen and (min-width: 860px) {
-  .register__body .container {
-    margin: 0 2em 0 0;
-  }
-  .register__body .container .logo {
-    margin-left: 1em;
-  }
-}
-
-.register__toggles .login {
-  display: none;
-}
-
-.register__toggles .login__button {
+.register__container .register__left .register__left-bottom, .register__container .register__left .login__left-bottom, .register__container .login__left .register__left-bottom, .register__container .login__left .login__left-bottom, .login__container .register__left .register__left-bottom, .login__container .register__left .login__left-bottom, .login__container .login__left .register__left-bottom, .login__container .login__left .login__left-bottom {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  gap: .7em;
   font-size: 1em;
-  padding: .5em 1em;
 }
 
-@media only screen and (min-width: 600px) {
-  .register__toggles .login__button {
-    font-size: 1.1em;
-    padding: .5em 1.5em;
-  }
-  .register__toggles .login {
-    display: inline-block;
-  }
+.register__container .register__left .register__left-bottom span p, .register__container .register__left .login__left-bottom span p, .register__container .login__left .register__left-bottom span p, .register__container .login__left .login__left-bottom span p, .login__container .register__left .register__left-bottom span p, .login__container .register__left .login__left-bottom span p, .login__container .login__left .register__left-bottom span p, .login__container .login__left .login__left-bottom span p {
+  font-weight: lighter;
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
 }
 
-.container.register__container {
+.register__container .register__left .register__left-bottom span .login__button, .register__container .register__left .register__left-bottom span .register__button, .register__container .register__left .login__left-bottom span .login__button, .register__container .register__left .login__left-bottom span .register__button, .register__container .login__left .register__left-bottom span .login__button, .register__container .login__left .register__left-bottom span .register__button, .register__container .login__left .login__left-bottom span .login__button, .register__container .login__left .login__left-bottom span .register__button, .login__container .register__left .register__left-bottom span .login__button, .login__container .register__left .register__left-bottom span .register__button, .login__container .register__left .login__left-bottom span .login__button, .login__container .register__left .login__left-bottom span .register__button, .login__container .login__left .register__left-bottom span .login__button, .login__container .login__left .register__left-bottom span .register__button, .login__container .login__left .login__left-bottom span .login__button, .login__container .login__left .login__left-bottom span .register__button {
+  color: var(--color-buttons);
+}
+
+.register__container .register__left .register__left-bottom span .login__button:hover, .register__container .register__left .register__left-bottom span .register__button:hover, .register__container .register__left .login__left-bottom span .login__button:hover, .register__container .register__left .login__left-bottom span .register__button:hover, .register__container .login__left .register__left-bottom span .login__button:hover, .register__container .login__left .register__left-bottom span .register__button:hover, .register__container .login__left .login__left-bottom span .login__button:hover, .register__container .login__left .login__left-bottom span .register__button:hover, .login__container .register__left .register__left-bottom span .login__button:hover, .login__container .register__left .register__left-bottom span .register__button:hover, .login__container .register__left .login__left-bottom span .login__button:hover, .login__container .register__left .login__left-bottom span .register__button:hover, .login__container .login__left .register__left-bottom span .login__button:hover, .login__container .login__left .register__left-bottom span .register__button:hover, .login__container .login__left .login__left-bottom span .login__button:hover, .login__container .login__left .login__left-bottom span .register__button:hover {
+  font-weight: 700;
+  color: black;
+}
+
+.register__container .register__right, .register__container .login__right, .login__container .register__right, .login__container .login__right {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  gap: .6em;
+  padding: 2em;
+  border-radius: var(--border-common-radius);
+  background-color: var(--color-faqs);
+  color: var(--color-primary);
+}
+
+.register__container .register__right .logo, .register__container .register__right h3, .register__container .register__right p, .register__container .login__right .logo, .register__container .login__right h3, .register__container .login__right p, .login__container .register__right .logo, .login__container .register__right h3, .login__container .register__right p, .login__container .login__right .logo, .login__container .login__right h3, .login__container .login__right p {
+  text-align: center;
+  color: var(--color-primary);
+  width: 90%;
+}
+
+.register__container .register__right .register__right-bottom, .register__container .register__right .login__right-bottom, .register__container .login__right .register__right-bottom, .register__container .login__right .login__right-bottom, .login__container .register__right .register__right-bottom, .login__container .register__right .login__right-bottom, .login__container .login__right .register__right-bottom, .login__container .login__right .login__right-bottom {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+  gap: .5em;
 }
 
-.container.register__container .register__left {
-  display: none;
+.register__container .register__right .register__right-bottom a, .register__container .register__right .login__right-bottom a, .register__container .login__right .register__right-bottom a, .register__container .login__right .login__right-bottom a, .login__container .register__right .register__right-bottom a, .login__container .register__right .login__right-bottom a, .login__container .login__right .register__right-bottom a, .login__container .login__right .login__right-bottom a {
+  color: var(--color-buttons);
+  font-size: 1.1em;
+  border-bottom: 2px solid var(--color-primary);
+  font-weight: 600;
 }
 
-.container.register__container .register__right {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  margin-top: 7em;
-  gap: 3em;
-  width: 100%;
-  height: 100%;
-}
-
-.container.register__container .register__right .register__form {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-  gap: .7em;
-  width: 100%;
-  height: 10%;
-}
-
-.container.register__container .register__right .register__form input {
-  padding: .4em .5em;
-  width: 100%;
-  height: 3em;
-  border: 1px solid var(--border-color);
-  border-radius: var(--border-common-radius);
-  font-size: 1em;
-}
-
-.container.register__container .register__right .register__form input:focus {
-  outline: solid 1px var(--color-buttons);
-}
-
-@media only screen and (min-width: 600px) {
-  .container.register__container .register__right .register__button {
-    width: 40%;
-  }
-}
-
-@media only screen and (min-width: 860px) {
-  .container.register__container {
-    display: -ms-grid;
-    display: grid;
-    -ms-grid-columns: 50% 50%;
-        grid-template-columns: 50% 50%;
-    gap: 5em;
-    width: 100vw;
-  }
-  .container.register__container .register__left {
-    border: 1px solid var(--border-color);
-    border-radius: var(--border-nav-radius);
-    display: -webkit-inline-box;
-    display: -ms-inline-flexbox;
-    display: inline-flex;
-    width: 100%;
-    height: 100vh;
-    background-size: cover;
-    border-top: none;
-    border-bottom: none;
-    border-top-left-radius: 0;
-    border-bottom-left-radius: 0;
-  }
-  .container.register__container .register__left img {
-    width: 100%;
-  }
-  .container.register__container .register__right {
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    width: 100%;
-    height: 100%;
-    margin-top: 0;
-  }
-  .container.register__container .register__right .register__titleinfo h2 {
-    margin-bottom: .6em;
-  }
-  .container.register__container .register__right .register__form {
-    width: 80%;
-    height: 40%;
-    padding-right: .5em;
-  }
-  .container.register__container .register__right .register__form input {
-    height: 3em;
-    font-size: 1em;
-  }
+.register__container .register__right .register__right-bottom a:hover, .register__container .register__right .login__right-bottom a:hover, .register__container .login__right .register__right-bottom a:hover, .register__container .login__right .login__right-bottom a:hover, .login__container .register__right .register__right-bottom a:hover, .login__container .register__right .login__right-bottom a:hover, .login__container .login__right .register__right-bottom a:hover, .login__container .login__right .login__right-bottom a:hover {
+  color: var(--color-primary);
+  font-weight: 600;
+  padding-right: .5em;
 }
 /*# sourceMappingURL=index.css.map */

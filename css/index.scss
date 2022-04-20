@@ -6,7 +6,7 @@
     --color-secondary: #EAF3FA;
     --color-nav-footer: #FFFFFA;
     --color-buttons: #F17B4C;
-    --color-faqs: #718CE2;
+    --color-faqs: #3457D5;
     --color-block-chain: #FF3366;
     --color-business: #26427F;
     --color-design: #FF312E;
@@ -15,7 +15,7 @@
     --color-music: #4B3F72;
     --color-icons: #FFFFFF;
 
-    --transition-all: all 400ms ease-in-out;
+    --transition-all: all 350ms ease;
 
     --logo-fs: 2em;
     --fs-h1: 1.7em;
@@ -27,7 +27,7 @@
     --border-common-radius: .2em;
 
     --shadow-overall:  0 4px 8px 0 rgba(0, 0, 0, 0.2);
-
+    --buttons-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
 
 
 }
@@ -87,6 +87,7 @@ $categories: 1110px;
     text-decoration: none;
     list-style: none;
     font-family: 'Poppins', sans-serif;
+    
 }
 
 body {
@@ -121,18 +122,181 @@ img {
     max-width: 100%;
 }
 
+
+
 .btn {
 
     display: flex;
     align-items: center;
     justify-content: center;
     text-align: center;
+    
     background-color: var(--color-buttons);
     color: var(--color-primary);
-    padding: .9em 1.5em;
+    border: 2px solid var(--color-buttons);
+    padding: .7em 1.5em;
     border-radius: var(--border-common-radius);
     font-size: 1em;
+    transition: var(--transition-all);
+    box-shadow: var(--buttons-shadow);
 
+    &:hover {
+        background-color: var(--color-primary);
+        border: 2px solid var(--color-buttons);
+        color: var(--color-buttons);
+
+    }
+
+}
+
+.nav__login {
+
+    background-color: var(--color-primary);
+    border: 2px solid var(--color-buttons);
+    color: var(--color-buttons);
+
+    &:hover {
+        background-color: var(--color-buttons);
+        color: var(--color-primary);
+        border: 2px solid var(--color-buttons);
+    }
+    
+}
+
+.active__link {
+    // color: var(--color-buttons) !important;
+    border-bottom: 2px solid var(--color-buttons);
+
+}
+
+
+/* Message Classes */
+
+.display__none {
+    display: none;
+}
+
+.form__message {
+
+    position: fixed;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
+    top: 4em;
+    right: 2em;
+    left: 2em;
+    height: auto;
+
+
+    background-color: var(--color-primary);
+    border-radius: var(--border-common-radius);
+    // text-align: center;
+
+    box-shadow: var(--shadow-overall);
+    z-index: 15;
+    font-size: 1em;
+
+    .success__side {
+
+        align-self: stretch;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 10%;
+        background-color: #53BE62;
+        border-radius: var(--border-common-radius);
+
+        border-top-right-radius: 0;
+        border-bottom-right-radius: 0;
+
+        i {
+            justify-self: end;
+            font-size: 2em;
+            color: var(--color-primary);
+        }
+
+    }
+
+    .message__container {
+
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+
+        color: black;
+        margin: .4em 1em;
+        width: 80%;
+
+        p:nth-child(1) {
+            font-weight: normal;
+        }
+
+        p:nth-child(2) {
+            font-weight: lighter;
+            font-size: .8em;
+
+            strong {
+                text-transform: capitalize;
+            }
+        }
+
+    }
+
+    .close__button {
+        align-self: stretch;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 10%;
+        border-left: 1px solid rgba(0, 0, 0, .1);
+        padding: 0 2em;
+
+        p {
+            display: inline-flex;
+            text-transform: uppercase;
+            font-size: 1.1em;
+            font-weight: 100;
+            color: rgba(0, 0, 0, .5);
+
+            &:hover {
+                color: tomato;
+            }
+        }
+    }
+
+
+    @include desktop {
+        right: 5em;
+        left: 5em
+    }
+    
+}
+
+.error {
+    display: none;
+}
+
+.form__error {
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    padding: 1em;
+    color: #D8000C;
+    background-color: #FFD2D2;
+    border-radius: var(--border-common-radius);
+    height: auto;
+    width: 100%;
+    font-size: .8em;
+
+    text-align: center;
+
+    @include desktop {
+        width: 100%;
+    }
+    
 }
 
 /*====================== INDEX PAGE ===========================*/
@@ -144,34 +308,42 @@ img {
 header {
     position: fixed;
     top: 0;
-    background-color: var(--color-nav-footer);
     width: 100%;
-    height: 10vh;
-    border-radius: var(--border-nav-radius);
+    height: 3.5em;
     border-top-right-radius: 0;
     border-top-left-radius: 0;
     border-top: 0;
     display: flex;
     justify-content: top;
     flex-direction: column;
-    box-shadow: var(--shadow-overall);
-    z-index: 1;
+    border-color: transparent;
+    
+    z-index: 15;
 
     @include desktop {
 
-        height: 10vh;
+        height: 3.5em;
         justify-content: center;
 
     }
 
 }
 
+header.top.scrolled {
+    background-color: var(--color-nav-footer);
+    box-shadow: var(--shadow-overall);
+
+}
+
 
 .nav__toggled {
     
-    height: 37vh;
+    height: 65%;
+    background-color: var(--color-primary);
+    box-shadow: var(--shadow-overall);
 
     .container.nav__container {
+
         nav {
             display: block;
         }
@@ -195,7 +367,7 @@ header {
         "logo toggles"
         "navArea navArea"
     ;
-    margin-top: .6em;
+    margin-top: .2em;
 
     .logo {
         grid-area: logo;
@@ -218,7 +390,110 @@ header {
             a {
                 color: black;
             }
-        } 
+
+            a:hover {
+                color: var(--color-buttons);
+            }
+
+            .nav__dropdown {
+                position: relative;
+
+                .drop__up {
+                    display: flex;
+                    align-items: center;
+                    gap: .3em;
+
+                    .drop__btn {
+                        display: flex;
+                        align-items: center;
+                        gap: .5em;
+
+                        border: none;
+                        background: transparent;
+                        font-size: 1em;
+
+                        transition: transform 700ms linear;
+
+                        i {
+                            font-size: .8em;
+                        }
+                        
+                        
+                        &:hover {
+                            color: var(--color-buttons);
+                        
+                            i {
+                                transform: rotate(180deg);
+            
+                            }
+
+                        }
+                    } 
+
+                }
+
+                .drop__content {
+                    display: none;
+                    position: absolute;
+                    background-color: #f9f9f9;
+                    padding: 1em;
+                    box-shadow: var(--shadow-overall);
+                    z-index: 15;
+                    width: 11em;
+                }
+
+                &:hover {
+
+                    .drop__up {
+
+    
+                        .drop__btn {
+
+                            color: var(--color-buttons);
+                        
+                            i {
+                                transform: rotate(180deg);
+            
+                            }
+    
+                        }
+    
+                        
+    
+                    }
+                    .drop__content {
+                        display: flex;
+                        flex-direction: column;
+                        justify-content: center;
+                    }
+
+                }
+
+                
+
+                
+            }
+        }
+
+        .nav__button__inside {
+
+            font-size: .8em;
+            padding: .7em .5em;
+            width: 40%;
+            margin-top: .7em;
+
+            &.nav__login {
+                width: 30%;
+            }
+        }
+
+        @include nav-bar-items {
+
+            .nav__button__inside {
+                display: none;
+            }
+        
+        }
 
     }
 
@@ -240,13 +515,15 @@ header {
             @include nav-bar-items {
     
                 display: block;
-                padding: .5em 1.5em;
+                padding: .3em 1.3em;
                 
     
             }
         }
         
     }
+
+   
 
 
     @include desktop {
@@ -283,7 +560,7 @@ header {
             
         }
 
-        .fa-solid {
+        .fa-bars, .fa-xmark {
                 
     
             display: none;
@@ -316,6 +593,10 @@ header {
         flex-direction: column;
         text-align: center;
         gap: 1.5em;
+
+        h1 {
+            font-size: 1.5em;
+        }
     }
 
     .hero__right {
@@ -333,6 +614,8 @@ header {
         display: grid;
         grid-template-columns: 40% 60%;
         align-items: center;
+        margin-top: 3em;
+        margin-bottom: 2.5em;
 
         .hero__left {
 
@@ -362,7 +645,7 @@ header {
 section#categories {
 
     background-color: var(--color-secondary);
-    padding: 3em 0 7em;
+    padding: 8em 0 7em;
 
 
 }
@@ -383,9 +666,6 @@ section#categories {
         gap: 1.5em;
         margin-top: 4em;
         margin-bottom: 4em;
-
-
-       
         
     }
 
@@ -409,8 +689,10 @@ section#categories {
 
             background-color: var(--color-primary);
             border-radius: var(--border-common-radius);
-            padding: 5em 2em;
+            padding: 2em 2em;
             font-size: .9em;
+
+            box-shadow: var(--shadow-overall);
 
             span {
     
@@ -514,7 +796,7 @@ section#categories {
                 // height: 14rem;
                 margin-bottom: 0;
 
-                padding: 5em 2em;
+                padding: 2em 1em;
 
             }
 
@@ -623,7 +905,7 @@ section#courses {
 .container.courses__container {
 
     display: flex;
-    align-items: center;
+    align-items: stretch;
     justify-content: center;
     flex-direction: column;
     gap: 5em;
@@ -638,19 +920,22 @@ section#courses {
         text-align: center;
         background-color: var(--color-secondary);
         border-radius: var(--border-common-radius);
-        padding: 2em;
+        padding: 0 0 2em 0;
         width: 100%;
-        height: 100%;
+        // height: 100%;
+        box-shadow: var(--shadow-overall);
 
         .img {
             width: 100%;
-            height: 280px;
+            height: 250px;
             background-size: cover;
 
             img {
 
                 width: 100%;
                 height: 100%;
+                border-top-left-radius: var(--border-common-radius);
+                border-top-right-radius: var(--border-common-radius);
             }
         }
 
@@ -662,6 +947,8 @@ section#courses {
             flex-direction: column;
             gap: 1.5em;
             margin-bottom: auto;
+            margin-left: 2em;
+            margin-right: 2em;
 
             .course__title h3 {
                 margin-bottom: auto;
@@ -670,7 +957,18 @@ section#courses {
         }
 
         .course__button {
-            padding: .7em 1em;
+            padding: .5em 1em;
+            margin-left: 2em;
+            margin-right: 2em;
+            background-color: var(--color-primary);
+            border: 2px solid var(--color-buttons);
+            color: var(--color-buttons);
+
+            &:hover {
+                background-color: var(--color-buttons);
+                color: var(--color-primary);
+                border: 2px solid var(--color-buttons);
+            }
         }
     }
 
@@ -702,6 +1000,7 @@ section#courses {
 
             .course__button {
                 align-self: flex-start;
+                
             }
 
             &:nth-child(3) {
@@ -814,7 +1113,7 @@ section#about {
 /************ FAQS ****************/
 
 section#faqs {
-    padding: 2.5em 0;
+    padding: 5em 0 5em;
     
     h2 {
         margin: 0 .4em 2em;
@@ -857,6 +1156,7 @@ section#faqs {
         border-radius: var(--border-common-radius);
 
         font-size: small;
+        box-shadow: var(--shadow-overall);
         
 
         .faq__left {
@@ -904,6 +1204,8 @@ section#testimonials {
 
     background-color: var(--color-secondary);
     padding: 2.5em 0;
+    height: 100%;
+    width: 100%;
 
     h1 {
         margin: 2em 0 3em;
@@ -914,12 +1216,11 @@ section#testimonials {
 
 .container.testimonials__container {
 
-    display: flex;
-    justify-content: center;
-    flex-direction: column;
-    align-items: center;
-    padding: 0 0 3em;
-    gap: 5em;
+    overflow-x: hidden;
+    position: relative;
+    margin-bottom: 5rem;
+    height: 100%;
+    padding: 0 0 5em;
     
     .testimonial {
         
@@ -931,10 +1232,13 @@ section#testimonials {
 
         text-align: center;
         padding: 0 2em 2em;
+        margin-top: 3em;
 
         background-color: var(--color-faqs);
         color: var(--color-primary);
         border-radius: var(--border-common-radius);
+
+        box-shadow: var(--shadow-overall);
 
         
 
@@ -943,22 +1247,8 @@ section#testimonials {
             width: 5.5em;
             height: 5.5em;
             margin-top: -2.25em;
+            z-index: 1;
         }
-
-    }
-
-    @include nav-bar-items {
-
-        display: grid;
-        grid-template-columns: repeat(2, 1fr);
-        gap: 1em;
-    }
-
-    @include desktop {
-
-        display: grid;
-        grid-template-columns: repeat(3, 1fr);
-        gap: 2em;
 
     }
 
@@ -966,14 +1256,13 @@ section#testimonials {
 }
 
 
-/************ TESTIMONIALS ****************/
+/************ FOOTER ****************/
 
 footer {
 
     background-color: var(--color-nav-footer);
     padding: 2em 0;
     box-shadow: var(--shadow-overall);
-    border-radius: var(--border-nav-radius);
     margin-top: -2em;
 
 }
@@ -1011,6 +1300,7 @@ footer {
 
             &:focus {
                 outline: solid 1px var(--color-buttons);
+                border: none;
 
             }
         }
@@ -1036,11 +1326,19 @@ footer {
                 font-size: 1.3em;
             }
 
+            a:hover {
+                color: var(--color-buttons);
+            }
+
 
         }
 
         ul li a {
             color: black;
+
+            &:hover {
+                color: var(--color-buttons);
+            }
         }
 
         .footer__button {
@@ -1084,9 +1382,13 @@ footer {
 
         .footer__item {
 
+            .form__error {
+                width: 100%;
+            }
+
             .footer__button {
                 width: 80%;
-                padding: .9em .2em;
+                padding: .7em .2em;
             }
 
         }
@@ -1098,403 +1400,212 @@ footer {
 
 
 
-/*====================== LOGIN PAGE ===========================*/
+/*====================== REGISTRATION PAGE =========================== AND ====================== LOGIN PAGE ===========================*/
 
-.login__header {
-
-    background-color: transparent;
-    box-shadow: none;
-
-}
-
-.login__body {
-    .container {
-        
-        @include desktop {
-            margin: 0 2em 0 0;
-            .logo {
-                margin-left: 1em;
-            }
-        }
+.register__body, .login__body {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 3em 2em 2.5em;
     
-    }
-
-
-}
-
-
-
-.login__toggles {
-
-    .register {
-
-        display: none;
-    }
-
-    .register__button {
-
-        font-size: 1em;
-        padding: .5em 1em;
-
-
-    }
-
     
+
     @include nav-bar-items {
+        padding: 3em 5em 3em;
+        
 
-        .register__button {
+    }
 
-            font-size: 1.1em;
-            padding: .5em 1.5em;
-
-        }
-
-        .register {
-
-            display: inline-block;
-        }
-
-
+    @include desktop {
+        padding: 2em 13em;
     }
 }
 
+.register__header, .login__header {
 
-.container.login__container {
-    
     display: flex;
     align-items: center;
+    margin-bottom: 1em;
+
+}
+
+.register__container, .login__container {
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    
+    background-color: var(--color-secondary);
+    border-radius: var(--border-common-radius);
+
+    @include desktop {
+        display: grid;
+        grid-template-columns: 65% 35%;
 
 
-    .login__left {
 
-        display: none;
+        .register__right, .login__right {
 
+            align-self: stretch;
+            width: 100%;
+
+        }
+        
     }
 
-    .login__right {
+    .register__left, .login__left {
         display: flex;
         flex-direction: column;
         justify-content: center;
-        margin-top: 10em;
-        gap: 3em;
-        width: 100%;
-        height: 100%;
 
-        .login__titleinfo {
+        gap: 2em;
 
+        padding: 2em;
+
+        @include desktop {
+            width: 90%;
+            padding: 2em 2em 2em 6em;
+
+        }
+
+        .register__titleinfo, .login__titleinfo {
+            display: flex;
+            align-items: center;
+            
             h2 {
-
-                margin-bottom:  .6em;
-                
+                text-align: left;
             }
 
         }
 
-
-        .login__form {
-
+        .register__form, .login__form {
             display: flex;
-            justify-content: center;
             flex-direction: column;
-            gap: .7em;
-            width: 100%;
-            height: 28%;   
+            justify-content: center;
 
+            gap: 1em;
 
-            input {
-                padding: .4em .5em;
-                width: 100%;
-                height: 3.5em;
-                border: 1px solid var(--border-color);
-                border-radius: var(--border-common-radius);
-                font-size: 1em;
+            .form__item {
+                display: flex;
+                justify-content: center;
+                flex-direction: column;
 
+                gap: .3em;
 
-                &:focus {
-                    outline: solid 1px var(--color-buttons);
-
+                label {
+                    font-weight: lighter;
                 }
-
-                &#email {
-
-                    margin-bottom: .8em;
-
-                }
-    
-            }
-        }
-
-
-    }
-
-    @include nav-bar-items {
-
-        .login__right {
-
-            .login__button {
-    
-                width: 40%;
-    
-            }
-
-
-        }
-
-    }
-
-    @include desktop {
-
-        display: grid;
-        grid-template-columns: 50% 50%;
-        gap: 5em;
-        width: 100vw;
-
-        
-        .login__left {  
-
-            border: 1px solid var(--border-color);
-            border-radius: var(--border-nav-radius);
-            display: inline-flex;
-            width: 100%;
-            height: 100vh;
-            background-size: cover;
-            border-top: none;
-            border-bottom: none;
-            border-top-left-radius: 0;
-            border-bottom-left-radius: 0;
-
-            img {
-                width: 100%;
-            }
-
-
-    
-        }
-
-        .login__right {
-            display: flex;
-            width: 100%;
-            height: 100%;
-            margin-top: 0;
-
-            .login__form {
-
-                width: 80%;
-                padding-right: .5em;
-                height: 25%
 
                 input {
 
-                    height: 3em;
-                    font-size: 1em;
+
+                    border: none;
+                    height: 3.5em;
+                    padding-left: 1em;
+                    border-radius: var(--border-common-radius);
+                            
+                    &:focus {
+                        outline: solid 1px var(--color-buttons);
+                        border: none;
+                        background-color: var(--color-primary);
+
+                    }
+
+                    &:-webkit-autofill,
+                    &:-webkit-autofill:hover, 
+                    &:-webkit-autofill:focus, 
+                    &:-webkit-autofill:active{
+                            box-shadow: 0 0 0 30px white inset;
+                            -webkit-box-shadow: 0 0 0 30px white inset;
+                    }
 
                 }
-
-                
             }
 
             
 
         }
-       
 
-    }
+        .register__left-bottom, .login__left-bottom {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            gap: .7em;
 
-}
+            font-size: 1em;
 
-/*====================== REGISTRATION PAGE ===========================*/
+            span {
 
-.register__header {
+                p {
+                    font-weight: lighter;
+                    display: inline-flex;
 
-    background-color: transparent;
-    box-shadow: none;
+                }
 
-}
+                .login__button, .register__button {
+                    color: var(--color-buttons);
+                }
 
-.register__body {
-    .container {
-        
-        @include desktop {
-            margin: 0 2em 0 0;
-            .logo {
-                margin-left: 1em;
+                .login__button:hover, .register__button:hover {
+                    font-weight: 700;
+                    color: black;
+    
+                }
             }
-        }
-    
-    }
 
 
-}
-
-
-
-.register__toggles {
-
-    .login {
-
-        display: none;
-    }
-
-    .login__button {
-
-        font-size: 1em;
-        padding: .5em 1em;
-
-
-    }
-
-    
-    @include nav-bar-items {
-
-        .login__button {
-
-            font-size: 1.1em;
-            padding: .5em 1.5em;
+            
 
         }
 
-        .login {
-
-            display: inline-block;
-        }
-
-
     }
-}
 
+    .register__right, .login__right {
 
-.container.register__container {
-    
-    display: flex;
-    align-items: center;
-
-
-    .register__left {
-
-        display: none;
-
-    }
-    
-
-    .register__right {
         display: flex;
         flex-direction: column;
         justify-content: center;
-        margin-top: 7em;
-        gap: 3em;
-        width: 100%;
-        height: 100%;
+        align-items: center;
+        gap: .6em;
 
-
-        .register__form {
-
-            display: flex;
-            justify-content: center;
-            flex-direction: column;
-            gap: .7em;
-            width: 100%;
-            height: 10%;
-
-
-            input {
-                padding: .4em .5em;
-                width: 100%;
-                height: 3em;
-                border: 1px solid var(--border-color);
-                border-radius: var(--border-common-radius);
-                font-size: 1em;
-
-
-                &:focus {
-                    outline: solid 1px var(--color-buttons);
-
-                }
-    
-            }
-        }
-
-
-    }
-
-    @include nav-bar-items {
-
-        .register__right {
-
-            .register__button {
-    
-                width: 40%;
-    
-            }
-
-
-        }
-
-    }
-
-    @include desktop {
-
-        display: grid;
-        grid-template-columns: 50% 50%;
-        gap: 5em;
-        width: 100vw;
+        padding: 2em;
+        border-radius: var(--border-common-radius);
+        background-color: var(--color-faqs);
+        color: var(--color-primary);
 
         
-        .register__left {  
 
-            border: 1px solid var(--border-color);
-            border-radius: var(--border-nav-radius);
-            display: inline-flex;
-            width: 100%;
-            height: 100vh;
-            background-size: cover;
-            border-top: none;
-            border-bottom: none;
-            border-top-left-radius: 0;
-            border-bottom-left-radius: 0;
-
-            img {
-                width: 100%;
-            }
-
+        .logo, h3, p{
+            text-align: center;
+            color: var(--color-primary);
+            width: 90%;
         }
 
-        .register__right {
+        .register__right-bottom, .login__right-bottom {
             display: flex;
-            width: 100%;
-            height: 100%;
-            margin-top: 0;
+            align-items: center;
+            gap: .5em;
 
-            .register__titleinfo {
+            a {
+                color: var(--color-buttons);
+                font-size: 1.1em;
+                border-bottom: 2px solid var(--color-primary);
+                font-weight: 600;
 
-                h2 {
+                &:hover {
+                    color: var(--color-primary);
+                    font-weight: 600;
+                    padding-right: .5em;
 
-                    margin-bottom:  .6em;
-                    
+
                 }
 
             }
 
-            .register__form {
-
-                width: 80%;
-                height: 40%;
-                
-                padding-right: .5em;
-
-                input {
-
-                    height: 3em;
-                    font-size: 1em;
-
-                }
-
-                
-            }
-
-            
 
         }
-       
+
+        
 
     }
 

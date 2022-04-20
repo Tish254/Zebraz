@@ -18,53 +18,82 @@
     <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,400;1,500&display=swap" rel="stylesheet">
 </head>
 <body class="register__body">
-    <header class="register__header">
-        <div class="container nav__container"> 
-            <a class="logo" href="index.html">
-                Zeb<span>raz</span>
-            </a>
-
-            <div class="nav__toggles register__toggles">
-
-                <p class="login">Already have an account?</p>
-                <a href="login.html" class="btn login__button">Login</a>
-        
-            </div>
-    
-        </div>
+    <section class="register__header">
+        <a class="logo" href="index.html">
+            Zeb<span>raz</span>
+        </a>
        
-    </header>
+    </section>
 
     <section id="register">
-        <div class="container register__container">
+        <div class="register__container">
             <div class="register__left">
+                <div class="register__titleinfo">
+                    <h2>Sign Up to Zebraz </h2>
+                </div>
 
-                <img src="images/register.png" alt="Register Image">
+                <form action="" class="register__form" id="register_form">
+                    <div class="form__item">
+                        <label for="name" class="name__label">Full name</label>
+                        <input type="text" class="name__input" id="name" placeholder="Enter your full name">
+                    </div>
+
+                    <div class="form__item">
+                        <label for="email" class="name__label" >Email address</label>
+                        <input type="email" class="email__input" id="email" placeholder="Enter email address">
+
+                    </div>
+
+                    <div class="form__item">
+                        <label for="password" class="name__label">Password</label>
+                        <input type="password" class="password__input" id="password" placeholder="Enter password">
+
+                    </div>
+
+                
+                </form>
+
+                <div id="error_message" class="error"></div>
+                
+                <div class="register__left-bottom">
+                    <a class="btn register__button" onclick="userRegistration.getvalidateStoreMessage();">Sign Up</a>
+                    <span>
+                        <p>Already have an account?</p>
+                        <a href="login.html" class="login__button">Login now</a>
+                    </span>
+                        
+                </div>
             </div>
 
             <div class="register__right">
-                <div class="register__titleinfo">
-                    <h2>Register Now!</h2>
-                    <p>Thousands of Courses  Waiting For You</p>
+
+                
+                <a class="logo" href="index.html">
+                    Zeb<span>raz</span>
+                </a>
+
+                <h3>Come Learn with us</h3>
+
+                <p> The ultimate process of learning then start earning with ease.</p>
+
+                
+                <div class="register__right-bottom">
+                    <a href="index.html#categories" class="learn__more">Learn more</a>
+
+                    <i class="fa-solid fa-right-long"></i>
+
                 </div>
 
-                <form action="" class="register__form">
-                    <label for="name" class="name__label">Full Name</label>
-                    <input type="text" class="name__input" id="name">
-
-                    <label for="email" class="name__label" >Email Address</label>
-                    <input type="email" class="email__input" id="email">
-
-                    <label for="password" class="name__label">Password</label>
-                    <input type="password" class="password__input" id="password">
                 
-                </form>
-                <a href="index.html" class="btn register__button">Create Account</a>
                 
             </div>
 
         </div>
     </section>
+    
+    <script src="js/index.js">
+
+    </script>
     
 </body>
 </html>
