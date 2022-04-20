@@ -93,7 +93,6 @@ $categories: 1110px;
 body {
 
     display: flex;
-    align-items: center;
     justify-content: center;
     flex-direction: column;
     max-width: 1500px;
@@ -314,7 +313,7 @@ img {
 header {
     position: fixed;
     top: 0;
-    width: 100%;
+    width: 100vw;
     height: 3.5em;
     border-top-right-radius: 0;
     border-top-left-radius: 0;
