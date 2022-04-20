@@ -296,7 +296,7 @@ header.top.scrolled {
 }
 
 .nav__toggled {
-  height: 55%;
+  height: 65%;
   background-color: var(--color-primary);
   -webkit-box-shadow: var(--shadow-overall);
           box-shadow: var(--shadow-overall);
@@ -361,6 +361,83 @@ header.top.scrolled {
 
 .container.nav__container nav ul a:hover {
   color: var(--color-buttons);
+}
+
+.container.nav__container nav ul .nav__dropdown {
+  position: relative;
+}
+
+.container.nav__container nav ul .nav__dropdown .drop__up {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  gap: .3em;
+}
+
+.container.nav__container nav ul .nav__dropdown .drop__up .drop__btn {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  gap: .5em;
+  border: none;
+  background: transparent;
+  font-size: 1em;
+  -webkit-transition: -webkit-transform 700ms linear;
+  transition: -webkit-transform 700ms linear;
+  transition: transform 700ms linear;
+  transition: transform 700ms linear, -webkit-transform 700ms linear;
+}
+
+.container.nav__container nav ul .nav__dropdown .drop__up .drop__btn i {
+  font-size: .8em;
+}
+
+.container.nav__container nav ul .nav__dropdown .drop__up .drop__btn:hover {
+  color: var(--color-buttons);
+}
+
+.container.nav__container nav ul .nav__dropdown .drop__up .drop__btn:hover i {
+  -webkit-transform: rotate(180deg);
+          transform: rotate(180deg);
+}
+
+.container.nav__container nav ul .nav__dropdown .drop__content {
+  display: none;
+  position: absolute;
+  background-color: #f9f9f9;
+  padding: 1em;
+  -webkit-box-shadow: var(--shadow-overall);
+          box-shadow: var(--shadow-overall);
+  z-index: 15;
+  width: 11em;
+}
+
+.container.nav__container nav ul .nav__dropdown:hover .drop__up .drop__btn {
+  color: var(--color-buttons);
+}
+
+.container.nav__container nav ul .nav__dropdown:hover .drop__up .drop__btn i {
+  -webkit-transform: rotate(180deg);
+          transform: rotate(180deg);
+}
+
+.container.nav__container nav ul .nav__dropdown:hover .drop__content {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
 }
 
 .container.nav__container nav .nav__button__inside {
@@ -450,7 +527,7 @@ header.top.scrolled {
   .container.nav__container nav ul li + li {
     margin-left: 2em;
   }
-  .container.nav__container .fa-solid {
+  .container.nav__container .fa-bars, .container.nav__container .fa-xmark {
     display: none;
   }
 }
@@ -548,7 +625,7 @@ header.top.scrolled {
 /************ Categories ****************/
 section#categories {
   background-color: var(--color-secondary);
-  padding: 3em 0 7em;
+  padding: 8em 0 7em;
 }
 
 .categories__container {
@@ -1026,7 +1103,7 @@ section#about {
 
 /************ FAQS ****************/
 section#faqs {
-  padding: 2.5em 0;
+  padding: 5em 0 5em;
 }
 
 section#faqs h2 {

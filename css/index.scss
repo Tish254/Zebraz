@@ -332,7 +332,7 @@ header.top.scrolled {
 
 .nav__toggled {
     
-    height: 55%;
+    height: 65%;
     background-color: var(--color-primary);
     box-shadow: var(--shadow-overall);
 
@@ -387,6 +387,85 @@ header.top.scrolled {
 
             a:hover {
                 color: var(--color-buttons);
+            }
+
+            .nav__dropdown {
+                position: relative;
+
+                .drop__up {
+                    display: flex;
+                    align-items: center;
+                    gap: .3em;
+
+                    .drop__btn {
+                        display: flex;
+                        align-items: center;
+                        gap: .5em;
+
+                        border: none;
+                        background: transparent;
+                        font-size: 1em;
+
+                        transition: transform 700ms linear;
+
+                        i {
+                            font-size: .8em;
+                        }
+                        
+                        
+                        &:hover {
+                            color: var(--color-buttons);
+                        
+                            i {
+                                transform: rotate(180deg);
+            
+                            }
+
+                        }
+                    } 
+
+                }
+
+                .drop__content {
+                    display: none;
+                    position: absolute;
+                    background-color: #f9f9f9;
+                    padding: 1em;
+                    box-shadow: var(--shadow-overall);
+                    z-index: 15;
+                    width: 11em;
+                }
+
+                &:hover {
+
+                    .drop__up {
+
+    
+                        .drop__btn {
+
+                            color: var(--color-buttons);
+                        
+                            i {
+                                transform: rotate(180deg);
+            
+                            }
+    
+                        }
+    
+                        
+    
+                    }
+                    .drop__content {
+                        display: flex;
+                        flex-direction: column;
+                        justify-content: center;
+                    }
+
+                }
+
+                
+
+                
             }
         }
 
@@ -475,7 +554,7 @@ header.top.scrolled {
             
         }
 
-        .fa-solid {
+        .fa-bars, .fa-xmark {
                 
     
             display: none;
@@ -560,7 +639,7 @@ header.top.scrolled {
 section#categories {
 
     background-color: var(--color-secondary);
-    padding: 3em 0 7em;
+    padding: 8em 0 7em;
 
 
 }
@@ -1018,7 +1097,7 @@ section#about {
 /************ FAQS ****************/
 
 section#faqs {
-    padding: 2.5em 0;
+    padding: 5em 0 5em;
     
     h2 {
         margin: 0 .4em 2em;
