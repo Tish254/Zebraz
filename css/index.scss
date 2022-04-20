@@ -91,9 +91,13 @@ $categories: 1110px;
 }
 
 body {
+
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    max-width: 1500px;
     background-color: var(--color-primary);
     transition: var(--transition-all);
-    max-width: 1500px;
 
     .container {
 
@@ -309,7 +313,7 @@ img {
 header {
     position: fixed;
     top: 0;
-    width: 100%;
+    width: 100vw;
     height: 3.5em;
     border-top-right-radius: 0;
     border-top-left-radius: 0;

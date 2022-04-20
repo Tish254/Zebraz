@@ -36,10 +36,20 @@
 }
 
 body {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  max-width: 1500px;
   background-color: var(--color-primary);
   -webkit-transition: var(--transition-all);
   transition: var(--transition-all);
-  max-width: 1500px;
 }
 
 body .container {
@@ -268,7 +278,7 @@ img {
 header {
   position: fixed;
   top: 0;
-  width: 100%;
+  width: 100vw;
   height: 3.5em;
   border-top-right-radius: 0;
   border-top-left-radius: 0;
