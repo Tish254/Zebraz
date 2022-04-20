@@ -190,8 +190,12 @@ class MainClass {
         window.addEventListener('scroll', () => {
 
             sections.forEach(section => {
+
+                const sectionTop = section.offsetTop;
+                const sectionHeight = section.clientHeight;
+                let calc = sectionTop - sectionHeight/2;
             
-                if (scrollY >= (section.offsetTop)) {
+                if (scrollY >= calc ) {
 
                     currentSection = section.id;
     
@@ -220,6 +224,8 @@ class MainClass {
         })
     
     }
+
+    
 
 }
 
